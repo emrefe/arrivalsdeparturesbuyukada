@@ -1,0 +1,39 @@
+name: Recon — Site HTML'lerini İndir
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Siteleri indir
+        run: |
+          mkdir -p recon
+          UA='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+          
+          curl -sSL -A "$UA" "https://sehirhatlari.istanbul/" -o recon/sh_root.html || true
+          curl -sSL -A "$UA" "https://sehirhatlari.istanbul/tr/seferler/ic-hatlar/adalar-hatlari-176" -o recon/sh_adalar.html || true
+          curl -sSL -A "$UA" "https://sehirhatlari.istanbul/tr/seferler" -o recon/sh_seferler.html || true
+          
+          curl -sSL -A "$UA" "https://mavimarmara.net/" -o recon/mm_root.html || true
+          curl -sSL -A "$UA" "https://mavimarmara.net/tarifeler/" -o recon/mm_tarifeler.html || true
+          curl -sSL -A "$UA" "https://mavimarmara.net/tarifeler/bostanci-buyukada/" -o recon/mm_bostanci_buyukada.html || true
+          
+          curl -sSL -A "$UA" "https://www.prenstur.net/" -o recon/pt_root.html || true
+          curl -sSL -A "$UA" "https://www.prenstur.net/index3e95.html" -o recon/pt_index.html || true
+          
+          ls -la recon/
+          echo "--- boyutlar ---"
+          wc -c recon/*.html
+
+      - name: Repo'ya commit'le
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add recon/
+          git diff --cached --quiet || (git commit -m "recon: site html dump" && git push)
