@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a4d8c">
+<meta name="description" content="Büyükada'ya gelen ve Büyükada'dan giden tüm vapur ve motor seferleri tek listede — Şehir Hatları, Mavi Marmara, Prens Tur.">
+<title>Büyükada Saatleri — Tüm Vapur ve Motor Seferleri</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --bg-elev: #ffffff;
+    --text: #14181f;
+    --text-soft: #5b6573;
+    --text-muted: #8b95a3;
+    --border: #e5e8ec;
+    --border-soft: #eef0f3;
+    --accent: #0a4d8c;
+    --success: #2d8a4f;
+    --warning: #c47a00;
+    --sh: #0a4d8c;
+    --mm: #0d6e8c;
+    --pt: #c14a1f;
+    --shadow: 0 1px 3px rgba(20,24,31,.06), 0 1px 2px rgba(20,24,31,.04);
+    --shadow-hover: 0 4px 12px rgba(20,24,31,.08), 0 2px 4px rgba(20,24,31,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1116;
+      --bg-elev: #181c23;
+      --text: #e8ecf2;
+      --text-soft: #a8b0bd;
+      --text-muted: #6c7585;
+      --border: #262b34;
+      --border-soft: #1f242c;
+      --accent: #4a9eff;
+      --success: #5dd089;
+      --warning: #ffb74d;
+      --sh: #4a9eff;
+      --mm: #4dc6e6;
+      --pt: #ff8a5b;
+      --shadow: 0 1px 3px rgba(0,0,0,.3);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* HEADER */
+  header.site {
+    margin-bottom: 20px;
+  }
+  h1 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--text-soft);
+    font-size: 14px;
+    margin: 0;
+  }
+  .now-strip {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+  }
+  .now-strip .now-time {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .now-strip .now-window {
+    font-size: 13px;
+    color: var(--text-soft);
+  }
+
+  /* TABS */
+  .tabs {
+    margin: 18px 0 14px;
+    display: flex;
+    gap: 6px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: var(--shadow);
+  }
+  .tab {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-soft);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    background: var(--accent);
+    color: white;
+  }
+
+  /* FILTERS */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+  .filter-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .chip:hover { color: var(--text); }
+  .chip.active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+
+  /* LIST */
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .row {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: flex-start;
+    box-shadow: var(--shadow);
+    transition: box-shadow .15s, transform .15s;
+  }
+  .row:hover {
+    box-shadow: var(--shadow-hover);
+  }
+  .row.imminent {
+    border-color: var(--accent);
+    border-width: 1px;
+    box-shadow: 0 0 0 1px var(--accent), var(--shadow);
+  }
+  .time-block {
+    text-align: center;
+    min-width: 56px;
+  }
+  .time {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--text);
+  }
+  .relative-time {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .relative-time.soon { color: var(--accent); font-weight: 600; }
+  .info {
+    min-width: 0;
+  }
+  .info-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .op-badge {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 7px;
+    border-radius: 4px;
+    color: white;
+  }
+  .op-badge.sh { background: var(--sh); }
+  .op-badge.mm { background: var(--mm); }
+  .op-badge.pt { background: var(--pt); }
+  .duration {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .direct-tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--success);
+    background: rgba(45,138,79,.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .direct-tag { background: rgba(93,208,137,.15); }
+  }
+  .route {
+    font-size: 14px;
+    color: var(--text);
+    word-break: break-word;
+    line-height: 1.4;
+  }
+  .route-stops {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .route-arrow {
+    color: var(--text-muted);
+    margin: 0 4px;
+  }
+  .route-endpoint {
+    font-weight: 600;
+  }
+
+  /* EMPTY STATE */
+  .empty {
+    text-align: center;
+    padding: 48px 16px;
+    color: var(--text-muted);
+  }
+  .empty-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .empty-text {
+    font-size: 14px;
+  }
+
+  /* FOOTER */
+  footer.site {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-soft);
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  footer.site a { color: var(--text-soft); text-decoration: none; }
+  footer.site a:hover { color: var(--accent); }
+
+  /* SAMPLE DATA BANNER */
+  .sample-banner {
+    background: rgba(196,122,0,.1);
+    border: 1px solid rgba(196,122,0,.3);
+    color: var(--warning);
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  /* MOBILE */
+  @media (max-width: 480px) {
+    .container { padding: 16px 12px 60px; }
+    h1 { font-size: 20px; }
+    .row { padding: 12px 14px; gap: 12px; }
+    .time { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="site">
+    <h1>Büyükada Saatleri</h1>
+    <p class="subtitle">Şehir Hatları, Mavi Marmara ve Prens Tur — tek listede, sıralı.</p>
+    <div class="now-strip">
+      <span class="now-time" id="nowTime">—</span>
+      <span class="now-window">Sonraki 3 saat</span>
+    </div>
+  </header>
+
+  <div id="sampleBanner" class="sample-banner" style="display:none">
+    📌 Bu sayfa şu an örnek verilerle çalışıyor — yakında gerçek scrape verisi bağlanacak.
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-yon="buyukadaya">Büyükada'ya geliş</button>
+    <button class="tab" data-yon="buyukadadan">Büyükada'dan gidiş</button>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group" id="opFilter">
+      <button class="chip active" data-op="all">Tüm operatörler</button>
+      <button class="chip" data-op="SH">Şehir Hatları</button>
+      <button class="chip" data-op="MM">Mavi Marmara</button>
+      <button class="chip" data-op="PT">Prens Tur</button>
+    </div>
+  </div>
+
+  <div class="list" id="list"></div>
+
+  <footer class="site">
+    <p>Veri kaynakları:
+      <a href="https://sehirhatlari.istanbul" target="_blank" rel="noopener">Şehir Hatları</a> ·
+      <a href="https://mavimarmara.net" target="_blank" rel="noopener">Mavi Marmara</a> ·
+      <a href="https://prenstur.net" target="_blank" rel="noopener">Prens Tur</a>
+    </p>
+    <p>Son güncelleme: <span id="updatedAt">—</span></p>
+    <p style="margin-top:10px">Resmi bir kaynak değildir. Yolculuk öncesi resmi sitelerden teyit etmeniz önerilir.</p>
+  </footer>
+</div>
+
+<script>
+  // ====== KONFİGÜRASYON ======
+  const PENCERE_DK = 180; // 3 saat
+  const ISTANBUL_TZ = "Europe/Istanbul";
+
+  // ====== STATE ======
+  let veriler = null;
+  let aktifYon = "buyukadaya";
+  let aktifOp  = "all";
+
+  // ====== YARDIMCILAR ======
+  function simdi() {
+    return new Date();
+  }
+  function ikiHane(n) { return n.toString().padStart(2, "0"); }
+  function bugunSaatleyen(saat) {
+    // saat formatı "HH:MM" -> bugünün tarihinde Date nesnesi
+    const [h, m] = saat.split(":").map(Number);
+    const d = new Date();
+    d.setHours(h, m, 0, 0);
+    return d;
+  }
+  function dakikaFarki(d1, d2) {
+    return Math.round((d1.getTime() - d2.getTime()) / 60000);
+  }
+  function saatGoster(d) {
+    return ikiHane(d.getHours()) + ":" + ikiHane(d.getMinutes());
+  }
+  function gunAdi(d) {
+    const gunler = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+    return gunler[d.getDay()];
+  }
+  function relativeText(dk) {
+    if (dk < 0) return "geçti";
+    if (dk === 0) return "şimdi";
+    if (dk < 60) return dk + " dk sonra";
+    const sa = Math.floor(dk / 60);
+    const ka = dk % 60;
+    if (ka === 0) return sa + " sa sonra";
+    return sa + " sa " + ka + " dk sonra";
+  }
+
+  // ====== GÖMÜLÜ YEDEK VERİ ======
+  // Tarayıcı dosya sisteminden fetch yapamadığında (lokal önizleme),
+  // bu yedek veri kullanılır. GitHub Pages'te canlı seferler.json çekilir.
+  const EMBEDDED_DATA = {
+    "updated_at": null,
+    "tarih_yerel": "Örnek veri — gerçek scrape ile değiştirilecek",
+    "seferler": [
+      {"kalkis_saati":"06:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Burgazada","Kınalıada","Büyükada"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"06:50","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Kabataş","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kabataş","Kadıköy","Kınalıada","Burgazada","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"07:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Büyükada"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"07:15","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Kartal","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kartal","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":40},
+      {"kalkis_saati":"07:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":45},
+      {"kalkis_saati":"08:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"08:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Eminönü","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Eminönü","Karaköy","Kabataş","Kadıköy","Kınalıada","Burgazada","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":105},
+      {"kalkis_saati":"09:00","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Kartal","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kartal","Büyükada"],"direkt":true,"tahmini_sure_dk":25},
+      {"kalkis_saati":"09:35","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Kabataş","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kabataş","Kadıköy","Kınalıada","Burgazada","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"10:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Büyükada"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"10:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Burgazada","Kınalıada","Büyükada"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"11:00","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Kartal","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kartal","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":40},
+      {"kalkis_saati":"12:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Kabataş","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kabataş","Kadıköy","Kınalıada","Burgazada","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"12:30","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Büyükada"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"13:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":45},
+      {"kalkis_saati":"13:30","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Kartal","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kartal","Büyükada"],"direkt":true,"tahmini_sure_dk":25},
+      {"kalkis_saati":"14:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Kabataş","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kabataş","Kadıköy","Kınalıada","Burgazada","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"14:30","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"15:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Burgazada","Kınalıada","Büyükada"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"15:30","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Kartal","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kartal","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":40},
+      {"kalkis_saati":"16:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Büyükada"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"16:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":45},
+      {"kalkis_saati":"17:00","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Kartal","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kartal","Büyükada"],"direkt":true,"tahmini_sure_dk":25},
+      {"kalkis_saati":"17:35","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Kabataş","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kabataş","Kadıköy","Kınalıada","Burgazada","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"18:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Büyükada"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"18:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Burgazada","Kınalıada","Büyükada"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"19:00","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Kartal","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kartal","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":40},
+      {"kalkis_saati":"19:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Kabataş","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kabataş","Kadıköy","Kınalıada","Burgazada","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"20:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Büyükada"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"21:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":45},
+      {"kalkis_saati":"22:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Kabataş","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Kabataş","Kadıköy","Kınalıada","Burgazada","Heybeliada","Büyükada"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"23:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Bostancı","varis_iskelesi":"Büyükada","yon":"buyukadaya","rota":["Bostancı","Heybeliada","Burgazada","Kınalıada","Büyükada"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"06:45","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Burgazada","Kınalıada","Bostancı"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"07:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Bostancı"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"07:30","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kartal","yon":"buyukadadan","rota":["Büyükada","Kartal"],"direkt":true,"tahmini_sure_dk":25},
+      {"kalkis_saati":"08:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kabataş","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Burgazada","Kınalıada","Kadıköy","Kabataş"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"08:30","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Bostancı"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"09:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Bostancı"],"direkt":false,"tahmini_sure_dk":45},
+      {"kalkis_saati":"09:30","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kartal","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Kartal"],"direkt":false,"tahmini_sure_dk":40},
+      {"kalkis_saati":"10:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Bostancı"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"11:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kabataş","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Burgazada","Kınalıada","Kadıköy","Kabataş"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"12:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Bostancı"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"13:00","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kartal","yon":"buyukadadan","rota":["Büyükada","Kartal"],"direkt":true,"tahmini_sure_dk":25},
+      {"kalkis_saati":"14:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Burgazada","Kınalıada","Bostancı"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"14:30","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Bostancı"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"15:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kabataş","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Burgazada","Kınalıada","Kadıköy","Kabataş"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"15:30","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kartal","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Kartal"],"direkt":false,"tahmini_sure_dk":40},
+      {"kalkis_saati":"16:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Bostancı"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"16:30","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Bostancı"],"direkt":false,"tahmini_sure_dk":45},
+      {"kalkis_saati":"17:00","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kartal","yon":"buyukadadan","rota":["Büyükada","Kartal"],"direkt":true,"tahmini_sure_dk":25},
+      {"kalkis_saati":"17:30","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Bostancı"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"18:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kabataş","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Burgazada","Kınalıada","Kadıköy","Kabataş"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"18:30","operator":"Prens Tur","operator_kod":"PT","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kartal","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Kartal"],"direkt":false,"tahmini_sure_dk":40},
+      {"kalkis_saati":"19:00","operator":"Mavi Marmara","operator_kod":"MM","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Bostancı"],"direkt":true,"tahmini_sure_dk":35},
+      {"kalkis_saati":"20:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Burgazada","Kınalıada","Bostancı"],"direkt":false,"tahmini_sure_dk":50},
+      {"kalkis_saati":"21:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Kabataş","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Burgazada","Kınalıada","Kadıköy","Kabataş"],"direkt":false,"tahmini_sure_dk":95},
+      {"kalkis_saati":"22:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Bostancı"],"direkt":false,"tahmini_sure_dk":45}
+    ]
+  };
+
+  // ====== VERİ YÜKLEME ======
+  async function veriYukle() {
+    // Önce gerçek JSON'u çekmeyi dene (GitHub Pages üstünde çalışacak yol).
+    // Lokal dosya sisteminde fetch çalışmazsa gömülü yedek veriye düş.
+    try {
+      const r = await fetch("./data/seferler.json?t=" + Date.now());
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      veriler = await r.json();
+    } catch (e) {
+      console.warn("Canlı JSON çekilemedi, gömülü yedek veri kullanılıyor:", e.message);
+      veriler = EMBEDDED_DATA;
+    }
+
+    const banner = document.getElementById("sampleBanner");
+    if (veriler.tarih_yerel && veriler.tarih_yerel.includes("Örnek")) {
+      banner.style.display = "block";
+    } else {
+      banner.style.display = "none";
+    }
+    const upd = veriler.updated_at ? new Date(veriler.updated_at) : null;
+    document.getElementById("updatedAt").textContent = upd
+      ? upd.toLocaleString("tr-TR", { dateStyle: "medium", timeStyle: "short" })
+      : "—";
+  }
+
+  // ====== FİLTRELE & SIRALA ======
+  function aktifSeferler() {
+    if (!veriler || !veriler.seferler) return [];
+    const now = simdi();
+    const sonra = new Date(now.getTime() + PENCERE_DK * 60000);
+
+    return veriler.seferler
+      .filter(s => s.yon === aktifYon)
+      .filter(s => aktifOp === "all" || s.operator_kod === aktifOp)
+      .map(s => {
+        const d = bugunSaatleyen(s.kalkis_saati);
+        return Object.assign({}, s, { _zaman: d, _dk: dakikaFarki(d, now) });
+      })
+      .filter(s => s._zaman >= now && s._zaman <= sonra)
+      .sort((a, b) => a._zaman - b._zaman);
+  }
+
+  // ====== RENDER ======
+  function render() {
+    const list = document.getElementById("list");
+    const items = aktifSeferler();
+
+    if (items.length === 0) {
+      list.innerHTML = `
+        <div class="empty">
+          <div class="empty-icon">⛴️</div>
+          <div class="empty-text">Sonraki 3 saatte sefer bulunamadı.<br>Filtreleri değiştirip tekrar dener misin?</div>
+        </div>`;
+      return;
+    }
+
+    list.innerHTML = items.map(s => {
+      const opCls = (s.operator_kod || "").toLowerCase();
+      const imminent = s._dk <= 30;
+      const soonCls = s._dk <= 60 ? "soon" : "";
+      const direct = s.direkt
+        ? '<span class="direct-tag">DİREKT</span>'
+        : '';
+      let routeHtml;
+      if (s.direkt) {
+        routeHtml = `<span class="route-endpoint">${s.kalkis_iskelesi}</span><span class="route-arrow">→</span><span class="route-endpoint">${s.varis_iskelesi}</span>`;
+      } else {
+        const ara = s.rota.slice(1, -1);
+        const aralarHtml = ara.length
+          ? `<span class="route-stops"> · uğraklar: ${ara.join(", ")}</span>`
+          : "";
+        routeHtml = `<span class="route-endpoint">${s.kalkis_iskelesi}</span><span class="route-arrow">→</span><span class="route-endpoint">${s.varis_iskelesi}</span>${aralarHtml}`;
+      }
+      return `
+        <div class="row ${imminent ? "imminent" : ""}">
+          <div class="time-block">
+            <div class="time">${s.kalkis_saati}</div>
+            <div class="relative-time ${soonCls}">${relativeText(s._dk)}</div>
+          </div>
+          <div class="info">
+            <div class="info-top">
+              <span class="op-badge ${opCls}">${s.operator}</span>
+              ${direct}
+              <span class="duration">~ ${s.tahmini_sure_dk} dk</span>
+            </div>
+            <div class="route">${routeHtml}</div>
+          </div>
+        </div>`;
+    }).join("");
+  }
+
+  function refreshNow() {
+    const d = simdi();
+    document.getElementById("nowTime").textContent =
+      "Şu an: " + saatGoster(d) + " · " + gunAdi(d);
+  }
+
+  // ====== EVENT'LER ======
+  document.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      aktifYon = btn.dataset.yon;
+      render();
+    });
+  });
+  document.querySelectorAll("#opFilter .chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#opFilter .chip").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      aktifOp = btn.dataset.op;
+      render();
+    });
+  });
+
+  // ====== BAŞLAT ======
+  (async () => {
+    refreshNow();
+    await veriYukle();
+    render();
+    // Her 30 saniyede bir relative time'ları ve filtreyi tazele
+    setInterval(() => { refreshNow(); render(); }, 30000);
+  })();
+</script>
+</body>
+</html>
