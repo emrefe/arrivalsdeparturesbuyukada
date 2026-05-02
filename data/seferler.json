@@ -1,69 +1,977 @@
 {
-  "updated_at": "2026-05-02T14:30:00+03:00",
-  "tarih_yerel": "Örnek veri — gerçek scrape ile değiştirilecek",
+  "updated_at": "2026-05-02T21:49:57+03:00",
+  "tarih_yerel": "02.05.2026",
   "kaynaklar": {
-    "sehirhatlari": {"site": "https://sehirhatlari.istanbul", "son_guncel": "2026-05-02T14:00:00+03:00", "durum": "ok"},
-    "mavimarmara": {"site": "https://mavimarmara.net", "son_guncel": "2026-05-02T14:00:00+03:00", "durum": "ok"},
-    "prenstur": {"site": "https://prenstur.net", "son_guncel": "2026-05-02T14:00:00+03:00", "durum": "ok"}
+    "sehirhatlari": {
+      "site": "https://sehirhatlari.net",
+      "son_guncel": "2026-05-02T21:49:55+03:00",
+      "durum": "ok",
+      "sefer_sayisi": 28
+    },
+    "mavimarmara": {
+      "site": "https://mavimarmara.net",
+      "son_guncel": "2026-05-02T21:49:56+03:00",
+      "durum": "ok",
+      "sefer_sayisi": 16
+    },
+    "prenstur": {
+      "site": "https://prenstur.net",
+      "son_guncel": "2026-05-02T21:49:57+03:00",
+      "durum": "ok",
+      "sefer_sayisi": 13
+    }
   },
   "seferler": [
-    {"kalkis_saati": "06:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Burgazada", "Kınalıada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "06:50", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Kabataş", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kabataş", "Kadıköy", "Kınalıada", "Burgazada", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "07:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Büyükada"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "07:15", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Kartal", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kartal", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 40},
-    {"kalkis_saati": "07:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 45},
-    {"kalkis_saati": "08:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "08:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Eminönü", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Eminönü", "Karaköy", "Kabataş", "Kadıköy", "Kınalıada", "Burgazada", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 105},
-    {"kalkis_saati": "09:00", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Kartal", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kartal", "Büyükada"], "direkt": true, "tahmini_sure_dk": 25},
-    {"kalkis_saati": "09:35", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Kabataş", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kabataş", "Kadıköy", "Kınalıada", "Burgazada", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "10:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Büyükada"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "10:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Burgazada", "Kınalıada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "11:00", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Kartal", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kartal", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 40},
-    {"kalkis_saati": "12:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Kabataş", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kabataş", "Kadıköy", "Kınalıada", "Burgazada", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "12:30", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Büyükada"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "13:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 45},
-    {"kalkis_saati": "13:30", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Kartal", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kartal", "Büyükada"], "direkt": true, "tahmini_sure_dk": 25},
-    {"kalkis_saati": "14:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Kabataş", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kabataş", "Kadıköy", "Kınalıada", "Burgazada", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "14:30", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "15:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Burgazada", "Kınalıada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "15:30", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Kartal", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kartal", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 40},
-    {"kalkis_saati": "16:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Büyükada"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "16:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 45},
-    {"kalkis_saati": "17:00", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Kartal", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kartal", "Büyükada"], "direkt": true, "tahmini_sure_dk": 25},
-    {"kalkis_saati": "17:35", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Kabataş", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kabataş", "Kadıköy", "Kınalıada", "Burgazada", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "18:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Büyükada"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "18:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Burgazada", "Kınalıada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "19:00", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Kartal", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kartal", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 40},
-    {"kalkis_saati": "19:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Kabataş", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kabataş", "Kadıköy", "Kınalıada", "Burgazada", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "20:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Büyükada"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "21:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 45},
-    {"kalkis_saati": "22:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Kabataş", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Kabataş", "Kadıköy", "Kınalıada", "Burgazada", "Heybeliada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "23:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Bostancı", "varis_iskelesi": "Büyükada", "yon": "buyukadaya", "rota": ["Bostancı", "Heybeliada", "Burgazada", "Kınalıada", "Büyükada"], "direkt": false, "tahmini_sure_dk": 50},
-
-    {"kalkis_saati": "06:45", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada", "Bostancı"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "07:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Bostancı"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "07:30", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kartal", "yon": "buyukadadan", "rota": ["Büyükada", "Kartal"], "direkt": true, "tahmini_sure_dk": 25},
-    {"kalkis_saati": "08:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kabataş", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada", "Kadıköy", "Kabataş"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "08:30", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Bostancı"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "09:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Bostancı"], "direkt": false, "tahmini_sure_dk": 45},
-    {"kalkis_saati": "09:30", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kartal", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Kartal"], "direkt": false, "tahmini_sure_dk": 40},
-    {"kalkis_saati": "10:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Bostancı"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "11:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kabataş", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada", "Kadıköy", "Kabataş"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "12:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Bostancı"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "13:00", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kartal", "yon": "buyukadadan", "rota": ["Büyükada", "Kartal"], "direkt": true, "tahmini_sure_dk": 25},
-    {"kalkis_saati": "14:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada", "Bostancı"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "14:30", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Bostancı"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "15:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kabataş", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada", "Kadıköy", "Kabataş"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "15:30", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kartal", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Kartal"], "direkt": false, "tahmini_sure_dk": 40},
-    {"kalkis_saati": "16:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Bostancı"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "16:30", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Bostancı"], "direkt": false, "tahmini_sure_dk": 45},
-    {"kalkis_saati": "17:00", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kartal", "yon": "buyukadadan", "rota": ["Büyükada", "Kartal"], "direkt": true, "tahmini_sure_dk": 25},
-    {"kalkis_saati": "17:30", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Bostancı"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "18:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kabataş", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada", "Kadıköy", "Kabataş"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "18:30", "operator": "Prens Tur", "operator_kod": "PT", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kartal", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Kartal"], "direkt": false, "tahmini_sure_dk": 40},
-    {"kalkis_saati": "19:00", "operator": "Mavi Marmara", "operator_kod": "MM", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Bostancı"], "direkt": true, "tahmini_sure_dk": 35},
-    {"kalkis_saati": "20:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada", "Bostancı"], "direkt": false, "tahmini_sure_dk": 50},
-    {"kalkis_saati": "21:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Kabataş", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada", "Kadıköy", "Kabataş"], "direkt": false, "tahmini_sure_dk": 95},
-    {"kalkis_saati": "22:00", "operator": "Şehir Hatları", "operator_kod": "SH", "kalkis_iskelesi": "Büyükada", "varis_iskelesi": "Bostancı", "yon": "buyukadadan", "rota": ["Büyükada", "Heybeliada", "Bostancı"], "direkt": false, "tahmini_sure_dk": 45}
+    {
+      "kalkis_saati": "06:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "06:45",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "06:50",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "07:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "07:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "07:15",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 40,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "07:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "07:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "08:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "08:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "08:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Eminönü",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Eminönü",
+        "Karaköy",
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "08:30",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "09:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "09:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "09:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kartal"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 40,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "09:35",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "10:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "10:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "10:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "11:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "11:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 40,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "12:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "12:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "12:30",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "13:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "13:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "13:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "14:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "14:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "14:30",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "14:30",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "15:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "15:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "15:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 40,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "15:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kartal"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 40,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "16:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "16:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "16:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "16:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "17:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "17:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "17:30",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "17:35",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "18:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "18:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "18:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "18:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kartal"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 40,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "19:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "19:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 40,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "19:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "20:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "20:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "21:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "21:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "22:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "22:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "fallback"
+    },
+    {
+      "kalkis_saati": "23:30",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "fallback"
+    }
   ]
 }
