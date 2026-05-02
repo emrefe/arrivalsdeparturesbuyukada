@@ -1,26 +1,66 @@
 """
 Playwright ile siteleri ziyaret et, JS çalıştıktan sonraki HTML'i kaydet.
-Cloudflare challenge geçilmiş hâlini almak için.
+v2: Türkçe Cloudflare metnini algıla, domain başına root'a önce gir, daha uzun bekle.
 """
 import asyncio
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-URLS = [
-    ("sh_root",                  "https://sehirhatlari.istanbul/"),
-    ("sh_adalar",                "https://sehirhatlari.istanbul/tr/seferler/ic-hatlar/adalar-hatlari-176"),
-    ("sh_seferler",              "https://sehirhatlari.istanbul/tr/seferler"),
-    ("mm_root",                  "https://mavimarmara.net/"),
-    ("mm_tarifeler",             "https://mavimarmara.net/tarifeler/"),
-    ("mm_bostanci_buyukada",     "https://mavimarmara.net/tarifeler/bostanci-buyukada/"),
-    ("mm_kabatas_buyukada",      "https://mavimarmara.net/tarifeler/kabatas-buyukada/"),
-    ("pt_root",                  "https://www.prenstur.net/"),
-    ("pt_index",                 "https://www.prenstur.net/index3e95.html"),
-    ("pt_tarife_resmi",          "https://www.prenstur.net/Tarife-2025-2026.jpg"),
+# Her domain için: önce root'u ziyaret et (CF cookies için), sonra subpage'leri
+GROUPS = {
+    "sehirhatlari.istanbul": [
+        ("sh_root",     "https://sehirhatlari.istanbul/"),
+        ("sh_seferler", "https://sehirhatlari.istanbul/tr/seferler"),
+        ("sh_adalar",   "https://sehirhatlari.istanbul/tr/seferler/ic-hatlar/adalar-hatlari-176"),
+    ],
+    "mavimarmara.net": [
+        ("mm_root",                "https://mavimarmara.net/"),
+        ("mm_tarifeler",           "https://mavimarmara.net/tarifeler/"),
+        ("mm_bostanci_buyukada",   "https://mavimarmara.net/tarifeler/bostanci-buyukada/"),
+        ("mm_kabatas_buyukada",    "https://mavimarmara.net/tarifeler/kabatas-buyukada/"),
+    ],
+    "prenstur.net": [
+        ("pt_root",  "https://www.prenstur.net/"),
+        ("pt_index", "https://www.prenstur.net/index3e95.html"),
+    ],
+}
+
+# Resim URL'leri (ayrı indirilecek)
+IMAGES = [
+    ("pt_tarife", "https://www.prenstur.net/Tarife-2025-2026.jpg"),
 ]
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+
+CF_INDICATORS = ["just a moment", "bir dakika lütfen", "checking your browser", "challenge"]
+
+
+def is_cloudflare_challenge(title: str, html: str) -> bool:
+    t = title.lower()
+    if any(s in t for s in CF_INDICATORS):
+        return True
+    # Cloudflare challenge sayfası belirteçleri
+    if "cf-challenge" in html.lower() or "challenge-platform" in html.lower():
+        # Ama gerçek içerik de varsa (büyük HTML), challenge geçmiş olabilir
+        if len(html) < 60000:
+            return True
+    return False
+
+
+async def wait_through_cloudflare(page, max_seconds=40):
+    """Sayfa içeriğine bakarak CF challenge geçinceye kadar bekle."""
+    for i in range(max_seconds // 2):
+        title = await page.title()
+        try:
+            html = await page.content()
+        except Exception:
+            html = ""
+        if not is_cloudflare_challenge(title, html):
+            return title
+        print(f"    [{i*2}s] CF bekleniyor... title={title!r}")
+        await page.wait_for_timeout(2000)
+    return await page.title()
 
 
 async def main():
@@ -30,65 +70,69 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
-            args=["--disable-blink-features=AutomationControlled"],
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--disable-dev-shm-usage",
+            ],
         )
-        context = await browser.new_context(
-            user_agent=UA,
-            locale="tr-TR",
-            timezone_id="Europe/Istanbul",
-            viewport={"width": 1366, "height": 768},
-        )
-        # webdriver tespitini gizle
-        await context.add_init_script(
-            "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
-        )
-        page = await context.new_page()
 
-        for name, url in URLS:
-            print(f"\n--- {name}: {url} ---", flush=True)
+        for domain, urls in GROUPS.items():
+            print(f"\n========== {domain} ==========", flush=True)
+            context = await browser.new_context(
+                user_agent=UA,
+                locale="tr-TR",
+                timezone_id="Europe/Istanbul",
+                viewport={"width": 1366, "height": 768},
+                extra_http_headers={
+                    "Accept-Language": "tr-TR,tr;q=0.9,en;q=0.8",
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                },
+            )
+            await context.add_init_script(
+                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
+                "Object.defineProperty(navigator, 'languages', {get: () => ['tr-TR','tr','en-US','en']});"
+                "Object.defineProperty(navigator, 'plugins', {get: () => [1,2,3,4,5]});"
+            )
+            page = await context.new_page()
 
-            # Resim ise direkt indir
-            if url.lower().endswith((".jpg", ".jpeg", ".png")):
+            for name, url in urls:
+                print(f"\n--- {name}: {url} ---", flush=True)
                 try:
-                    resp = await context.request.get(url)
-                    if resp.ok:
-                        ext = url.rsplit(".", 1)[-1].lower()
-                        body = await resp.body()
-                        (out / f"{name}.{ext}").write_bytes(body)
-                        print(f"  ✓ resim kaydedildi: {len(body)} bytes")
-                    else:
-                        print(f"  ✗ resim alınamadı: HTTP {resp.status}")
-                except Exception as e:
-                    print(f"  ✗ resim hatası: {e}")
-                continue
+                    await page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                    title = await wait_through_cloudflare(page, max_seconds=40)
+                    try:
+                        await page.wait_for_load_state("networkidle", timeout=8000)
+                    except Exception:
+                        pass
+                    await page.wait_for_timeout(1500)
 
-            try:
-                await page.goto(url, wait_until="domcontentloaded", timeout=45000)
-                # Cloudflare challenge'ın geçmesi için bekle
-                for _ in range(8):
                     title = await page.title()
-                    if "moment" not in title.lower() and "just a" not in title.lower():
-                        break
-                    print(f"  bekleniyor... title: {title}")
-                    await page.wait_for_timeout(2000)
+                    html = await page.content()
+                    (out / f"{name}.html").write_text(html, encoding="utf-8")
+                    cf = is_cloudflare_challenge(title, html)
+                    print(f"  ✓ size={len(html)}b  title={title!r}  CF_blocked={cf}")
+                    await page.screenshot(path=str(out / f"{name}.png"), full_page=True)
+                except Exception as e:
+                    print(f"  ✗ HATA: {e}")
 
-                # Network'un sakinleşmesini bekle
-                try:
-                    await page.wait_for_load_state("networkidle", timeout=10000)
-                except Exception:
-                    pass
-                await page.wait_for_timeout(2000)
+            await context.close()
 
-                title = await page.title()
-                html = await page.content()
-                (out / f"{name}.html").write_text(html, encoding="utf-8")
-                print(f"  ✓ kaydedildi  title='{title}'  size={len(html)}")
-
-                # Ekran görüntüsü
-                await page.screenshot(path=str(out / f"{name}.png"), full_page=True)
+        # Resimler — ayrı bir context'te
+        print("\n========== resimler ==========", flush=True)
+        ctx = await browser.new_context(user_agent=UA)
+        for name, url in IMAGES:
+            try:
+                resp = await ctx.request.get(url, timeout=30000)
+                if resp.ok:
+                    body = await resp.body()
+                    ext = url.rsplit(".", 1)[-1].lower()
+                    (out / f"{name}.{ext}").write_bytes(body)
+                    print(f"  ✓ {name}.{ext}: {len(body)}b")
+                else:
+                    print(f"  ✗ {name}: HTTP {resp.status}")
             except Exception as e:
-                print(f"  ✗ HATA: {e}")
-
+                print(f"  ✗ {name}: {e}")
+        await ctx.close()
         await browser.close()
 
 
