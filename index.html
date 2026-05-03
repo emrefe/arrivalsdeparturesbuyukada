@@ -190,9 +190,26 @@
     opacity: 0.55;
   }
   .status-day { font-size: 11px; opacity: 0.7; }
-  .status-window { text-align: end; line-height: 1.3; }
+  .status-window {
+    text-align: end;
+    line-height: 1.3;
+    cursor: pointer;
+    user-select: none;
+    padding: 4px 8px;
+    margin: -4px -8px;
+    transition: opacity 120ms ease;
+  }
+  .status-window:hover { opacity: 0.78; }
+  .status-window:active { opacity: 0.6; }
   .status-window-label { display: block; font-size: 10px; opacity: 0.6; }
   .status-window-value { font-size: 13px; font-weight: 500; }
+  .status-window-value::after {
+    content: "↻";
+    margin-inline-start: 6px;
+    opacity: 0.5;
+    font-size: 11px;
+    display: inline-block;
+  }
  
   /* SAMPLE BANNER */
   .banner {
@@ -287,15 +304,16 @@
     box-shadow: inset -3px 0 0 var(--ink);
   }
   .row.in {
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    animation: rowFlap 340ms cubic-bezier(.2,.7,.3,1) both;
+    animation: rowWipe 480ms cubic-bezier(.4,0,.2,1) both;
   }
-  @keyframes rowFlap {
-    0%   { opacity: 0; transform: scaleY(0); }
-    55%  { opacity: 1; }
-    100% { opacity: 1; transform: scaleY(1); }
+  @keyframes rowWipe {
+    from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+    to   { clip-path: inset(0 0 0 0); opacity: 1; }
+  }
+  html[lang="ar"] .row.in { animation-name: rowWipeRTL; }
+  @keyframes rowWipeRTL {
+    from { clip-path: inset(0 0 0 100%); opacity: 0.4; }
+    to   { clip-path: inset(0 0 0 0); opacity: 1; }
   }
   .empty.in {
     opacity: 0;
@@ -428,9 +446,9 @@
       </span>
       <span class="status-day" id="nowDay">—</span>
     </div>
-    <div class="status-window">
+    <div class="status-window" id="windowToggle" role="button" tabindex="0" title="Pencereyi değiştir / Toggle window">
       <span class="status-window-label" data-i18n="windowLabel">PENCERE</span>
-      <span class="status-window-value" data-i18n="windowValue">SONRAKI 3 SAAT</span>
+      <span class="status-window-value" id="windowValue">SONRAKI 3 SAAT</span>
     </div>
   </div>
  
@@ -477,7 +495,7 @@
     tr: {
       htmlLang: "tr", title: "BÜYÜKADA / SAATLER",
       brand: "BÜYÜKADA / SAATLER",
-      windowLabel: "PENCERE", windowValue: "SONRAKI 3 SAAT",
+      windowLabel: "PENCERE", windowFmt: "SONRAKI {h} SAAT",
       bannerSample: "ÖRNEK VERİ — CANLI SCRAPE BAĞLANACAK",
       toBuyukada: "BÜYÜKADA'YA", fromBuyukada: "BÜYÜKADA'DAN",
       all: "TÜMÜ",
@@ -493,7 +511,7 @@
     en: {
       htmlLang: "en", title: "BÜYÜKADA / SCHEDULE",
       brand: "BÜYÜKADA / SCHEDULE",
-      windowLabel: "WINDOW", windowValue: "NEXT 3 HOURS",
+      windowLabel: "WINDOW", windowFmt: "NEXT {h} HOURS",
       bannerSample: "SAMPLE DATA — LIVE SCRAPE PENDING",
       toBuyukada: "TO BÜYÜKADA", fromBuyukada: "FROM BÜYÜKADA",
       all: "ALL",
@@ -509,7 +527,7 @@
     ru: {
       htmlLang: "ru", title: "БЮЮКАДА / РАСПИСАНИЕ",
       brand: "БЮЮКАДА / РАСПИСАНИЕ",
-      windowLabel: "ОКНО", windowValue: "БЛИЖАЙШИЕ 3 ЧАСА",
+      windowLabel: "ОКНО", windowFmt: "БЛИЖАЙШИЕ {h} ЧАСА",
       bannerSample: "ПРИМЕР ДАННЫХ — СКРЕЙП В ОЖИДАНИИ",
       toBuyukada: "В БЮЮКАДУ", fromBuyukada: "ИЗ БЮЮКАДЫ",
       all: "ВСЕ",
@@ -525,7 +543,7 @@
     ar: {
       htmlLang: "ar", title: "بيوكادا / المواعيد",
       brand: "بيوكادا / المواعيد",
-      windowLabel: "النافذة", windowValue: "الـ3 ساعات القادمة",
+      windowLabel: "النافذة", windowFmt: "الـ{h} ساعة القادمة",
       bannerSample: "بيانات تجريبية — في انتظار البيانات الحية",
       toBuyukada: "إلى بيوكادا", fromBuyukada: "من بيوكادا",
       all: "الكل",
@@ -541,7 +559,7 @@
     de: {
       htmlLang: "de", title: "BÜYÜKADA / FAHRPLAN",
       brand: "BÜYÜKADA / FAHRPLAN",
-      windowLabel: "FENSTER", windowValue: "NÄCHSTE 3 STUNDEN",
+      windowLabel: "FENSTER", windowFmt: "NÄCHSTE {h} STUNDEN",
       bannerSample: "BEISPIELDATEN — LIVE-SCRAPE FOLGT",
       toBuyukada: "NACH BÜYÜKADA", fromBuyukada: "VON BÜYÜKADA",
       all: "ALLE",
@@ -557,7 +575,7 @@
     fr: {
       htmlLang: "fr", title: "BÜYÜKADA / HORAIRES",
       brand: "BÜYÜKADA / HORAIRES",
-      windowLabel: "FENÊTRE", windowValue: "3 PROCHAINES HEURES",
+      windowLabel: "FENÊTRE", windowFmt: "{h} PROCHAINES HEURES",
       bannerSample: "DONNÉES D'EXEMPLE — SCRAPE EN ATTENTE",
       toBuyukada: "VERS BÜYÜKADA", fromBuyukada: "DEPUIS BÜYÜKADA",
       all: "TOUT",
@@ -589,6 +607,8 @@
       const k = el.getAttribute("data-i18n");
       if (tr[k] !== undefined) el.textContent = tr[k];
     });
+    const wv = document.getElementById("windowValue");
+    if (wv) wv.textContent = windowText();
     document.getElementById("langCurrent").textContent = LANG.toUpperCase();
     document.querySelectorAll("#langMenu button").forEach(b => {
       b.classList.toggle("active", b.dataset.lang === LANG);
@@ -606,11 +626,19 @@
   }
  
   // ====== STATE ======
-  const PENCERE_DK = 180;
+  const PENCERE_OPTIONS = [180, 1440]; // 3 saat ↔ 24 saat
+  let pencereDk = (function () {
+    const saved = parseInt(localStorage.getItem("pencereDk"), 10);
+    return PENCERE_OPTIONS.includes(saved) ? saved : 180;
+  })();
   let veriler = null;
   let aktifYon = "buyukadaya";
   let aktifOp  = "all";
   let lastRenderedKeys = new Set();
+ 
+  function windowText() {
+    return t().windowFmt.replace("{h}", pencereDk / 60);
+  }
  
   // ====== HELPERS ======
   function ikiHane(n) { return n.toString().padStart(2, "0"); }
@@ -700,7 +728,7 @@
   function aktifSeferler() {
     if (!veriler || !veriler.seferler) return [];
     const now = new Date();
-    const sonra = new Date(now.getTime() + PENCERE_DK * 60000);
+    const sonra = new Date(now.getTime() + pencereDk * 60000);
     return veriler.seferler
       .filter(s => s.yon === aktifYon)
       .filter(s => aktifOp === "all" || s.operator_kod === aktifOp)
@@ -746,6 +774,7 @@
  
     const currentKeys = new Set(items.map(rowKey));
     let newRowOrder = 0;
+    const flapPlan = [];
  
     list.innerHTML = items.map((s, i) => {
       const key = rowKey(s);
@@ -754,10 +783,10 @@
  
       if (mode === "all") {
         shouldAnimate = true;
-        delay = 200 + i * 70;
+        delay = 200 + Math.min(i, 12) * 55;
       } else if (mode === "new" && !lastRenderedKeys.has(key)) {
         shouldAnimate = true;
-        delay = newRowOrder * 90;
+        delay = Math.min(newRowOrder, 8) * 80;
         newRowOrder++;
       }
  
@@ -768,9 +797,17 @@
       if (shouldAnimate) cls += " in";
       const style = shouldAnimate ? ` style="animation-delay: ${delay}ms"` : "";
  
+      const timeHTML = shouldAnimate
+        ? `<span class="flap-digit">-</span><span class="flap-digit">-</span><span class="flap-colon">:</span><span class="flap-digit">-</span><span class="flap-digit">-</span>`
+        : s.kalkis_saati;
+ 
+      if (shouldAnimate) {
+        flapPlan.push({ idx: i, saat: s.kalkis_saati, delay: delay + 280 });
+      }
+ 
       return `
-        <div class="${cls}"${style}>
-          <div class="r-time">${s.kalkis_saati}</div>
+        <div class="${cls}" data-row-idx="${i}"${style}>
+          <div class="r-time">${timeHTML}</div>
           <div class="r-op">${s.operator_kod}</div>
           <div class="r-route">${rotaHtml(s)}</div>
           <div class="r-meta">
@@ -779,6 +816,21 @@
           </div>
         </div>`;
     }).join("");
+ 
+    // Saat rakamlarını clock gibi flap ile yerleştir
+    flapPlan.forEach(plan => {
+      const row = list.querySelector(`.row[data-row-idx="${plan.idx}"]`);
+      if (!row) return;
+      const targetChars = [...plan.saat].filter(c => c !== ":");
+      const digits = row.querySelectorAll(".r-time .flap-digit");
+      digits.forEach((d, di) => {
+        setTimeout(() => {
+          d.classList.add("flipping");
+          setTimeout(() => { d.textContent = targetChars[di]; }, 100);
+          setTimeout(() => { d.classList.remove("flipping"); }, 220);
+        }, plan.delay + di * 55);
+      });
+    });
  
     lastRenderedKeys = currentKeys;
   }
@@ -824,6 +876,20 @@
       langMenu.classList.remove("open");
       langBtn.setAttribute("aria-expanded", "false");
     }
+  });
+ 
+  // Window toggle (3 saat ↔ 24 saat)
+  function togglePencere() {
+    const idx = PENCERE_OPTIONS.indexOf(pencereDk);
+    pencereDk = PENCERE_OPTIONS[(idx + 1) % PENCERE_OPTIONS.length];
+    localStorage.setItem("pencereDk", pencereDk);
+    document.getElementById("windowValue").textContent = windowText();
+    lastRenderedKeys = new Set();
+    render("all");
+  }
+  document.getElementById("windowToggle").addEventListener("click", togglePencere);
+  document.getElementById("windowToggle").addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); togglePencere(); }
   });
  
   // ====== INIT ======
