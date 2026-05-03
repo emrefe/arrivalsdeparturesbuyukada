@@ -1,92 +1,127 @@
 """
-Prens Tur (prenstur.net) için scraper.
+Prens Tur (prenstur.net) — 2025-2026 KIŞ TARİFESİ.
 
-Site eski Joomla stili, statik HTML. Saatler genelde tablo veya basit liste şeklinde.
-Hangi rotaların hangi sayfada olduğunu gözlemleyip rafine etmek lazım.
-
-Bilinen URL: https://www.prenstur.net/index3e95.html  (Kartal-Adalar tarifesi)
+Saatler https://www.prenstur.net/Tarife-2025-2026.jpg adlı bir resimde olduğu
+için scrape edilemiyor; aşağıdaki tablo resimden doğrudan okunup elde derlendi.
+Resim güncellendiğinde scraper hash farkını loglara basar; biz de yeni saatlere
+göre bu dosyayı güncelleriz.
 """
 from __future__ import annotations
-from typing import List
-from bs4 import BeautifulSoup
 import sys
-import traceback
+import hashlib
+import datetime as dt
+from typing import List
+import requests
 
-from common import Sefer, fetch, normalize_iskele, parse_saatler, direkt_mi
+from common import Sefer
 
 OPERATOR = "Prens Tur"
 OPERATOR_KOD = "PT"
+TARIFE_IMG_URL = "https://www.prenstur.net/Tarife-2025-2026.jpg"
 
-URLS = [
-    "https://www.prenstur.net/index3e95.html",
-    "https://www.prenstur.net/",  # ana sayfa, belki başka link var
+# 2025-2026 KIŞ TARİFESİ — resimden okundu
+# (saat, sadece_hafta_ici)  — yıldızlı (*) seferler resimde sadece hafta içi
+# Sol tablo: KARTAL'dan kalkış (rota: Kartal → Büyükada → Heybeliada, ~25 dk Büyükada'ya)
+KARTAL_BUYUKADA = [
+    ("06:20", True),   # *
+    ("07:15", False),
+    ("08:00", False),
+    ("08:30", False),
+    ("09:00", False),
+    ("09:30", False),
+    ("10:30", False),
+    ("11:30", False),
+    ("12:00", False),
+    ("12:30", False),
+    ("13:30", False),
+    ("14:30", False),
+    ("15:30", False),
+    ("16:00", False),
+    ("16:30", False),
+    ("17:00", False),
+    ("17:30", False),
+    ("18:30", False),
+    ("19:30", False),
+    ("20:30", False),
 ]
 
-FALLBACK_SEFERLER = [
-    # Kartal -> Büyükada (direkt 25 dk veya Heybeli üzerinden 40 dk)
-    ("07:15", "Kartal",   ["Kartal","Heybeliada","Büyükada"], "Büyükada", 40),
-    ("09:00", "Kartal",   ["Kartal","Büyükada"], "Büyükada", 25),
-    ("11:00", "Kartal",   ["Kartal","Heybeliada","Büyükada"], "Büyükada", 40),
-    ("13:30", "Kartal",   ["Kartal","Büyükada"], "Büyükada", 25),
-    ("15:30", "Kartal",   ["Kartal","Heybeliada","Büyükada"], "Büyükada", 40),
-    ("17:00", "Kartal",   ["Kartal","Büyükada"], "Büyükada", 25),
-    ("19:00", "Kartal",   ["Kartal","Heybeliada","Büyükada"], "Büyükada", 40),
-    # Büyükada -> Kartal
-    ("07:30", "Büyükada", ["Büyükada","Kartal"], "Kartal", 25),
-    ("09:30", "Büyükada", ["Büyükada","Heybeliada","Kartal"], "Kartal", 40),
-    ("13:00", "Büyükada", ["Büyükada","Kartal"], "Kartal", 25),
-    ("15:30", "Büyükada", ["Büyükada","Heybeliada","Kartal"], "Kartal", 40),
-    ("17:00", "Büyükada", ["Büyükada","Kartal"], "Kartal", 25),
-    ("18:30", "Büyükada", ["Büyükada","Heybeliada","Kartal"], "Kartal", 40),
+# Sağ tablo: ADALAR'dan kalkış (rota: Heybeliada → Büyükada → Kartal)
+# Büyükada'dan binme zamanı, sonra ~25 dk sonra Kartal'a varış
+BUYUKADA_KARTAL = [
+    ("07:15", True),   # *
+    ("08:15", False),
+    ("09:00", False),
+    ("09:30", False),
+    ("10:00", False),
+    ("10:25", False),
+    ("11:25", False),
+    ("12:25", False),
+    ("13:25", False),
+    ("14:25", False),
+    ("15:25", False),
+    ("16:30", False),
+    ("17:00", False),
+    ("17:30", False),
+    ("18:00", False),
+    ("18:25", False),
+    ("19:25", False),
+    ("20:25", False),
+    ("21:25", False),
 ]
 
 
-def _fallback_seferler() -> List[Sefer]:
-    out = []
-    for saat, kalk, rota, varis, sure in FALLBACK_SEFERLER:
-        rota_norm = [normalize_iskele(x) for x in rota]
-        yon = "buyukadadan" if rota_norm[0] == "Büyükada" else "buyukadaya"
-        out.append(Sefer(
-            kalkis_saati=saat,
-            operator=OPERATOR,
-            operator_kod=OPERATOR_KOD,
-            kalkis_iskelesi=normalize_iskele(kalk),
-            varis_iskelesi=normalize_iskele(varis),
-            yon=yon,
-            rota=rota_norm,
-            direkt=direkt_mi(rota_norm),
-            tahmini_sure_dk=sure,
-            notlar="fallback",
-        ))
-    return out
-
-
-def _scrape_canli() -> List[Sefer]:
-    seferler: List[Sefer] = []
-    for url in URLS:
-        try:
-            html = fetch(url)
-            soup = BeautifulSoup(html, "html.parser")
-            metin = soup.get_text(" ", strip=True).lower()
-            if "kartal" not in metin and "büyükada" not in metin and "buyukada" not in metin:
-                continue
-
-            # TODO: gerçek tablo parse'ı buraya gelecek.
-            # Bu site eski/dağınık olduğu için saatleri tablo bağlamından
-            # çıkarmak komplike. Şu an placeholder.
-        except Exception as e:
-            print(f"[PT] Hata {url}: {e}", file=sys.stderr)
-            traceback.print_exc(file=sys.stderr)
-    return seferler
+def _resim_hash_kontrol():
+    """Tarife resmini indir, hash'le. Değişirse log'a uyarı bas."""
+    try:
+        r = requests.get(TARIFE_IMG_URL, timeout=20, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                          "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        })
+        if r.ok:
+            md5 = hashlib.md5(r.content).hexdigest()
+            print(f"[PT] resim md5={md5} size={len(r.content)}b", file=sys.stderr)
+        else:
+            print(f"[PT] resim {r.status_code}", file=sys.stderr)
+    except Exception as e:
+        print(f"[PT] resim hash kontrolü başarısız: {e}", file=sys.stderr)
 
 
 def scrape() -> List[Sefer]:
-    seferler = _scrape_canli()
-    if seferler:
-        print(f"[PT] Canlı scrape başarılı: {len(seferler)} sefer", file=sys.stderr)
-        return seferler
-    print("[PT] Canlı scrape veri vermedi, fallback kullanılıyor", file=sys.stderr)
-    return _fallback_seferler()
+    _resim_hash_kontrol()
+
+    now = dt.datetime.now(dt.timezone(dt.timedelta(hours=3)))
+    hafta_sonu = now.weekday() >= 5  # 5=Cmt, 6=Paz
+
+    def make_sefer(saat: str, hafta_ici_only: bool, kalkis: str, varis: str, yon: str):
+        if hafta_ici_only and hafta_sonu:
+            return None
+        return Sefer(
+            kalkis_saati=saat,
+            operator=OPERATOR,
+            operator_kod=OPERATOR_KOD,
+            kalkis_iskelesi=kalkis,
+            varis_iskelesi=varis,
+            yon=yon,
+            rota=[kalkis, varis],
+            direkt=True,
+            tahmini_sure_dk=25,
+            notlar=("sadece hafta içi" if hafta_ici_only else None),
+        )
+
+    seferler: List[Sefer] = []
+
+    for saat, hi in KARTAL_BUYUKADA:
+        s = make_sefer(saat, hi, "Kartal", "Büyükada", "buyukadaya")
+        if s:
+            seferler.append(s)
+
+    for saat, hi in BUYUKADA_KARTAL:
+        s = make_sefer(saat, hi, "Büyükada", "Kartal", "buyukadadan")
+        if s:
+            seferler.append(s)
+
+    print(f"[PT] {len(seferler)} sefer (hafta_sonu={hafta_sonu})", file=sys.stderr)
+    return seferler
 
 
 if __name__ == "__main__":
