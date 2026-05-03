@@ -7,11 +7,11 @@
 <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Büyükada'ya gelen ve Büyükada'dan giden tüm vapur ve motor seferleri tek listede.">
 <title>BÜYÜKADA / SAATLER</title>
- 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
- 
+
 <style>
   :root {
     --ink:        #0a0a0a;
@@ -29,7 +29,7 @@
       --faint:  rgba(244,244,244,0.35);
     }
   }
- 
+
   * { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
@@ -47,13 +47,13 @@
   html[lang="ar"] {
     direction: rtl;
   }
- 
+
   .wrap {
     max-width: 760px;
     margin: 0 auto;
     padding: 28px 20px 48px;
   }
- 
+
   /* HEADER */
   .masthead {
     border-top: 2px solid var(--ink);
@@ -85,7 +85,7 @@
     gap: 14px;
     flex-wrap: wrap;
   }
- 
+
   /* LANG PICKER */
   .lang-picker {
     position: relative;
@@ -142,7 +142,7 @@
   }
   .lang-menu button:hover { background: var(--ink); color: var(--paper); }
   .lang-menu button.active { background: var(--ink); color: var(--paper); }
- 
+
   /* STATUS BAR */
   .status {
     background: var(--ink);
@@ -210,7 +210,7 @@
     font-size: 11px;
     display: inline-block;
   }
- 
+
   /* SAMPLE BANNER */
   .banner {
     border: 1px dashed var(--ink);
@@ -222,7 +222,7 @@
     text-align: center;
   }
   .banner-mark { font-weight: 600; margin-inline-end: 8px; }
- 
+
   /* CONTROLS */
   .controls {
     margin: 18px 0 6px;
@@ -249,7 +249,7 @@
   }
   .tab + .tab { border-inline-start: 1px solid var(--ink); }
   .tab.active { background: var(--ink); color: var(--paper); }
- 
+
   .chips {
     display: flex;
     gap: 8px;
@@ -268,14 +268,14 @@
     cursor: pointer;
   }
   .chip.active { background: var(--ink); color: var(--paper); }
- 
+
   /* COLUMN HEADER */
   .col-head {
     margin: 22px 0 0;
     padding: 0 0 6px;
     border-bottom: 1px solid var(--ink);
     display: grid;
-    grid-template-columns: 64px 36px 1fr auto;
+    grid-template-columns: 72px 36px 1fr auto;
     gap: 14px;
     font-size: 10px;
     text-transform: uppercase;
@@ -283,12 +283,12 @@
     color: var(--muted);
   }
   .col-head .ch-meta { text-align: end; }
- 
+
   /* LIST */
   .list { display: block; }
   .row {
     display: grid;
-    grid-template-columns: 64px 36px 1fr auto;
+    grid-template-columns: 72px 36px 1fr auto;
     gap: 14px;
     padding: 14px 0;
     border-bottom: 1px solid var(--rule);
@@ -320,13 +320,15 @@
     animation: emptyFade 280ms ease-out 200ms forwards;
   }
   @keyframes emptyFade { to { opacity: 1; } }
- 
+
   .r-time {
     font-size: 22px;
     font-weight: 500;
     letter-spacing: 0.02em;
     line-height: 1;
+    white-space: nowrap;
   }
+  .r-time .flap-digit { min-width: 0; }
   .r-op {
     font-size: 10px;
     font-weight: 600;
@@ -362,7 +364,7 @@
   .r-meta .rel { display: block; font-size: 11px; color: var(--ink); }
   .r-meta .rel.soon { font-weight: 600; }
   .r-meta .dur { display: block; font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
- 
+
   /* EMPTY STATE */
   .empty {
     margin: 32px 0;
@@ -381,7 +383,7 @@
     margin-bottom: 10px;
     letter-spacing: 0.4em;
   }
- 
+
   /* FOOTER */
   footer {
     margin-top: 36px;
@@ -396,7 +398,7 @@
   footer a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--faint); }
   footer a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   footer .small { text-transform: none; letter-spacing: 0; font-size: 11px; margin-top: 12px; color: var(--faint); line-height: 1.5; }
- 
+
   /* COMPACT vs FULL ROUTE — desktop default */
   .route-full { display: inline; }
   .route-compact { display: none; }
@@ -412,39 +414,43 @@
   }
   .chip-full { display: inline; }
   .chip-code { display: none; }
- 
+
   /* MOBILE */
   @media (max-width: 540px) {
     .wrap { padding: 16px 12px 32px; }
- 
+
     .brand { font-size: 11px; letter-spacing: 0.14em; }
-    .sources { font-size: 9px; gap: 10px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .src-name { display: none; }
- 
+    .sources { font-size: 9px; gap: 8px; flex-wrap: nowrap; letter-spacing: 0.1em; }
+
     .status { padding: 9px 12px; }
     .status-clock { font-size: 18px; }
-    .status-window-value { font-size: 11px; }
+    .status-window-value { font-size: 10px; letter-spacing: 0.1em; }
     .status-window-label { font-size: 9px; }
-    .status-window-value::after { font-size: 10px; margin-inline-start: 4px; }
- 
+    .status-window-value::after { font-size: 9px; margin-inline-start: 4px; }
+
     .tab { font-size: 10px; padding: 9px 6px; letter-spacing: 0.12em; }
- 
-    .chips { gap: 6px; flex-wrap: nowrap; }
-    .chip { padding: 6px 9px; font-size: 9px; letter-spacing: 0.1em; flex-shrink: 0; }
-    .chip-full { display: none; }
-    .chip-code { display: inline; }
- 
-    .row, .col-head {
-      grid-template-columns: 50px 28px minmax(0, 1fr) auto;
-      gap: 10px;
+
+    .chips { gap: 5px; flex-wrap: nowrap; }
+    .chip {
+      padding: 6px 7px;
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      flex-shrink: 1;
+      min-width: 0;
+      white-space: nowrap;
     }
-    .col-head { font-size: 9px; letter-spacing: 0.12em; }
-    .ch-meta { text-align: end; }
- 
+
+    .row, .col-head {
+      grid-template-columns: 56px 26px minmax(0, 1fr) auto;
+      gap: 8px;
+    }
+    .col-head { font-size: 9px; letter-spacing: 0.1em; }
+    .ch-meta { text-align: end; white-space: nowrap; }
+
     .row { padding: 12px 0; }
     .row.imminent { padding-inline-start: 8px; margin-inline-start: -10px; }
- 
-    .r-time { font-size: 17px; letter-spacing: 0.01em; }
+
+    .r-time { font-size: 17px; letter-spacing: 0; }
     .r-op { font-size: 9px; letter-spacing: 0.08em; }
     .r-route { font-size: 11px; line-height: 1.35; word-break: normal; }
     .r-route .arrow { padding: 0 2px; }
@@ -454,15 +460,21 @@
     .r-meta { font-size: 9px; line-height: 1.2; white-space: nowrap; }
     .r-meta .rel { font-size: 10px; }
     .r-meta .dur { font-size: 9px; }
- 
+
     .route-full { display: none; }
     .route-compact { display: inline; }
+  }
+
+  /* VERY SMALL — operatör adlarını kısalt (M.MARMARA, PRENS.T) */
+  @media (max-width: 380px) {
+    .chip { font-size: 8.5px; padding: 6px 6px; letter-spacing: 0.04em; }
+    .sources { font-size: 8.5px; gap: 6px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
- 
+
   <header class="masthead">
     <div class="masthead-row">
       <h1 class="brand" data-i18n="brand">BÜYÜKADA / SAATLER</h1>
@@ -486,7 +498,7 @@
       <span>PT<span class="src-name"> · PRENS TUR</span></span>
     </div>
   </header>
- 
+
   <div class="status">
     <div class="status-now">
       <span class="status-clock" id="nowClock">
@@ -499,11 +511,11 @@
       <span class="status-window-value" id="windowValue">SONRAKI 3 SAAT</span>
     </div>
   </div>
- 
+
   <div id="sampleBanner" class="banner" style="display:none">
     <span class="banner-mark">[!]</span><span data-i18n="bannerSample">ÖRNEK VERİ — CANLI SCRAPE BAĞLANACAK</span>
   </div>
- 
+
   <div class="controls">
     <div class="tabs" role="tablist">
       <button class="tab active" data-yon="buyukadaya" data-i18n="toBuyukada">BÜYÜKADA'YA</button>
@@ -516,16 +528,16 @@
       <button class="chip" data-op="PT"><span class="chip-full">PRENS TUR</span><span class="chip-code">PT</span></button>
     </div>
   </div>
- 
+
   <div class="col-head">
     <div data-i18n="colTime">SAAT</div>
     <div data-i18n="colOp">OP</div>
     <div data-i18n="colRoute">ROTA</div>
     <div class="ch-meta" data-i18n="colDuration">SÜRE</div>
   </div>
- 
+
   <div class="list" id="list"></div>
- 
+
   <footer>
     <div><span data-i18n="source">KAYNAK</span> ·
       <a href="https://sehirhatlari.istanbul" target="_blank" rel="noopener">sehirhatlari.istanbul</a> ·
@@ -536,7 +548,7 @@
     <p class="small" data-i18n="disclaimer">Resmi bir kaynak değildir. Yolculuk öncesi resmi sitelerden teyit etmeniz önerilir.</p>
   </footer>
 </div>
- 
+
 <script>
   // ====== I18N ======
   const I18N = {
@@ -637,16 +649,16 @@
       locale: "fr-FR",
     },
   };
- 
+
   let LANG = (function () {
     const saved = localStorage.getItem("lang");
     if (saved && I18N[saved]) return saved;
     const browser = (navigator.language || "tr").slice(0, 2).toLowerCase();
     return I18N[browser] ? browser : "tr";
   })();
- 
+
   function t() { return I18N[LANG]; }
- 
+
   function applyI18n() {
     const tr = t();
     document.documentElement.lang = tr.htmlLang;
@@ -662,7 +674,7 @@
       b.classList.toggle("active", b.dataset.lang === LANG);
     });
   }
- 
+
   function setLang(newLang) {
     if (!I18N[newLang] || LANG === newLang) return;
     LANG = newLang;
@@ -672,7 +684,7 @@
     lastRenderedKeys = new Set();
     render("all");
   }
- 
+
   // ====== STATE ======
   const PENCERE_OPTIONS = [180, 1440]; // 3 saat ↔ 24 saat
   let pencereDk = (function () {
@@ -683,11 +695,11 @@
   let aktifYon = "buyukadaya";
   let aktifOp  = "all";
   let lastRenderedKeys = new Set();
- 
+
   function windowText() {
     return t().windowFmt.replace("{h}", pencereDk / 60);
   }
- 
+
   // ====== HELPERS ======
   function ikiHane(n) { return n.toString().padStart(2, "0"); }
   function bugunSaatleyen(saat) {
@@ -713,7 +725,7 @@
     if (ka === 0) return sa + " " + tr.hr;
     return sa + " " + tr.hr + " " + ka + " " + tr.min;
   }
- 
+
   // ====== CLOCK FLAP ======
   function nowDigits() {
     const d = new Date();
@@ -740,7 +752,7 @@
       setTimeout(() => flipDigit(el, target[i]), i * 60);
     });
   }
- 
+
   // ====== EMBEDDED FALLBACK ======
   const EMBEDDED_DATA = {
     "updated_at": null,
@@ -751,7 +763,7 @@
       {"kalkis_saati":"22:00","operator":"Şehir Hatları","operator_kod":"SH","kalkis_iskelesi":"Büyükada","varis_iskelesi":"Bostancı","yon":"buyukadadan","rota":["Büyükada","Heybeliada","Bostancı"],"direkt":false,"tahmini_sure_dk":45}
     ]
   };
- 
+
   async function veriYukle() {
     try {
       const r = await fetch("./data/seferler.json?t=" + Date.now());
@@ -772,7 +784,7 @@
       ? upd.toLocaleString(t().locale, { dateStyle: "medium", timeStyle: "short" }).toUpperCase()
       : "—";
   }
- 
+
   function aktifSeferler() {
     if (!veriler || !veriler.seferler) return [];
     const now = new Date();
@@ -787,17 +799,17 @@
       .filter(s => s._zaman >= now && s._zaman <= sonra)
       .sort((a, b) => a._zaman - b._zaman);
   }
- 
+
   function rotaHtml(s) {
     const ok = '<span class="arrow">→</span>';
     const direct = `<span class="direkt">${t().direct}</span>`;
     const startUp = s.kalkis_iskelesi.toUpperCase();
     const endUp = s.varis_iskelesi.toUpperCase();
- 
+
     if (s.direkt || s.rota.length <= 2) {
       return `<span class="endpoint">${startUp}</span>${ok}<span class="endpoint">${endUp}</span>${direct}`;
     }
- 
+
     const stopsCount = s.rota.length - 2;
     const fullParts = s.rota.map((r, i) => {
       const cls = (i === 0 || i === s.rota.length - 1) ? "endpoint" : "stop";
@@ -807,16 +819,16 @@
     const compact = `<span class="route-compact"><span class="endpoint">${startUp}</span>${ok}<span class="endpoint">${endUp}</span><span class="stops-count">+${stopsCount}</span></span>`;
     return full + compact;
   }
- 
+
   function rowKey(s) {
     return `${s.operator_kod}|${s.kalkis_saati}|${s.kalkis_iskelesi}|${s.varis_iskelesi}|${s.yon}`;
   }
- 
+
   function render(mode) {
     mode = mode || "none";
     const list = document.getElementById("list");
     const items = aktifSeferler();
- 
+
     if (items.length === 0) {
       list.innerHTML = `
         <div class="empty${mode !== "none" ? " in" : ""}">
@@ -826,16 +838,16 @@
       lastRenderedKeys = new Set();
       return;
     }
- 
+
     const currentKeys = new Set(items.map(rowKey));
     let newRowOrder = 0;
     const flapPlan = [];
- 
+
     list.innerHTML = items.map((s, i) => {
       const key = rowKey(s);
       let shouldAnimate = false;
       let delay = 0;
- 
+
       if (mode === "all") {
         shouldAnimate = true;
         delay = 200 + Math.min(i, 12) * 55;
@@ -844,22 +856,22 @@
         delay = Math.min(newRowOrder, 8) * 80;
         newRowOrder++;
       }
- 
+
       const imminent = s._dk <= 30;
       const soon = s._dk <= 60;
       let cls = "row";
       if (imminent) cls += " imminent";
       if (shouldAnimate) cls += " in";
       const style = shouldAnimate ? ` style="animation-delay: ${delay}ms"` : "";
- 
+
       const timeHTML = shouldAnimate
         ? `<span class="flap-digit">-</span><span class="flap-digit">-</span><span class="flap-colon">:</span><span class="flap-digit">-</span><span class="flap-digit">-</span>`
         : s.kalkis_saati;
- 
+
       if (shouldAnimate) {
         flapPlan.push({ idx: i, saat: s.kalkis_saati, delay: delay + 280 });
       }
- 
+
       return `
         <div class="${cls}" data-row-idx="${i}"${style}>
           <div class="r-time">${timeHTML}</div>
@@ -871,7 +883,7 @@
           </div>
         </div>`;
     }).join("");
- 
+
     // Saat rakamlarını clock gibi flap ile yerleştir
     flapPlan.forEach(plan => {
       const row = list.querySelector(`.row[data-row-idx="${plan.idx}"]`);
@@ -886,10 +898,10 @@
         }, plan.delay + di * 55);
       });
     });
- 
+
     lastRenderedKeys = currentKeys;
   }
- 
+
   // ====== EVENTS ======
   document.querySelectorAll(".tab").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -909,7 +921,7 @@
       render("all");
     });
   });
- 
+
   // Lang picker
   const langBtn = document.getElementById("langBtn");
   const langMenu = document.getElementById("langMenu");
@@ -932,7 +944,7 @@
       langBtn.setAttribute("aria-expanded", "false");
     }
   });
- 
+
   // Window toggle (3 saat ↔ 24 saat)
   function togglePencere() {
     const idx = PENCERE_OPTIONS.indexOf(pencereDk);
@@ -946,7 +958,7 @@
   document.getElementById("windowToggle").addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); togglePencere(); }
   });
- 
+
   // ====== INIT ======
   (async () => {
     applyI18n();
@@ -959,4 +971,3 @@
 </script>
 </body>
 </html>
- 
