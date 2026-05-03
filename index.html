@@ -128,15 +128,13 @@
   .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   .nav a.active { color: var(--ink); border-bottom: 1px solid var(--ink); }
 
-  /* MASTHEAD CONTROLS (theme + lang) */
-  .masthead-row { align-items: flex-start; }
+  /* MASTHEAD CONTROLS (weather + theme + lang in single row) */
+  .masthead-row { align-items: center; }
   .masthead-controls {
     display: flex;
-    flex-direction: column;
     gap: 8px;
-    align-items: flex-end;
+    align-items: center;
   }
-  .controls-row { display: flex; gap: 6px; align-items: center; }
   .theme-btn {
     font-family: inherit;
     font-size: 13px;
@@ -548,37 +546,35 @@
 
   <header class="masthead">
     <div class="masthead-row">
-      <h1 class="brand" data-i18n="brand">BÜYÜKADA / SEFERLER</h1>
+      <h1 class="brand" data-i18n="brand">BÜYÜKADA</h1>
       <div class="masthead-controls">
-        <div class="controls-row">
-          <button class="theme-btn" id="themeBtn" aria-label="Tema değiştir / Toggle theme">
-            <span id="themeIcon">☾</span>
-          </button>
-          <div class="lang-picker">
-            <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
-              <span id="langCurrent">TR</span><span class="caret">▾</span>
-            </button>
-            <div class="lang-menu" id="langMenu" role="menu">
-              <button data-lang="tr">TR</button>
-              <button data-lang="en">EN</button>
-              <button data-lang="ru">RU</button>
-              <button data-lang="ar">AR</button>
-              <button data-lang="de">DE</button>
-              <button data-lang="fr">FR</button>
-            </div>
-          </div>
-        </div>
         <div class="weather-mini" id="weatherBox">
           <span class="w-icon" id="wIcon"></span>
-          <span class="w-temp" id="wTemp">— / —</span>
+          <span class="w-temp" id="wTemp">—°/—°</span>
+        </div>
+        <button class="theme-btn" id="themeBtn" aria-label="Tema değiştir / Toggle theme">
+          <span id="themeIcon">☾</span>
+        </button>
+        <div class="lang-picker">
+          <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+            <span id="langCurrent">TR</span><span class="caret">▾</span>
+          </button>
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button data-lang="tr">TR</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="ru">RU</button>
+            <button data-lang="ar">AR</button>
+            <button data-lang="de">DE</button>
+            <button data-lang="fr">FR</button>
+          </div>
         </div>
       </div>
     </div>
     <div class="nav">
-      <a href="./index.html" class="active">SEFERLER</a>
-      <a href="./tur.html">TUR</a>
-      <a href="./whatson.html">ETKİNLİKLER</a>
-      <a href="./ulasim.html">OTOBÜSLER</a>
+      <a href="./index.html" class="active" data-i18n="navSeferler">SEFERLER</a>
+      <a href="./tur.html" data-i18n="navTur">TUR</a>
+      <a href="./whatson.html" data-i18n="navEtkinlik">ETKİNLİKLER</a>
+      <a href="./ulasim.html" data-i18n="navOtobus">OTOBÜSLER</a>
     </div>
   </header>
 
@@ -637,7 +633,7 @@
   const I18N = {
     tr: {
       htmlLang: "tr", title: "BÜYÜKADA / SEFERLER",
-      brand: "BÜYÜKADA / SEFERLER",
+      brand: "BÜYÜKADA", navSeferler: "SEFERLER", navTur: "TUR", navEtkinlik: "ETKİNLİKLER", navOtobus: "OTOBÜSLER",
       windowLabel: "PENCERE", windowFmt: "SONRAKI {h} SAAT",
       bannerSample: "ÖRNEK VERİ — CANLI SCRAPE BAĞLANACAK",
       toBuyukada: "BÜYÜKADA'YA", fromBuyukada: "BÜYÜKADA'DAN",
@@ -653,7 +649,7 @@
     },
     en: {
       htmlLang: "en", title: "BÜYÜKADA / SCHEDULE",
-      brand: "BÜYÜKADA / SCHEDULE",
+      brand: "BÜYÜKADA", navSeferler: "FERRIES", navTur: "TOUR", navEtkinlik: "WHAT'S ON", navOtobus: "BUSES",
       windowLabel: "WINDOW", windowFmt: "NEXT {h} HOURS",
       bannerSample: "SAMPLE DATA — LIVE SCRAPE PENDING",
       toBuyukada: "TO BÜYÜKADA", fromBuyukada: "FROM BÜYÜKADA",
@@ -669,7 +665,7 @@
     },
     ru: {
       htmlLang: "ru", title: "БЮЮКАДА / РАСПИСАНИЕ",
-      brand: "БЮЮКАДА / РАСПИСАНИЕ",
+      brand: "БЮЮКАДА", navSeferler: "ПАРОМЫ", navTur: "ТУР", navEtkinlik: "СОБЫТИЯ", navOtobus: "АВТОБУСЫ",
       windowLabel: "ОКНО", windowFmt: "БЛИЖАЙШИЕ {h} ЧАСА",
       bannerSample: "ПРИМЕР ДАННЫХ — СКРЕЙП В ОЖИДАНИИ",
       toBuyukada: "В БЮЮКАДУ", fromBuyukada: "ИЗ БЮЮКАДЫ",
@@ -685,7 +681,7 @@
     },
     ar: {
       htmlLang: "ar", title: "بيوكادا / المواعيد",
-      brand: "بيوكادا / المواعيد",
+      brand: "بيوكادا", navSeferler: "الرحلات", navTur: "الجولة", navEtkinlik: "الفعاليات", navOtobus: "الحافلات",
       windowLabel: "النافذة", windowFmt: "الـ{h} ساعة القادمة",
       bannerSample: "بيانات تجريبية — في انتظار البيانات الحية",
       toBuyukada: "إلى بيوكادا", fromBuyukada: "من بيوكادا",
@@ -701,7 +697,7 @@
     },
     de: {
       htmlLang: "de", title: "BÜYÜKADA / FAHRPLAN",
-      brand: "BÜYÜKADA / FAHRPLAN",
+      brand: "BÜYÜKADA", navSeferler: "FÄHREN", navTur: "TOUR", navEtkinlik: "VERANSTALTUNGEN", navOtobus: "BUSSE",
       windowLabel: "FENSTER", windowFmt: "NÄCHSTE {h} STUNDEN",
       bannerSample: "BEISPIELDATEN — LIVE-SCRAPE FOLGT",
       toBuyukada: "NACH BÜYÜKADA", fromBuyukada: "VON BÜYÜKADA",
@@ -717,7 +713,7 @@
     },
     fr: {
       htmlLang: "fr", title: "BÜYÜKADA / HORAIRES",
-      brand: "BÜYÜKADA / HORAIRES",
+      brand: "BÜYÜKADA", navSeferler: "FERRIES", navTur: "VISITE", navEtkinlik: "ÉVÉNEMENTS", navOtobus: "BUS",
       windowLabel: "FENÊTRE", windowFmt: "{h} PROCHAINES HEURES",
       bannerSample: "DONNÉES D'EXEMPLE — SCRAPE EN ATTENTE",
       toBuyukada: "VERS BÜYÜKADA", fromBuyukada: "DEPUIS BÜYÜKADA",
@@ -1111,7 +1107,7 @@
     const code = d.daily.weathercode[0];
     const wind = d.daily.windspeed_10m_max[0];
     document.getElementById("wIcon").innerHTML = weatherIcon(code, wind);
-    document.getElementById("wTemp").textContent = `${low}° / ${high}°`;
+    document.getElementById("wTemp").textContent = `${low}°/${high}°`;
     document.getElementById("weatherBox").classList.add("loaded");
   }
 
