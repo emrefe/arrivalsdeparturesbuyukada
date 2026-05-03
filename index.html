@@ -69,6 +69,23 @@
     padding: 28px 20px 48px;
   }
 
+  /* WEATHER STRIP — minimal, sayfa başı */
+  .weather-strip {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 6px 0 14px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    visibility: hidden;
+  }
+  .weather-strip.loaded { visibility: visible; }
+  .w-icon { font-size: 14px; opacity: 0.85; }
+  .w-temp { font-weight: 500; color: var(--ink); }
+  .w-loc { opacity: 0.55; margin-inline-start: auto; }
+
   /* HEADER */
   .masthead {
     border-top: 2px solid var(--ink);
@@ -523,6 +540,12 @@
 </head>
 <body>
 <div class="wrap">
+
+  <div class="weather-strip" id="weatherStrip">
+    <span class="w-icon" id="wIcon">·</span>
+    <span class="w-temp" id="wTemp">— / —</span>
+    <span class="w-loc">BÜYÜKADA</span>
+  </div>
 
   <header class="masthead">
     <div class="masthead-row">
@@ -1044,10 +1067,47 @@
 
   document.getElementById("themeBtn").addEventListener("click", toggleTheme);
 
+  // ====== WEATHER ======
+  async function loadWeather() {
+    try {
+      const cached = sessionStorage.getItem("weather_v1");
+      if (cached) {
+        const c = JSON.parse(cached);
+        if (Date.now() - c.t < 60 * 60 * 1000) return c.data;
+      }
+      const r = await fetch("https://api.open-meteo.com/v1/forecast?latitude=40.87&longitude=29.13&daily=temperature_2m_max,temperature_2m_min,weathercode,windspeed_10m_max&timezone=Europe/Istanbul&forecast_days=1");
+      const d = await r.json();
+      sessionStorage.setItem("weather_v1", JSON.stringify({ t: Date.now(), data: d }));
+      return d;
+    } catch (e) { return null; }
+  }
+  function weatherIcon(code, windKmh) {
+    if (windKmh > 35) return "💨";
+    if (code === 0) return "☀";
+    if (code <= 3) return "⛅";
+    if (code <= 48) return "☁";
+    if (code <= 67) return "☔";
+    if (code <= 77) return "❄";
+    if (code <= 82) return "☔";
+    return "⛈";
+  }
+  async function applyWeather() {
+    const d = await loadWeather();
+    if (!d || !d.daily) return;
+    const high = Math.round(d.daily.temperature_2m_max[0]);
+    const low = Math.round(d.daily.temperature_2m_min[0]);
+    const code = d.daily.weathercode[0];
+    const wind = d.daily.windspeed_10m_max[0];
+    document.getElementById("wIcon").textContent = weatherIcon(code, wind);
+    document.getElementById("wTemp").textContent = `${low}° / ${high}°`;
+    document.getElementById("weatherStrip").classList.add("loaded");
+  }
+
   // ====== INIT ======
   (async () => {
     applyTheme();
     applyI18n();
+    applyWeather();
     document.getElementById("nowDay").textContent = gunUzun(new Date());
     await veriYukle();
     render("all");
