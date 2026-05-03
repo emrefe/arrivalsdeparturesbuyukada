@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Büyükada'ya gelen ziyaretçiler için kişisel tur planlayıcı. Köşk küratörlüğünde.">
+<title>BÜYÜKADA / TUR PLANLAYICI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #ffffff;
+    --rule: rgba(10,10,10,0.16);
+    --muted: rgba(10,10,10,0.55);
+    --faint: rgba(10,10,10,0.35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #f4f4f4;
+      --paper: #0a0a0a;
+      --rule: rgba(244,244,244,0.18);
+      --muted: rgba(244,244,244,0.55);
+      --faint: rgba(244,244,244,0.35);
+    }
+  }
+  html.theme-light {
+    --ink: #0a0a0a; --paper: #ffffff;
+    --rule: rgba(10,10,10,0.16); --muted: rgba(10,10,10,0.55); --faint: rgba(10,10,10,0.35);
+  }
+  html.theme-dark {
+    --ink: #f4f4f4; --paper: #0a0a0a;
+    --rule: rgba(244,244,244,0.18); --muted: rgba(244,244,244,0.55); --faint: rgba(244,244,244,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Mono','SF Mono','JetBrains Mono','Menlo','Consolas',monospace;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  html[lang="ar"] body { font-family: 'IBM Plex Sans Arabic','IBM Plex Mono','Menlo',monospace; }
+  html[lang="ar"] { direction: rtl; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  .masthead {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 14px 0 10px;
+    margin-bottom: 20px;
+  }
+  .masthead-row {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .brand { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; margin: 0; }
+  .nav {
+    margin-top: 10px;
+    display: flex; gap: 18px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em;
+  }
+  .nav a { color: var(--muted); text-decoration: none; padding: 2px 0; border-bottom: 1px dotted var(--faint); }
+  .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .nav a.active { color: var(--ink); border-bottom: 1px solid var(--ink); }
+
+  .masthead-controls { display: flex; gap: 6px; align-items: center; }
+  .theme-btn {
+    font-family: inherit; font-size: 13px; line-height: 1;
+    padding: 5px 10px; background: transparent; color: var(--ink);
+    border: 1px solid var(--ink); cursor: pointer; min-width: 36px;
+  }
+  .theme-btn:hover { background: var(--ink); color: var(--paper); }
+
+  .lang-picker { position: relative; }
+  .lang-btn {
+    font-family: inherit; font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    padding: 5px 10px; background: transparent; color: var(--ink);
+    border: 1px solid var(--ink); cursor: pointer; min-width: 56px;
+  }
+  .lang-btn .caret { margin-inline-start: 4px; opacity: 0.5; }
+  .lang-menu {
+    position: absolute; inset-inline-end: 0; top: calc(100% + 4px);
+    background: var(--paper); border: 1px solid var(--ink);
+    z-index: 20; min-width: 56px; display: none;
+  }
+  .lang-menu.open { display: block; }
+  .lang-menu button {
+    display: block; width: 100%; text-align: start;
+    font-family: inherit; font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    padding: 7px 12px; background: transparent; color: var(--ink);
+    border: none; cursor: pointer;
+  }
+  .lang-menu button:hover, .lang-menu button.active { background: var(--ink); color: var(--paper); }
+
+  /* TAGLINE */
+  .tagline {
+    margin: 16px 0 24px;
+    font-size: 12px; color: var(--muted);
+    line-height: 1.6;
+    text-align: center;
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 22px;
+  }
+
+  /* FORM */
+  .form-section { margin-bottom: 22px; }
+  .form-label {
+    font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.18em;
+    margin-bottom: 10px;
+    display: flex; gap: 8px; align-items: baseline;
+  }
+  .form-label .num { color: var(--ink); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    background: transparent; border: 1px solid var(--ink); color: var(--ink);
+    font-family: inherit; font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 8px 12px; cursor: pointer;
+    transition: background 100ms, color 100ms;
+  }
+  .chip:hover { background: var(--rule); }
+  .chip.active { background: var(--ink); color: var(--paper); }
+
+  /* CTA */
+  .cta {
+    width: 100%; background: var(--ink); color: var(--paper);
+    border: none; font-family: inherit;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 16px; margin: 18px 0 6px;
+    cursor: pointer;
+  }
+  .cta:hover { opacity: 0.9; }
+  .cta-sub {
+    margin-top: -2px; margin-bottom: 18px;
+    font-size: 10px; color: var(--muted);
+    text-align: center; text-transform: uppercase; letter-spacing: 0.14em;
+  }
+
+  /* RESULT */
+  .result {
+    margin-top: 28px;
+    border-top: 2px solid var(--ink);
+    padding-top: 18px;
+  }
+  .result.empty { display: none; }
+  .result-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 16px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+  }
+  .result-title { font-weight: 600; }
+  .result-meta { color: var(--muted); font-size: 10px; }
+
+  .stop {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: baseline;
+  }
+  .stop:last-of-type { border-bottom: 1px solid var(--ink); }
+  .stop-time {
+    font-size: 18px; font-weight: 500; letter-spacing: 0.04em; line-height: 1;
+    white-space: nowrap;
+  }
+  .stop-name {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+  .stop-meta {
+    font-size: 11px; color: var(--muted); margin-top: 4px;
+    line-height: 1.4;
+  }
+  .stop-meta .tags { text-transform: uppercase; letter-spacing: 0.1em; }
+  .stop-cost {
+    text-align: end; font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .stop-cost.free, .stop-cost.bookend {
+    color: var(--ink); font-weight: 600;
+  }
+  .stop-editorial {
+    margin-top: 6px;
+    font-size: 11px; color: var(--muted); font-style: italic;
+    line-height: 1.5;
+  }
+  .stop.bookend { background: transparent; }
+  .stop.bookend .stop-name { font-size: 12px; letter-spacing: 0.1em; }
+  .stop.bookend .stop-meta { font-size: 10px; }
+
+  .walk {
+    padding: 4px 0 4px 74px;
+    font-size: 10px;
+    color: var(--faint);
+    text-transform: uppercase; letter-spacing: 0.14em;
+  }
+  .walk::before { content: "↓ "; opacity: 0.6; }
+
+  .actions {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px;
+  }
+  .action {
+    background: transparent; border: 1px solid var(--ink); color: var(--ink);
+    font-family: inherit; font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 8px 12px; cursor: pointer;
+  }
+  .action:hover { background: var(--ink); color: var(--paper); }
+
+  /* CASCADE — same wipe as saatler */
+  .stop.in {
+    animation: stopWipe 480ms cubic-bezier(.4,0,.2,1) both;
+  }
+  @keyframes stopWipe {
+    from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+    to   { clip-path: inset(0 0 0 0); opacity: 1; }
+  }
+  html[lang="ar"] .stop.in { animation-name: stopWipeRTL; }
+  @keyframes stopWipeRTL {
+    from { clip-path: inset(0 0 0 100%); opacity: 0.4; }
+    to   { clip-path: inset(0 0 0 0); opacity: 1; }
+  }
+  .walk.in {
+    opacity: 0;
+    animation: walkFade 280ms ease-out both;
+  }
+  @keyframes walkFade {
+    to { opacity: 1; }
+  }
+
+  /* EMPTY */
+  .empty-state {
+    margin: 32px 0; padding: 36px 16px;
+    text-align: center; border: 1px dashed var(--ink);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 44px; padding-top: 16px;
+    border-top: 1px solid var(--ink);
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.14em;
+    line-height: 1.7;
+  }
+  footer a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--faint); }
+  footer a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  footer .small { text-transform: none; letter-spacing: 0; font-size: 11px; margin-top: 12px; color: var(--faint); line-height: 1.5; }
+
+  /* MOBILE */
+  @media (max-width: 540px) {
+    .wrap { padding: 16px 12px 36px; }
+    .brand { font-size: 11px; letter-spacing: 0.14em; }
+    .theme-btn { font-size: 14px; padding: 5px 9px; }
+    .lang-btn { font-size: 11px; padding: 5px 9px; }
+
+    .form-label { font-size: 10px; letter-spacing: 0.16em; }
+    .chip { font-size: 10px; padding: 8px 10px; letter-spacing: 0.08em; }
+
+    .cta { font-size: 12px; padding: 16px; letter-spacing: 0.2em; }
+
+    .stop { grid-template-columns: 56px 1fr auto; gap: 10px; padding: 14px 0; }
+    .stop-time { font-size: 18px; }
+    .stop-name { font-size: 13px; }
+    .stop-meta { font-size: 10px; }
+    .stop-cost { font-size: 10px; }
+    .walk { padding-inline-start: 66px; font-size: 9.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-row">
+      <h1 class="brand" data-i18n="brand">BÜYÜKADA / TUR PLANLAYICI</h1>
+      <div class="masthead-controls">
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon">☾</span></button>
+        <div class="lang-picker">
+          <button class="lang-btn" id="langBtn" aria-haspopup="true">
+            <span id="langCurrent">TR</span><span class="caret">▾</span>
+          </button>
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button data-lang="tr">TR</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="ru">RU</button>
+            <button data-lang="ar">AR</button>
+            <button data-lang="de">DE</button>
+            <button data-lang="fr">FR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="./index.html" data-i18n="navSaatler">SAATLER</a>
+      <a href="./tur.html" class="active" data-i18n="navTur">TUR</a>
+    </div>
+  </header>
+
+  <p class="tagline" data-i18n="tagline">
+    Büyükada'ya gelen birine 4 soruyla küratörlü bir tur. Köşk imzası.
+  </p>
+
+  <div class="form-section">
+    <div class="form-label"><span class="num">01</span> <span data-i18n="qTime">KAÇ SAATİN VAR?</span></div>
+    <div class="chips" data-group="time" data-mode="single">
+      <button class="chip" data-val="2">2 SAAT</button>
+      <button class="chip active" data-val="4">4 SAAT</button>
+      <button class="chip" data-val="6" data-i18n="halfDay">YARIM GÜN</button>
+      <button class="chip" data-val="10" data-i18n="fullDay">TAM GÜN</button>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-label"><span class="num">02</span> <span data-i18n="qBudget">BÜTÇE</span></div>
+    <div class="chips" data-group="budget" data-mode="single">
+      <button class="chip" data-val="0" data-i18n="free">BEDAVA</button>
+      <button class="chip" data-val="1">$</button>
+      <button class="chip active" data-val="2">$$</button>
+      <button class="chip" data-val="3">$$$</button>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-label"><span class="num">03</span> <span data-i18n="qInterests">NE YAPMAK İSTERSİN?</span></div>
+    <div class="chips" data-group="tags" data-mode="multi">
+      <button class="chip active" data-val="swim" data-i18n="tagSwim">YÜZME</button>
+      <button class="chip active" data-val="walk" data-i18n="tagWalk">YÜRÜYÜŞ</button>
+      <button class="chip" data-val="bike" data-i18n="tagBike">BİSİKLET</button>
+      <button class="chip active" data-val="food" data-i18n="tagFood">YEMEK</button>
+      <button class="chip" data-val="cafe" data-i18n="tagCafe">KAHVE</button>
+      <button class="chip" data-val="picnic" data-i18n="tagPicnic">PİKNİK</button>
+      <button class="chip" data-val="history" data-i18n="tagHistory">TARİH</button>
+      <button class="chip" data-val="arch" data-i18n="tagArch">MİMARİ</button>
+      <button class="chip" data-val="photo" data-i18n="tagPhoto">FOTOĞRAF</button>
+      <button class="chip active" data-val="chill" data-i18n="tagChill">SAKİN</button>
+      <button class="chip" data-val="nature" data-i18n="tagNature">DOĞA</button>
+      <button class="chip" data-val="sunset" data-i18n="tagSunset">GÜN BATIMI</button>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-label"><span class="num">04</span> <span data-i18n="qEnergy">ENERJİ</span></div>
+    <div class="chips" data-group="energy" data-mode="single">
+      <button class="chip" data-val="chill" data-i18n="energyChill">SAKİN</button>
+      <button class="chip active" data-val="normal" data-i18n="energyNormal">NORMAL</button>
+      <button class="chip" data-val="active" data-i18n="energyActive">AKTİF</button>
+    </div>
+  </div>
+
+  <button class="cta" id="generateBtn" data-i18n="ctaGenerate">TUR DÜZENLE →</button>
+  <div class="cta-sub" data-i18n="ctaSub">DEFAULT'TA "ŞAŞIRT BENİ" — TÜM TERCİHLERİ DEĞİŞTİR</div>
+
+  <div class="result empty" id="result"></div>
+
+  <footer>
+    <div data-i18n="curatedBy">KÜRATÖRLÜK · KÖŞK BÜYÜKADA</div>
+    <div><span data-i18n="dataSources">VERİ KAYNAKLARI:</span> köşk araştırması, adagazetesi, hellovillam, vintage bisiklet</div>
+    <p class="small" data-i18n="disclaimer">Saatler ve fiyatlar tahminidir. Yer ziyaretinden önce güncel açılış saatlerini ve giriş ücretlerini teyit edin.</p>
+  </footer>
+</div>
+
+<script>
+  // ====== I18N ======
+  const I18N = {
+    tr: {
+      htmlLang: "tr", title: "BÜYÜKADA / TUR PLANLAYICI",
+      brand: "BÜYÜKADA / TUR PLANLAYICI",
+      navSaatler: "SAATLER", navTur: "TUR",
+      tagline: "Büyükada'ya gelen birine 4 soruyla küratörlü bir tur. Köşk imzası.",
+      qTime: "KAÇ SAATİN VAR?", qBudget: "BÜTÇE", qInterests: "NE YAPMAK İSTERSİN?", qEnergy: "ENERJİ",
+      halfDay: "YARIM GÜN", fullDay: "TAM GÜN", free: "BEDAVA",
+      tagSwim: "YÜZME", tagWalk: "YÜRÜYÜŞ", tagBike: "BİSİKLET", tagFood: "YEMEK",
+      tagCafe: "KAHVE", tagPicnic: "PİKNİK", tagHistory: "TARİH", tagArch: "MİMARİ",
+      tagPhoto: "FOTOĞRAF", tagChill: "SAKİN", tagNature: "DOĞA", tagSunset: "GÜN BATIMI",
+      energyChill: "SAKİN", energyNormal: "NORMAL", energyActive: "AKTİF",
+      ctaGenerate: "TUR DÜZENLE →", ctaSub: "DEĞİŞTİR · YENİDEN OLUŞTUR · KEŞFET",
+      curatedBy: "KÜRATÖRLÜK · KÖŞK BÜYÜKADA",
+      dataSources: "KAYNAK:",
+      disclaimer: "Saatler ve fiyatlar tahminidir. Yer ziyaretinden önce güncel açılış saatlerini ve giriş ücretlerini teyit edin.",
+      arrival: "GELİŞ · İSKELE", departure: "DÖNÜŞ · İSKELE",
+      walkLabel: "YÜRÜYÜŞ", bikeLabel: "BİSİKLET",
+      stopCount: "DURAK", durLabel: "SAAT",
+      ferryStart: "VAPUR · BOSTANCI/KABATAŞ",
+      ferryEnd: "DÖNÜŞ VAPURU İÇİN /SAATLER SAYFASINA BAK",
+      regenerate: "⟲ YENİ TUR", edit: "DÜZENLE", share: "PAYLAŞ", print: "YAZDIR",
+      empty: "EN AZ BİR İLGİ ALANI SEÇ",
+      noFit: "BU SÜRE/BÜTÇE İÇİN UYGUN ROTA BULUNAMADI — FİLTRELERİ GENİŞLET",
+      tourTitle: "TUR · {h} SAAT", direct: "DİREKT", min: "DK",
+      locale: "tr-TR",
+    },
+    en: {
+      htmlLang: "en", title: "BÜYÜKADA / TOUR PLANNER",
+      brand: "BÜYÜKADA / TOUR PLANNER",
+      navSaatler: "SCHEDULE", navTur: "TOUR",
+      tagline: "Curated tour for Büyükada visitors in 4 questions. Köşk's imprint.",
+      qTime: "HOW MUCH TIME?", qBudget: "BUDGET", qInterests: "WHAT DO YOU WANT TO DO?", qEnergy: "ENERGY",
+      halfDay: "HALF DAY", fullDay: "FULL DAY", free: "FREE",
+      tagSwim: "SWIM", tagWalk: "WALK", tagBike: "BIKE", tagFood: "FOOD",
+      tagCafe: "CAFE", tagPicnic: "PICNIC", tagHistory: "HISTORY", tagArch: "ARCH",
+      tagPhoto: "PHOTO", tagChill: "CHILL", tagNature: "NATURE", tagSunset: "SUNSET",
+      energyChill: "CHILL", energyNormal: "NORMAL", energyActive: "ACTIVE",
+      ctaGenerate: "BUILD MY TOUR →", ctaSub: "TWEAK · REGENERATE · DISCOVER",
+      curatedBy: "CURATED BY · KÖŞK BÜYÜKADA",
+      dataSources: "SOURCES:",
+      disclaimer: "Times and prices are estimates. Verify opening hours and fees before visiting each place.",
+      arrival: "ARRIVAL · PIER", departure: "DEPARTURE · PIER",
+      walkLabel: "WALK", bikeLabel: "BIKE",
+      stopCount: "STOPS", durLabel: "H",
+      ferryStart: "FERRY · BOSTANCI/KABATAŞ",
+      ferryEnd: "FOR RETURN FERRY SEE /SCHEDULE PAGE",
+      regenerate: "⟲ NEW TOUR", edit: "EDIT", share: "SHARE", print: "PRINT",
+      empty: "PICK AT LEAST ONE INTEREST",
+      noFit: "NO TOUR FITS THIS TIME/BUDGET — RELAX YOUR FILTERS",
+      tourTitle: "TOUR · {h}H", direct: "DIRECT", min: "MIN",
+      locale: "en-GB",
+    },
+    ru: {
+      htmlLang: "ru", title: "БЮЮКАДА / ПЛАН ТУРА",
+      brand: "БЮЮКАДА / ПЛАН ТУРА",
+      navSaatler: "РАСПИСАНИЕ", navTur: "ТУР",
+      tagline: "Подобранный тур для посетителей Бююкады за 4 вопроса. От Köşk.",
+      qTime: "СКОЛЬКО ВРЕМЕНИ?", qBudget: "БЮДЖЕТ", qInterests: "ЧТО ХОТИТЕ ДЕЛАТЬ?", qEnergy: "ЭНЕРГИЯ",
+      halfDay: "ПОЛДНЯ", fullDay: "ВЕСЬ ДЕНЬ", free: "БЕСПЛАТНО",
+      tagSwim: "ПЛАВАТЬ", tagWalk: "ХОДИТЬ", tagBike: "ВЕЛО", tagFood: "ЕДА",
+      tagCafe: "КОФЕ", tagPicnic: "ПИКНИК", tagHistory: "ИСТОРИЯ", tagArch: "АРХ",
+      tagPhoto: "ФОТО", tagChill: "ОТДЫХ", tagNature: "ПРИРОДА", tagSunset: "ЗАКАТ",
+      energyChill: "ОТДЫХ", energyNormal: "НОРМА", energyActive: "АКТИВ",
+      ctaGenerate: "СОЗДАТЬ ТУР →", ctaSub: "МЕНЯЙТЕ · ПЕРЕСОЗДАЙТЕ · ОТКРОЙТЕ",
+      curatedBy: "ПОДБОР · KÖŞK БЮЮКАДА",
+      dataSources: "ИСТОЧНИК:",
+      disclaimer: "Время и цены приблизительные. Проверьте часы работы и плату на месте.",
+      arrival: "ПРИБЫТИЕ · ПРИСТАНЬ", departure: "ОТЪЕЗД · ПРИСТАНЬ",
+      walkLabel: "ХОДЬБА", bikeLabel: "ВЕЛО",
+      stopCount: "ОСТАНОВКИ", durLabel: "Ч",
+      ferryStart: "ПАРОМ · BOSTANCI/KABATAŞ",
+      ferryEnd: "СМОТРИТЕ /РАСПИСАНИЕ ДЛЯ ОБРАТНОГО ПАРОМА",
+      regenerate: "⟲ НОВЫЙ ТУР", edit: "РЕД.", share: "ПОДЕЛ.", print: "ПЕЧАТЬ",
+      empty: "ВЫБЕРИТЕ ХОТЯ БЫ ОДИН ИНТЕРЕС",
+      noFit: "ТУР НЕ ПОДОБРАН — РАСШИРЬТЕ ФИЛЬТРЫ",
+      tourTitle: "ТУР · {h}Ч", direct: "ПРЯМОЙ", min: "МИН",
+      locale: "ru-RU",
+    },
+    ar: {
+      htmlLang: "ar", title: "بيوكادا / مخطط الجولة",
+      brand: "بيوكادا / مخطط الجولة",
+      navSaatler: "المواعيد", navTur: "الجولة",
+      tagline: "جولة مخصصة لزوار بيوكادا في 4 أسئلة. بصمة Köşk.",
+      qTime: "كم لديك من وقت؟", qBudget: "الميزانية", qInterests: "ماذا تريد أن تفعل؟", qEnergy: "الطاقة",
+      halfDay: "نصف يوم", fullDay: "يوم كامل", free: "مجاني",
+      tagSwim: "سباحة", tagWalk: "مشي", tagBike: "دراجة", tagFood: "طعام",
+      tagCafe: "قهوة", tagPicnic: "نزهة", tagHistory: "تاريخ", tagArch: "عمارة",
+      tagPhoto: "تصوير", tagChill: "هدوء", tagNature: "طبيعة", tagSunset: "غروب",
+      energyChill: "هدوء", energyNormal: "عادي", energyActive: "نشط",
+      ctaGenerate: "أنشئ جولتي →", ctaSub: "عدّل · أعد · اكتشف",
+      curatedBy: "من تنسيق · KÖŞK بيوكادا",
+      dataSources: "المصدر:",
+      disclaimer: "المواعيد والأسعار تقديرية. تحقق من ساعات الفتح والرسوم قبل الزيارة.",
+      arrival: "وصول · الميناء", departure: "مغادرة · الميناء",
+      walkLabel: "مشي", bikeLabel: "دراجة",
+      stopCount: "محطات", durLabel: "س",
+      ferryStart: "العبارة · BOSTANCI/KABATAŞ",
+      ferryEnd: "للعبارة العائدة راجع /المواعيد",
+      regenerate: "⟲ جولة جديدة", edit: "تعديل", share: "مشاركة", print: "طباعة",
+      empty: "اختر اهتمامًا واحدًا على الأقل",
+      noFit: "لا تتوفر جولة بهذه الفلاتر — وسّع التفضيلات",
+      tourTitle: "جولة · {h} س", direct: "مباشر", min: "د",
+      locale: "ar",
+    },
+    de: {
+      htmlLang: "de", title: "BÜYÜKADA / TOUR PLANER",
+      brand: "BÜYÜKADA / TOUR PLANER",
+      navSaatler: "FAHRPLAN", navTur: "TOUR",
+      tagline: "Kuratierte Tour für Büyükada-Besucher in 4 Fragen. Köşks Handschrift.",
+      qTime: "WIE VIEL ZEIT?", qBudget: "BUDGET", qInterests: "WAS MÖCHTEST DU MACHEN?", qEnergy: "ENERGIE",
+      halfDay: "HALBER TAG", fullDay: "GANZER TAG", free: "GRATIS",
+      tagSwim: "SCHWIMMEN", tagWalk: "WANDERN", tagBike: "RAD", tagFood: "ESSEN",
+      tagCafe: "CAFÉ", tagPicnic: "PICKNICK", tagHistory: "GESCH.", tagArch: "ARCH",
+      tagPhoto: "FOTO", tagChill: "RUHE", tagNature: "NATUR", tagSunset: "SONNENUNT.",
+      energyChill: "RUHE", energyNormal: "NORMAL", energyActive: "AKTIV",
+      ctaGenerate: "TOUR ERSTELLEN →", ctaSub: "ANPASSEN · NEU · ENTDECKEN",
+      curatedBy: "KURATIERT · KÖŞK BÜYÜKADA",
+      dataSources: "QUELLEN:",
+      disclaimer: "Zeiten und Preise sind Schätzungen. Öffnungszeiten und Eintritt vor Besuch prüfen.",
+      arrival: "ANKUNFT · ANLEGER", departure: "ABFAHRT · ANLEGER",
+      walkLabel: "WANDERN", bikeLabel: "RAD",
+      stopCount: "STOPPS", durLabel: "STD",
+      ferryStart: "FÄHRE · BOSTANCI/KABATAŞ",
+      ferryEnd: "FÜR RÜCKFÄHRE SIEHE /FAHRPLAN",
+      regenerate: "⟲ NEUE TOUR", edit: "BEARB.", share: "TEILEN", print: "DRUCK",
+      empty: "MINDESTENS EIN INTERESSE WÄHLEN",
+      noFit: "KEINE TOUR PASST — FILTER LOCKERN",
+      tourTitle: "TOUR · {h} STD", direct: "DIREKT", min: "MIN",
+      locale: "de-DE",
+    },
+    fr: {
+      htmlLang: "fr", title: "BÜYÜKADA / PLANIFICATEUR DE VISITE",
+      brand: "BÜYÜKADA / PLANIFICATEUR DE VISITE",
+      navSaatler: "HORAIRES", navTur: "VISITE",
+      tagline: "Visite organisée pour les visiteurs de Büyükada en 4 questions. Signée Köşk.",
+      qTime: "COMBIEN DE TEMPS?", qBudget: "BUDGET", qInterests: "QUE VOULEZ-VOUS FAIRE?", qEnergy: "ÉNERGIE",
+      halfDay: "DEMI-JOURNÉE", fullDay: "JOURNÉE", free: "GRATUIT",
+      tagSwim: "BAIGNADE", tagWalk: "MARCHE", tagBike: "VÉLO", tagFood: "REPAS",
+      tagCafe: "CAFÉ", tagPicnic: "PIQUE-NIQUE", tagHistory: "HISTOIRE", tagArch: "ARCH",
+      tagPhoto: "PHOTO", tagChill: "DÉTENTE", tagNature: "NATURE", tagSunset: "COUCHER",
+      energyChill: "DÉTENTE", energyNormal: "NORMAL", energyActive: "ACTIF",
+      ctaGenerate: "CRÉER MA VISITE →", ctaSub: "AJUSTER · REFAIRE · DÉCOUVRIR",
+      curatedBy: "ORGANISÉ PAR · KÖŞK BÜYÜKADA",
+      dataSources: "SOURCES:",
+      disclaimer: "Horaires et prix indicatifs. Vérifiez l'ouverture et les frais avant la visite.",
+      arrival: "ARRIVÉE · QUAI", departure: "DÉPART · QUAI",
+      walkLabel: "MARCHE", bikeLabel: "VÉLO",
+      stopCount: "ÉTAPES", durLabel: "H",
+      ferryStart: "FERRY · BOSTANCI/KABATAŞ",
+      ferryEnd: "VOIR /HORAIRES POUR FERRY RETOUR",
+      regenerate: "⟲ NOUVELLE VISITE", edit: "MODIF.", share: "PARTAG.", print: "IMPR.",
+      empty: "CHOISISSEZ AU MOINS UN INTÉRÊT",
+      noFit: "AUCUNE VISITE NE CORRESPOND — ÉLARGISSEZ LES FILTRES",
+      tourTitle: "VISITE · {h}H", direct: "DIRECT", min: "MIN",
+      locale: "fr-FR",
+    },
+  };
+
+  let LANG = (function () {
+    const saved = localStorage.getItem("lang");
+    if (saved && I18N[saved]) return saved;
+    const browser = (navigator.language || "tr").slice(0, 2).toLowerCase();
+    return I18N[browser] ? browser : "tr";
+  })();
+  function t() { return I18N[LANG]; }
+
+  // ====== THEME ======
+  let theme = localStorage.getItem("theme");
+  function isCurrentlyDark() {
+    if (theme === "dark") return true;
+    if (theme === "light") return false;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function applyTheme() {
+    document.documentElement.classList.remove("theme-light", "theme-dark");
+    if (theme === "light") document.documentElement.classList.add("theme-light");
+    else if (theme === "dark") document.documentElement.classList.add("theme-dark");
+    document.getElementById("themeIcon").textContent = isCurrentlyDark() ? "☀" : "☾";
+  }
+  function toggleTheme() {
+    theme = isCurrentlyDark() ? "light" : "dark";
+    localStorage.setItem("theme", theme);
+    applyTheme();
+  }
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (!theme) applyTheme();
+  });
+
+  function applyI18n() {
+    const tr = t();
+    document.documentElement.lang = tr.htmlLang;
+    document.title = tr.title;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const k = el.getAttribute("data-i18n");
+      if (tr[k] !== undefined) el.textContent = tr[k];
+    });
+    document.getElementById("langCurrent").textContent = LANG.toUpperCase();
+    document.querySelectorAll("#langMenu button").forEach(b => {
+      b.classList.toggle("active", b.dataset.lang === LANG);
+    });
+  }
+  function setLang(newLang) {
+    if (!I18N[newLang] || LANG === newLang) return;
+    LANG = newLang;
+    localStorage.setItem("lang", LANG);
+    applyI18n();
+    if (currentTour) renderResult(currentTour); // refresh translation
+  }
+
+  // ====== STATE ======
+  let placesData = null;
+  let currentTour = null;
+
+  // Zone-to-zone walking time matrix (minutes, rough)
+  const ZONE_DIST = {
+    "iskele":  {"iskele": 0, "cankaya": 12, "maden": 15, "tepe": 45, "camlik": 25, "guney": 35},
+    "cankaya": {"iskele": 12, "cankaya": 0, "maden": 10, "tepe": 35, "camlik": 20, "guney": 28},
+    "maden":   {"iskele": 15, "cankaya": 10, "maden": 0, "tepe": 30, "camlik": 18, "guney": 25},
+    "tepe":    {"iskele": 45, "cankaya": 35, "maden": 30, "tepe": 0, "camlik": 30, "guney": 15},
+    "camlik":  {"iskele": 25, "cankaya": 20, "maden": 18, "tepe": 30, "camlik": 0, "guney": 30},
+    "guney":   {"iskele": 35, "cankaya": 28, "maden": 25, "tepe": 15, "camlik": 30, "guney": 0},
+  };
+  function walkMin(fromZone, toZone) {
+    return (ZONE_DIST[fromZone] && ZONE_DIST[fromZone][toZone]) || 20;
+  }
+
+  // ====== DATA LOAD ======
+  async function loadPlaces() {
+    try {
+      const r = await fetch("./data/places.json?t=" + Date.now());
+      placesData = await r.json();
+    } catch (e) {
+      console.error("places.json yüklenemedi", e);
+      placesData = { places: [] };
+    }
+  }
+
+  // ====== TOUR ALGORITHM ======
+  function getInputs() {
+    const get = (group) => {
+      const active = document.querySelector(`.chips[data-group="${group}"] .chip.active`);
+      return active ? active.dataset.val : null;
+    };
+    const getMulti = (group) => {
+      return Array.from(document.querySelectorAll(`.chips[data-group="${group}"] .chip.active`))
+        .map(c => c.dataset.val);
+    };
+    return {
+      hours: parseInt(get("time"), 10) || 4,
+      budget: parseInt(get("budget"), 10),
+      tags: getMulti("tags"),
+      energy: get("energy") || "normal",
+    };
+  }
+
+  function generateTour(inputs) {
+    if (!placesData || !placesData.places) return null;
+    const { hours, budget, tags, energy } = inputs;
+
+    // Filter
+    let pool = placesData.places.filter(p => {
+      if (p.cost_level > budget) return false;
+      if (tags.length > 0 && !p.tags.some(t => tags.includes(t))) return false;
+      if (energy === "chill" && p.energy === "active") return false;
+      // Skip beaches if not summer (rough heuristic)
+      const month = new Date().getMonth() + 1;
+      const isSummer = month >= 5 && month <= 10;
+      if (!isSummer && p.season && !p.season.includes("all") && !p.season.includes("winter")) {
+        if (p.tags.includes("swim")) return false;
+      }
+      return true;
+    });
+
+    if (pool.length === 0) return { stops: [], reason: "noFit" };
+
+    // Score each place
+    const tagSet = new Set(tags);
+    pool.forEach(p => {
+      let score = 0;
+      score += p.tags.filter(t => tagSet.has(t)).length * 10;
+      if (p.kosk_native) score += 8;
+      score += Math.random() * 4; // variety
+      p._score = score;
+    });
+    pool.sort((a, b) => b._score - a._score);
+
+    // Build itinerary
+    const arrivalTime = 10 * 60; // 10:00 in minutes
+    const totalMinutes = hours * 60;
+    const endTime = arrivalTime + totalMinutes;
+    const returnBuffer = 20; // walk back to iskele + ferry buffer
+
+    const stops = [];
+    let now = arrivalTime;
+    let lastZone = "iskele";
+
+    stops.push({ type: "arrival", time: now });
+    now += 5; // get off ferry, walk into pier area
+
+    const usedIds = new Set();
+    const usedTags = new Set();
+
+    while (true) {
+      // Find best next stop that fits
+      let next = null;
+      for (const p of pool) {
+        if (usedIds.has(p.id)) continue;
+        const wMin = walkMin(lastZone, p.zone);
+        const total = wMin + p.duration_min;
+        if (now + total + returnBuffer + walkMin(p.zone, "iskele") > endTime) continue;
+        next = p;
+        break;
+      }
+      if (!next) break;
+
+      const wMin = walkMin(lastZone, next.zone);
+      if (wMin > 0) {
+        stops.push({ type: "walk", minutes: wMin });
+        now += wMin;
+      }
+      stops.push({ type: "stop", time: now, place: next });
+      now += next.duration_min;
+
+      lastZone = next.zone;
+      usedIds.add(next.id);
+      next.tags.forEach(tg => usedTags.add(tg));
+
+      // Re-score: deprioritize already-used tags slightly for variety
+      pool.forEach(p => {
+        if (!usedIds.has(p.id)) {
+          const newTagsCount = p.tags.filter(tg => !usedTags.has(tg)).length;
+          p._score = (p._score || 0) * 0.95 + newTagsCount * 2;
+        }
+      });
+      pool.sort((a, b) => b._score - a._score);
+    }
+
+    // Walk back to iskele if not already there
+    if (lastZone !== "iskele") {
+      const wMin = walkMin(lastZone, "iskele");
+      stops.push({ type: "walk", minutes: wMin });
+      now += wMin;
+    }
+    stops.push({ type: "departure", time: now });
+
+    return { stops, hours, totalMinutes, finalTime: now };
+  }
+
+  // ====== RENDER ======
+  function fmtTime(min) {
+    const h = Math.floor(min / 60) % 24;
+    const m = min % 60;
+    return String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0");
+  }
+  function costStr(level) {
+    if (level === 0) return t().free;
+    return "$".repeat(level);
+  }
+
+  function renderResult(tour) {
+    currentTour = tour;
+    const result = document.getElementById("result");
+    if (!tour || !tour.stops || tour.stops.length === 0) {
+      result.classList.remove("empty");
+      result.innerHTML = `<div class="empty-state">${t().noFit}</div>`;
+      return;
+    }
+
+    const tr = t();
+    const stopCount = tour.stops.filter(s => s.type === "stop").length;
+    const titleStr = tr.tourTitle.replace("{h}", tour.hours);
+
+    let html = `
+      <div class="result-head">
+        <span class="result-title">${titleStr}</span>
+        <span class="result-meta">${stopCount} ${tr.stopCount}</span>
+      </div>
+    `;
+
+    let stopIdx = 0;
+    tour.stops.forEach((s, i) => {
+      const animDelay = stopIdx * 80;
+      if (s.type === "arrival") {
+        html += `
+          <div class="stop bookend in" style="animation-delay:${animDelay}ms">
+            <div class="stop-time">${fmtTime(s.time)}</div>
+            <div>
+              <div class="stop-name">${tr.arrival}</div>
+              <div class="stop-meta">${tr.ferryStart}</div>
+            </div>
+            <div class="stop-cost bookend">START</div>
+          </div>`;
+        stopIdx++;
+      } else if (s.type === "departure") {
+        html += `
+          <div class="stop bookend in" style="animation-delay:${animDelay}ms">
+            <div class="stop-time">${fmtTime(s.time)}</div>
+            <div>
+              <div class="stop-name">${tr.departure}</div>
+              <div class="stop-meta">${tr.ferryEnd}</div>
+            </div>
+            <div class="stop-cost bookend">END</div>
+          </div>`;
+        stopIdx++;
+      } else if (s.type === "walk") {
+        html += `<div class="walk in" style="animation-delay:${animDelay}ms">${s.minutes} ${tr.min} ${tr.walkLabel}</div>`;
+      } else if (s.type === "stop") {
+        const p = s.place;
+        const name = p.name;
+        const tagsStr = p.tags.map(tg => (tr["tag" + tg.charAt(0).toUpperCase() + tg.slice(1)] || tg).toUpperCase()).join(" · ");
+        const cost = costStr(p.cost_level);
+        const costCls = p.cost_level === 0 ? "free" : "";
+        html += `
+          <div class="stop in" style="animation-delay:${animDelay}ms">
+            <div class="stop-time">${fmtTime(s.time)}</div>
+            <div>
+              <div class="stop-name">${name}</div>
+              <div class="stop-meta"><span class="tags">${tagsStr}</span></div>
+              ${p.editorial ? `<div class="stop-editorial">"${p.editorial}"</div>` : ""}
+            </div>
+            <div class="stop-cost ${costCls}">${cost}<br><span style="font-size:9px;opacity:0.7">${p.duration_min} ${tr.min}</span></div>
+          </div>`;
+        stopIdx++;
+      }
+    });
+
+    html += `
+      <div class="actions">
+        <button class="action" id="regenBtn">${tr.regenerate}</button>
+        <button class="action" onclick="window.print()">${tr.print}</button>
+      </div>
+    `;
+
+    result.classList.remove("empty");
+    result.innerHTML = html;
+
+    document.getElementById("regenBtn").addEventListener("click", () => {
+      const inputs = getInputs();
+      renderResult(generateTour(inputs));
+      result.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  // ====== EVENTS ======
+  document.querySelectorAll(".chips").forEach(group => {
+    const isMulti = group.dataset.mode === "multi";
+    group.querySelectorAll(".chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        if (!isMulti) {
+          group.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        }
+        chip.classList.toggle("active");
+      });
+    });
+  });
+
+  document.getElementById("generateBtn").addEventListener("click", () => {
+    const inputs = getInputs();
+    const tour = generateTour(inputs);
+    renderResult(tour);
+    document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  // Lang
+  const langBtn = document.getElementById("langBtn");
+  const langMenu = document.getElementById("langMenu");
+  langBtn.addEventListener("click", e => { e.stopPropagation(); langMenu.classList.toggle("open"); });
+  document.querySelectorAll("#langMenu button").forEach(b => {
+    b.addEventListener("click", e => { e.stopPropagation(); langMenu.classList.remove("open"); setLang(b.dataset.lang); });
+  });
+  document.addEventListener("click", () => langMenu.classList.remove("open"));
+
+  document.getElementById("themeBtn").addEventListener("click", toggleTheme);
+
+  // INIT
+  (async () => {
+    applyTheme();
+    applyI18n();
+    await loadPlaces();
+  })();
+</script>
+</body>
+</html>
