@@ -100,6 +100,14 @@
     gap: 14px;
     flex-wrap: wrap;
   }
+  .nav {
+    margin-top: 10px;
+    display: flex; gap: 18px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em;
+  }
+  .nav a { color: var(--muted); text-decoration: none; padding: 2px 0; border-bottom: 1px dotted var(--faint); }
+  .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .nav a.active { color: var(--ink); border-bottom: 1px solid var(--ink); }
 
   /* MASTHEAD CONTROLS (theme + lang) */
   .masthead-controls {
@@ -542,6 +550,10 @@
       <span>SH<span class="src-name"> · ŞEHİR HATLARI</span></span>
       <span>MM<span class="src-name"> · MAVİ MARMARA</span></span>
       <span>PT<span class="src-name"> · PRENS TUR</span></span>
+    </div>
+    <div class="nav">
+      <a href="./index.html" class="active">SAATLER</a>
+      <a href="./tur.html">TUR</a>
     </div>
   </header>
 
