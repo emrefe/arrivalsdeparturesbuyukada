@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Büyükada ve Adalar etkinlikleri — konser, sergi, atölye, sinema, söyleşi.">
+<title>BÜYÜKADA / ETKİNLİKLER</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0a0a0a; --paper: #ffffff;
+    --rule: rgba(10,10,10,0.16); --muted: rgba(10,10,10,0.55); --faint: rgba(10,10,10,0.35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #f4f4f4; --paper: #0a0a0a;
+      --rule: rgba(244,244,244,0.18); --muted: rgba(244,244,244,0.55); --faint: rgba(244,244,244,0.35);
+    }
+  }
+  html.theme-light {
+    --ink: #0a0a0a; --paper: #ffffff;
+    --rule: rgba(10,10,10,0.16); --muted: rgba(10,10,10,0.55); --faint: rgba(10,10,10,0.35);
+  }
+  html.theme-dark {
+    --ink: #f4f4f4; --paper: #0a0a0a;
+    --rule: rgba(244,244,244,0.18); --muted: rgba(244,244,244,0.55); --faint: rgba(244,244,244,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper); color: var(--ink);
+    font-family: 'IBM Plex Mono','SF Mono','JetBrains Mono','Menlo','Consolas',monospace;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  html[lang="ar"] body { font-family: 'IBM Plex Sans Arabic','IBM Plex Mono','Menlo',monospace; }
+  html[lang="ar"] { direction: rtl; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  .weather-mini {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; color: var(--ink);
+    letter-spacing: 0.04em; visibility: hidden; padding: 2px 0;
+  }
+  .weather-mini.loaded { visibility: visible; }
+  .w-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; color: var(--ink); }
+  .w-icon svg { width: 100%; height: 100%; display: block; }
+  .w-temp { font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; }
+
+  .masthead {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 14px 0 10px;
+    margin-bottom: 20px;
+  }
+  .masthead-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .brand { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; margin: 0; }
+  .nav {
+    margin-top: 10px;
+    display: flex; gap: 18px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em;
+  }
+  .nav a { color: var(--muted); text-decoration: none; padding: 2px 0; border-bottom: 1px dotted var(--faint); }
+  .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .nav a.active { color: var(--ink); border-bottom: 1px solid var(--ink); }
+
+  .masthead-controls {
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+  }
+  .controls-row { display: flex; gap: 6px; align-items: center; }
+  .theme-btn {
+    font-family: inherit; font-size: 13px; line-height: 1;
+    padding: 5px 10px; background: transparent; color: var(--ink);
+    border: 1px solid var(--ink); cursor: pointer; min-width: 36px;
+  }
+  .theme-btn:hover { background: var(--ink); color: var(--paper); }
+
+  .lang-picker { position: relative; }
+  .lang-btn {
+    font-family: inherit; font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    padding: 5px 10px; background: transparent; color: var(--ink);
+    border: 1px solid var(--ink); cursor: pointer; min-width: 56px;
+  }
+  .lang-btn .caret { margin-inline-start: 4px; opacity: 0.5; }
+  .lang-menu {
+    position: absolute; inset-inline-end: 0; top: calc(100% + 4px);
+    background: var(--paper); border: 1px solid var(--ink);
+    z-index: 20; min-width: 56px; display: none;
+  }
+  .lang-menu.open { display: block; }
+  .lang-menu button {
+    display: block; width: 100%; text-align: start;
+    font-family: inherit; font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    padding: 7px 12px; background: transparent; color: var(--ink);
+    border: none; cursor: pointer;
+  }
+  .lang-menu button:hover, .lang-menu button.active { background: var(--ink); color: var(--paper); }
+
+  /* CONTROLS */
+  .controls {
+    margin: 22px 0 12px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .scope-tabs {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--ink);
+  }
+  .scope-tab {
+    background: transparent; border: none; color: var(--ink);
+    font-family: inherit; font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 11px 6px; cursor: pointer;
+  }
+  .scope-tab + .scope-tab { border-inline-start: 1px solid var(--ink); }
+  .scope-tab.active { background: var(--ink); color: var(--paper); }
+
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip {
+    background: transparent; border: 1px solid var(--ink); color: var(--ink);
+    font-family: inherit; font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 6px 10px; cursor: pointer;
+  }
+  .chip.active { background: var(--ink); color: var(--paper); }
+
+  /* COLUMN HEADER */
+  .col-head {
+    margin: 22px 0 0;
+    padding: 0 0 6px;
+    border-bottom: 1px solid var(--ink);
+    display: grid;
+    grid-template-columns: 78px 1fr auto;
+    gap: 14px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+  .col-head .ch-cost { text-align: end; }
+
+  /* EVENT LIST */
+  .events { display: block; }
+  .event {
+    display: grid;
+    grid-template-columns: 78px 1fr auto;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: baseline;
+  }
+  .event:last-child { border-bottom: 1px solid var(--ink); }
+  .event.in {
+    animation: eventWipe 480ms cubic-bezier(.4,0,.2,1) both;
+  }
+  @keyframes eventWipe {
+    from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+    to   { clip-path: inset(0 0 0 0); opacity: 1; }
+  }
+  html[lang="ar"] .event.in { animation-name: eventWipeRTL; }
+  @keyframes eventWipeRTL {
+    from { clip-path: inset(0 0 0 100%); opacity: 0.4; }
+    to   { clip-path: inset(0 0 0 0); opacity: 1; }
+  }
+
+  .ev-date {
+    font-size: 14px; line-height: 1.2; white-space: nowrap;
+  }
+  .ev-day {
+    display: block; font-size: 22px; font-weight: 600; letter-spacing: 0.02em; line-height: 1;
+  }
+  .ev-month {
+    display: block; font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.16em; margin-top: 2px;
+  }
+  .ev-weekday {
+    display: block; font-size: 9px; color: var(--faint);
+    text-transform: uppercase; letter-spacing: 0.14em; margin-top: 2px;
+  }
+  .event.today .ev-day { color: var(--ink); }
+  .event.today { box-shadow: inset 3px 0 0 var(--ink); padding-inline-start: 9px; margin-inline-start: -12px; }
+
+  .ev-info { min-width: 0; }
+  .ev-title {
+    font-size: 14px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    line-height: 1.35;
+  }
+  .ev-meta {
+    font-size: 11px; color: var(--muted);
+    margin-top: 4px; line-height: 1.4;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .ev-meta .type {
+    display: inline-block; padding: 1px 6px;
+    background: var(--ink); color: var(--paper);
+    font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
+    margin-inline-end: 6px;
+  }
+  .ev-desc {
+    margin-top: 6px;
+    font-size: 11.5px; color: var(--ink);
+    line-height: 1.5; opacity: 0.85;
+  }
+  .ev-cost {
+    text-align: end; font-size: 11px;
+    color: var(--muted); white-space: nowrap;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .ev-cost.free { color: var(--ink); font-weight: 600; }
+  .ev-time { display: block; font-size: 11px; color: var(--ink); font-weight: 500; margin-bottom: 3px; letter-spacing: 0.04em; }
+
+  /* EMPTY */
+  .empty {
+    margin: 32px 0; padding: 36px 16px;
+    text-align: center; border: 1px dashed var(--ink);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 44px; padding-top: 16px;
+    border-top: 1px solid var(--ink);
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.14em;
+    line-height: 1.7;
+  }
+  footer a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--faint); }
+  footer a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  footer .small { text-transform: none; letter-spacing: 0; font-size: 11px; margin-top: 12px; color: var(--faint); line-height: 1.5; }
+
+  /* MOBILE */
+  @media (max-width: 540px) {
+    .wrap { padding: 16px 12px 36px; }
+    .brand { font-size: 11px; letter-spacing: 0.14em; }
+    .theme-btn { font-size: 14px; padding: 5px 9px; }
+    .lang-btn { font-size: 11px; padding: 5px 9px; }
+
+    .scope-tab { font-size: 10px; padding: 11px 4px; letter-spacing: 0.1em; }
+    .chip { padding: 6px 7px; font-size: 9px; letter-spacing: 0.06em; }
+
+    .event, .col-head { grid-template-columns: 60px 1fr auto; gap: 10px; padding: 14px 0; }
+    .ev-day { font-size: 20px; }
+    .ev-month { font-size: 9px; }
+    .ev-weekday { font-size: 8.5px; }
+    .ev-title { font-size: 12.5px; }
+    .ev-meta { font-size: 10px; }
+    .ev-desc { font-size: 11px; }
+    .ev-cost { font-size: 10px; }
+    .ev-time { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-row">
+      <h1 class="brand" data-i18n="brand">BÜYÜKADA / ETKİNLİKLER</h1>
+      <div class="masthead-controls">
+        <div class="controls-row">
+          <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon">☾</span></button>
+          <div class="lang-picker">
+            <button class="lang-btn" id="langBtn" aria-haspopup="true">
+              <span id="langCurrent">TR</span><span class="caret">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu">
+              <button data-lang="tr">TR</button>
+              <button data-lang="en">EN</button>
+              <button data-lang="ru">RU</button>
+              <button data-lang="ar">AR</button>
+              <button data-lang="de">DE</button>
+              <button data-lang="fr">FR</button>
+            </div>
+          </div>
+        </div>
+        <div class="weather-mini" id="weatherBox">
+          <span class="w-icon" id="wIcon"></span>
+          <span class="w-temp" id="wTemp">— / —</span>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="./index.html" data-i18n="navSaatler">SAATLER</a>
+      <a href="./tur.html" data-i18n="navTur">TUR</a>
+      <a href="./whatson.html" class="active" data-i18n="navEtkinlik">ETKİNLİKLER</a>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="scope-tabs" role="tablist">
+      <button class="scope-tab" data-scope="today" data-i18n="scopeToday">BUGÜN</button>
+      <button class="scope-tab active" data-scope="week" data-i18n="scopeWeek">BU HAFTA</button>
+      <button class="scope-tab" data-scope="month" data-i18n="scopeMonth">BU AY</button>
+      <button class="scope-tab" data-scope="all" data-i18n="scopeAll">HEPSİ</button>
+    </div>
+    <div class="chips" id="typeFilter">
+      <button class="chip active" data-type="all" data-i18n="all">TÜMÜ</button>
+      <button class="chip" data-type="konser" data-i18n="typeKonser">KONSER</button>
+      <button class="chip" data-type="sergi" data-i18n="typeSergi">SERGİ</button>
+      <button class="chip" data-type="soylesi" data-i18n="typeSoylesi">SÖYLEŞİ</button>
+      <button class="chip" data-type="atolye" data-i18n="typeAtolye">ATÖLYE</button>
+      <button class="chip" data-type="sinema" data-i18n="typeSinema">SİNEMA</button>
+      <button class="chip" data-type="festival" data-i18n="typeFestival">FESTİVAL</button>
+      <button class="chip" data-type="topluluk" data-i18n="typeTopluluk">TOPLULUK</button>
+      <button class="chip" data-type="cocuk" data-i18n="typeCocuk">ÇOCUK</button>
+    </div>
+  </div>
+
+  <div class="col-head">
+    <div data-i18n="colDate">TARİH</div>
+    <div data-i18n="colEvent">ETKİNLİK</div>
+    <div class="ch-cost" data-i18n="colCost">ÜCRET</div>
+  </div>
+
+  <div class="events" id="events"></div>
+
+  <footer>
+    <div data-i18n="curatedBy">KÜRATÖRLÜK · KÖŞK BÜYÜKADA</div>
+    <div><span data-i18n="dataSources">KAYNAKLAR:</span>
+      <a href="https://adalar.bel.tr/etkinlikler/" target="_blank" rel="noopener">adalar.bel.tr</a> ·
+      <a href="https://www.adalarkulturdernegi.org" target="_blank" rel="noopener">adalarkulturdernegi.org</a> ·
+      <a href="https://www.instagram.com/adalaretkinlikler/" target="_blank" rel="noopener">@adalaretkinlikler</a>
+    </div>
+    <p class="small" data-i18n="disclaimer">Tarih, saat ve fiyatlar tahmindir. Etkinlik öncesi ilgili kaynağı teyit edin. Kaçırılan etkinlikler için: hello@kosk.istanbul</p>
+  </footer>
+</div>
+
+<script>
+  // ====== I18N ======
+  const I18N = {
+    tr: {
+      htmlLang: "tr", title: "BÜYÜKADA / ETKİNLİKLER",
+      brand: "BÜYÜKADA / ETKİNLİKLER",
+      navSaatler: "SAATLER", navTur: "TUR", navEtkinlik: "ETKİNLİKLER",
+      scopeToday: "BUGÜN", scopeWeek: "BU HAFTA", scopeMonth: "BU AY", scopeAll: "HEPSİ",
+      all: "TÜMÜ",
+      typeKonser: "KONSER", typeSergi: "SERGİ", typeSoylesi: "SÖYLEŞİ",
+      typeAtolye: "ATÖLYE", typeSinema: "SİNEMA", typeFestival: "FESTİVAL",
+      typeTopluluk: "TOPLULUK", typeCocuk: "ÇOCUK",
+      colDate: "TARİH", colEvent: "ETKİNLİK", colCost: "ÜCRET",
+      empty: "BU PENCEREDE ETKİNLİK YOK — FİLTREYİ GENİŞLET",
+      free: "ÜCRETSİZ",
+      curatedBy: "KÜRATÖRLÜK · KÖŞK BÜYÜKADA",
+      dataSources: "KAYNAKLAR:",
+      disclaimer: "Tarih, saat ve fiyatlar tahmindir. Etkinlik öncesi ilgili kaynağı teyit edin.",
+      days: ["PAZ","PZT","SAL","ÇRŞ","PRŞ","CMA","CMT"],
+      months: ["OCK","ŞUB","MAR","NİS","MAY","HAZ","TEM","AĞU","EYL","EKİ","KAS","ARA"],
+      todayLabel: "BUGÜN",
+    },
+    en: {
+      htmlLang: "en", title: "BÜYÜKADA / WHAT'S ON",
+      brand: "BÜYÜKADA / WHAT'S ON",
+      navSaatler: "SCHEDULE", navTur: "TOUR", navEtkinlik: "WHAT'S ON",
+      scopeToday: "TODAY", scopeWeek: "THIS WEEK", scopeMonth: "THIS MONTH", scopeAll: "ALL",
+      all: "ALL",
+      typeKonser: "CONCERT", typeSergi: "EXHIBITION", typeSoylesi: "TALK",
+      typeAtolye: "WORKSHOP", typeSinema: "CINEMA", typeFestival: "FESTIVAL",
+      typeTopluluk: "COMMUNITY", typeCocuk: "KIDS",
+      colDate: "DATE", colEvent: "EVENT", colCost: "COST",
+      empty: "NO EVENTS IN THIS WINDOW — RELAX FILTERS",
+      free: "FREE",
+      curatedBy: "CURATED BY · KÖŞK BÜYÜKADA",
+      dataSources: "SOURCES:",
+      disclaimer: "Dates, times and prices are estimates. Verify with source before attending.",
+      days: ["SUN","MON","TUE","WED","THU","FRI","SAT"],
+      months: ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"],
+      todayLabel: "TODAY",
+    },
+    ru: {
+      htmlLang: "ru", title: "БЮЮКАДА / СОБЫТИЯ",
+      brand: "БЮЮКАДА / СОБЫТИЯ",
+      navSaatler: "РАСПИСАНИЕ", navTur: "ТУР", navEtkinlik: "СОБЫТИЯ",
+      scopeToday: "СЕГОДНЯ", scopeWeek: "НЕДЕЛЯ", scopeMonth: "МЕСЯЦ", scopeAll: "ВСЕ",
+      all: "ВСЕ",
+      typeKonser: "КОНЦЕРТ", typeSergi: "ВЫСТАВКА", typeSoylesi: "ВСТРЕЧА",
+      typeAtolye: "МАСТЕР-КЛАСС", typeSinema: "КИНО", typeFestival: "ФЕСТИВАЛЬ",
+      typeTopluluk: "СООБЩЕСТВО", typeCocuk: "ДЕТИ",
+      colDate: "ДАТА", colEvent: "СОБЫТИЕ", colCost: "ЦЕНА",
+      empty: "СОБЫТИЙ НЕТ — РАСШИРЬТЕ ФИЛЬТРЫ",
+      free: "БЕСПЛАТНО",
+      curatedBy: "ПОДБОР · KÖŞK БЮЮКАДА",
+      dataSources: "ИСТОЧНИКИ:",
+      disclaimer: "Даты, время и цены приблизительны. Проверяйте у источника.",
+      days: ["ВС","ПН","ВТ","СР","ЧТ","ПТ","СБ"],
+      months: ["ЯНВ","ФЕВ","МАР","АПР","МАЙ","ИЮН","ИЮЛ","АВГ","СЕН","ОКТ","НОЯ","ДЕК"],
+      todayLabel: "СЕГОДНЯ",
+    },
+    ar: {
+      htmlLang: "ar", title: "بيوكادا / الفعاليات",
+      brand: "بيوكادا / الفعاليات",
+      navSaatler: "المواعيد", navTur: "الجولة", navEtkinlik: "الفعاليات",
+      scopeToday: "اليوم", scopeWeek: "الأسبوع", scopeMonth: "الشهر", scopeAll: "الكل",
+      all: "الكل",
+      typeKonser: "حفل", typeSergi: "معرض", typeSoylesi: "محادثة",
+      typeAtolye: "ورشة", typeSinema: "سينما", typeFestival: "مهرجان",
+      typeTopluluk: "مجتمع", typeCocuk: "أطفال",
+      colDate: "التاريخ", colEvent: "الفعالية", colCost: "السعر",
+      empty: "لا فعاليات — وسّع الفلاتر",
+      free: "مجاني",
+      curatedBy: "من تنسيق · KÖŞK بيوكادا",
+      dataSources: "المصادر:",
+      disclaimer: "المواعيد والأسعار تقديرية. تحقق من المصدر قبل الحضور.",
+      days: ["أحد","إث","ثلا","أرب","خم","جم","سب"],
+      months: ["ينا","فبر","مار","أبر","ماي","يون","يول","أغس","سبت","أكت","نوف","ديس"],
+      todayLabel: "اليوم",
+    },
+    de: {
+      htmlLang: "de", title: "BÜYÜKADA / VERANSTALTUNGEN",
+      brand: "BÜYÜKADA / VERANSTALTUNGEN",
+      navSaatler: "FAHRPLAN", navTur: "TOUR", navEtkinlik: "VERANSTALTUNGEN",
+      scopeToday: "HEUTE", scopeWeek: "DIESE WOCHE", scopeMonth: "DIESER MONAT", scopeAll: "ALLE",
+      all: "ALLE",
+      typeKonser: "KONZERT", typeSergi: "AUSSTELLUNG", typeSoylesi: "VORTRAG",
+      typeAtolye: "WORKSHOP", typeSinema: "KINO", typeFestival: "FESTIVAL",
+      typeTopluluk: "GEMEINSCHAFT", typeCocuk: "KINDER",
+      colDate: "DATUM", colEvent: "VERANSTALTUNG", colCost: "PREIS",
+      empty: "KEINE VERANSTALTUNGEN — FILTER LOCKERN",
+      free: "GRATIS",
+      curatedBy: "KURATIERT · KÖŞK BÜYÜKADA",
+      dataSources: "QUELLEN:",
+      disclaimer: "Daten und Preise sind Schätzungen. Quelle vor dem Besuch prüfen.",
+      days: ["SO","MO","DI","MI","DO","FR","SA"],
+      months: ["JAN","FEB","MÄR","APR","MAI","JUN","JUL","AUG","SEP","OKT","NOV","DEZ"],
+      todayLabel: "HEUTE",
+    },
+    fr: {
+      htmlLang: "fr", title: "BÜYÜKADA / ÉVÉNEMENTS",
+      brand: "BÜYÜKADA / ÉVÉNEMENTS",
+      navSaatler: "HORAIRES", navTur: "VISITE", navEtkinlik: "ÉVÉNEMENTS",
+      scopeToday: "AUJOURD'HUI", scopeWeek: "CETTE SEMAINE", scopeMonth: "CE MOIS", scopeAll: "TOUT",
+      all: "TOUT",
+      typeKonser: "CONCERT", typeSergi: "EXPOSITION", typeSoylesi: "ENTRETIEN",
+      typeAtolye: "ATELIER", typeSinema: "CINÉMA", typeFestival: "FESTIVAL",
+      typeTopluluk: "COMMUNAUTÉ", typeCocuk: "ENFANTS",
+      colDate: "DATE", colEvent: "ÉVÉNEMENT", colCost: "PRIX",
+      empty: "AUCUN ÉVÉNEMENT — ÉLARGISSEZ LES FILTRES",
+      free: "GRATUIT",
+      curatedBy: "ORGANISÉ PAR · KÖŞK BÜYÜKADA",
+      dataSources: "SOURCES:",
+      disclaimer: "Dates et prix indicatifs. Vérifiez à la source avant de venir.",
+      days: ["DIM","LUN","MAR","MER","JEU","VEN","SAM"],
+      months: ["JAN","FÉV","MAR","AVR","MAI","JUN","JUL","AOÛ","SEP","OCT","NOV","DÉC"],
+      todayLabel: "AUJOURD'HUI",
+    },
+  };
+
+  let LANG = (function () {
+    const saved = localStorage.getItem("lang");
+    if (saved && I18N[saved]) return saved;
+    const browser = (navigator.language || "tr").slice(0, 2).toLowerCase();
+    return I18N[browser] ? browser : "tr";
+  })();
+  function t() { return I18N[LANG]; }
+
+  let theme = localStorage.getItem("theme");
+  function isCurrentlyDark() {
+    if (theme === "dark") return true;
+    if (theme === "light") return false;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function applyTheme() {
+    document.documentElement.classList.remove("theme-light", "theme-dark");
+    if (theme === "light") document.documentElement.classList.add("theme-light");
+    else if (theme === "dark") document.documentElement.classList.add("theme-dark");
+    document.getElementById("themeIcon").textContent = isCurrentlyDark() ? "☀" : "☾";
+  }
+  function toggleTheme() {
+    theme = isCurrentlyDark() ? "light" : "dark";
+    localStorage.setItem("theme", theme);
+    applyTheme();
+  }
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (!theme) applyTheme();
+  });
+
+  function applyI18n() {
+    const tr = t();
+    document.documentElement.lang = tr.htmlLang;
+    document.title = tr.title;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const k = el.getAttribute("data-i18n");
+      if (tr[k] !== undefined) el.textContent = tr[k];
+    });
+    document.getElementById("langCurrent").textContent = LANG.toUpperCase();
+    document.querySelectorAll("#langMenu button").forEach(b => {
+      b.classList.toggle("active", b.dataset.lang === LANG);
+    });
+  }
+  function setLang(newLang) {
+    if (!I18N[newLang] || LANG === newLang) return;
+    LANG = newLang;
+    localStorage.setItem("lang", LANG);
+    applyI18n();
+    render(true);
+  }
+
+  // ====== STATE ======
+  let eventsData = null;
+  let activeScope = "week";
+  let activeType = "all";
+
+  // ====== DATA ======
+  async function loadEvents() {
+    try {
+      const r = await fetch("./data/events.json?t=" + Date.now());
+      eventsData = await r.json();
+    } catch (e) {
+      console.error("events.json yüklenemedi", e);
+      eventsData = { events: [] };
+    }
+  }
+
+  // ====== RENDER ======
+  function inScope(eventDate, scope) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const ed = new Date(eventDate + "T00:00:00");
+    if (scope === "today") return ed.getTime() === today.getTime();
+    if (scope === "week") {
+      const weekEnd = new Date(today.getTime() + 7 * 86400000);
+      return ed >= today && ed < weekEnd;
+    }
+    if (scope === "month") {
+      const monthEnd = new Date(today.getTime() + 30 * 86400000);
+      return ed >= today && ed < monthEnd;
+    }
+    return ed >= today; // "all" — show future events only
+  }
+
+  function isToday(eventDate) {
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const ed = new Date(eventDate + "T00:00:00");
+    return ed.getTime() === today.getTime();
+  }
+
+  function costStr(level, custom) {
+    if (level === 0) return t().free;
+    if (custom) return custom;
+    return "$".repeat(level);
+  }
+
+  function render(animate) {
+    const wrap = document.getElementById("events");
+    if (!eventsData) return;
+    const tr = t();
+
+    const filtered = eventsData.events
+      .filter(e => activeType === "all" || e.type === activeType)
+      .filter(e => inScope(e.date, activeScope))
+      .sort((a, b) => (a.date + (a.time_start || "")).localeCompare(b.date + (b.time_start || "")));
+
+    if (filtered.length === 0) {
+      wrap.innerHTML = `<div class="empty">${tr.empty}</div>`;
+      return;
+    }
+
+    wrap.innerHTML = filtered.map((e, i) => {
+      const ed = new Date(e.date + "T00:00:00");
+      const day = ed.getDate();
+      const monthStr = tr.months[ed.getMonth()];
+      const weekdayStr = tr.days[ed.getDay()];
+      const isTodayEv = isToday(e.date);
+      const cost = costStr(e.price_level, e.price_text);
+      const costCls = e.price_level === 0 ? "free" : "";
+      const animStyle = animate ? ` style="animation-delay: ${Math.min(i, 12) * 60}ms"` : "";
+      const animCls = animate ? " in" : "";
+      const todayCls = isTodayEv ? " today" : "";
+      const typeLabel = (tr["type" + e.type.charAt(0).toUpperCase() + e.type.slice(1)] || e.type).toUpperCase();
+
+      return `
+        <div class="event${animCls}${todayCls}"${animStyle}>
+          <div class="ev-date">
+            <span class="ev-day">${day}</span>
+            <span class="ev-month">${monthStr}</span>
+            <span class="ev-weekday">${isTodayEv ? tr.todayLabel : weekdayStr}</span>
+          </div>
+          <div class="ev-info">
+            <div class="ev-title">${e.title}</div>
+            <div class="ev-meta">
+              <span class="type">${typeLabel}</span>
+              ${e.time_start ? `${e.time_start}${e.time_end ? "-" + e.time_end : ""} · ` : ""}${e.venue}
+            </div>
+            ${e.description ? `<div class="ev-desc">${e.description}</div>` : ""}
+          </div>
+          <div class="ev-cost ${costCls}">
+            ${e.time_start ? `<span class="ev-time">${e.time_start}</span>` : ""}
+            ${cost}
+          </div>
+        </div>`;
+    }).join("");
+  }
+
+  // ====== WEATHER ======
+  async function loadWeather() {
+    try {
+      const cached = sessionStorage.getItem("weather_v1");
+      if (cached) {
+        const c = JSON.parse(cached);
+        if (Date.now() - c.t < 60 * 60 * 1000) return c.data;
+      }
+      const r = await fetch("https://api.open-meteo.com/v1/forecast?latitude=40.87&longitude=29.13&daily=temperature_2m_max,temperature_2m_min,weathercode,windspeed_10m_max&timezone=Europe/Istanbul&forecast_days=1");
+      const d = await r.json();
+      sessionStorage.setItem("weather_v1", JSON.stringify({ t: Date.now(), data: d }));
+      return d;
+    } catch (e) { return null; }
+  }
+  const W_SVG = {
+    sun:    `<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="2.5" r="1.5"/><circle cx="12" cy="21.5" r="1.5"/><circle cx="2.5" cy="12" r="1.5"/><circle cx="21.5" cy="12" r="1.5"/><circle cx="5.3" cy="5.3" r="1.5"/><circle cx="18.7" cy="5.3" r="1.5"/><circle cx="5.3" cy="18.7" r="1.5"/><circle cx="18.7" cy="18.7" r="1.5"/></svg>`,
+    partly: `<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="7.5" cy="7" r="3.2"/><circle cx="7.5" cy="2" r="1.1"/><circle cx="2.5" cy="7" r="1.1"/><circle cx="3.5" cy="2.5" r="1.1"/><circle cx="11.5" cy="2.5" r="1.1"/><circle cx="11.5" cy="11.5" r="1.1"/><path d="M19.5 14A5 5 0 0 0 9.5 12 4.5 4.5 0 0 0 9 21h10a3.5 3.5 0 0 0 .5-7z"/></svg>`,
+    cloud:  `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 11A6 6 0 0 0 7.5 9 5 5 0 0 0 6.5 19h12a4 4 0 0 0 1-8z"/></svg>`,
+    fog:    `<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="5" width="18" height="2.6" rx="1.3"/><rect x="6" y="10.7" width="15" height="2.6" rx="1.3"/><rect x="3" y="16.4" width="16" height="2.6" rx="1.3"/></svg>`,
+    rain:   `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 8A6 6 0 0 0 7.5 6 5 5 0 0 0 6.5 16h12a4 4 0 0 0 1-8z"/><ellipse cx="8" cy="20" rx="1.1" ry="2.6" transform="rotate(18 8 20)"/><ellipse cx="12" cy="20.5" rx="1.1" ry="2.6" transform="rotate(18 12 20.5)"/><ellipse cx="16" cy="20" rx="1.1" ry="2.6" transform="rotate(18 16 20)"/></svg>`,
+    snow:   `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 8A6 6 0 0 0 7.5 6 5 5 0 0 0 6.5 16h12a4 4 0 0 0 1-8z"/><circle cx="8" cy="19.5" r="1.4"/><circle cx="12" cy="21" r="1.4"/><circle cx="16" cy="19.5" r="1.4"/></svg>`,
+    storm:  `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 8A6 6 0 0 0 7.5 6 5 5 0 0 0 6.5 16h12a4 4 0 0 0 1-8z"/><path d="M12.5 16l-3.2 5h3.2l-2 4 5.5-6h-3.2z"/></svg>`,
+    wind:   `<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="6" width="14" height="2.6" rx="1.3"/><rect x="3" y="10.7" width="18" height="2.6" rx="1.3"/><rect x="3" y="15.4" width="11" height="2.6" rx="1.3"/></svg>`,
+  };
+  function weatherIcon(code, windKmh) {
+    if (windKmh > 35) return W_SVG.wind;
+    if (code === 0) return W_SVG.sun;
+    if (code <= 3) return W_SVG.partly;
+    if (code <= 48) return W_SVG.fog;
+    if (code <= 67) return W_SVG.rain;
+    if (code <= 77) return W_SVG.snow;
+    if (code <= 82) return W_SVG.rain;
+    return W_SVG.storm;
+  }
+  async function applyWeather() {
+    const d = await loadWeather();
+    if (!d || !d.daily) return;
+    const high = Math.round(d.daily.temperature_2m_max[0]);
+    const low = Math.round(d.daily.temperature_2m_min[0]);
+    const code = d.daily.weathercode[0];
+    const wind = d.daily.windspeed_10m_max[0];
+    document.getElementById("wIcon").innerHTML = weatherIcon(code, wind);
+    document.getElementById("wTemp").textContent = `${low}° / ${high}°`;
+    document.getElementById("weatherBox").classList.add("loaded");
+  }
+
+  // ====== EVENTS ======
+  document.querySelectorAll(".scope-tab").forEach(b => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll(".scope-tab").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      activeScope = b.dataset.scope;
+      render(true);
+    });
+  });
+  document.querySelectorAll("#typeFilter .chip").forEach(b => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll("#typeFilter .chip").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      activeType = b.dataset.type;
+      render(true);
+    });
+  });
+
+  const langBtn = document.getElementById("langBtn");
+  const langMenu = document.getElementById("langMenu");
+  langBtn.addEventListener("click", e => { e.stopPropagation(); langMenu.classList.toggle("open"); });
+  document.querySelectorAll("#langMenu button").forEach(b => {
+    b.addEventListener("click", e => { e.stopPropagation(); langMenu.classList.remove("open"); setLang(b.dataset.lang); });
+  });
+  document.addEventListener("click", () => langMenu.classList.remove("open"));
+
+  document.getElementById("themeBtn").addEventListener("click", toggleTheme);
+
+  // INIT
+  (async () => {
+    applyTheme();
+    applyI18n();
+    applyWeather();
+    await loadEvents();
+    render(true);
+  })();
+</script>
+</body>
+</html>
