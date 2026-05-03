@@ -397,18 +397,66 @@
   footer a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   footer .small { text-transform: none; letter-spacing: 0; font-size: 11px; margin-top: 12px; color: var(--faint); line-height: 1.5; }
  
+  /* COMPACT vs FULL ROUTE — desktop default */
+  .route-full { display: inline; }
+  .route-compact { display: none; }
+  .stops-count {
+    display: inline-block;
+    font-size: 9px;
+    margin-inline-start: 5px;
+    padding: 1px 5px;
+    border: 1px solid var(--faint);
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+  .chip-full { display: inline; }
+  .chip-code { display: none; }
+ 
   /* MOBILE */
   @media (max-width: 540px) {
-    .wrap { padding: 20px 14px 36px; }
-    .row, .col-head { grid-template-columns: 56px 32px 1fr; }
-    .row .r-meta, .col-head .ch-meta {
-      grid-column: 2 / 4;
-      text-align: start;
-      padding-top: 4px;
-    }
-    .r-time { font-size: 20px; }
+    .wrap { padding: 16px 12px 32px; }
+ 
+    .brand { font-size: 11px; letter-spacing: 0.14em; }
+    .sources { font-size: 9px; gap: 10px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .src-name { display: none; }
+ 
+    .status { padding: 9px 12px; }
     .status-clock { font-size: 18px; }
-    .brand { font-size: 12px; }
+    .status-window-value { font-size: 11px; }
+    .status-window-label { font-size: 9px; }
+    .status-window-value::after { font-size: 10px; margin-inline-start: 4px; }
+ 
+    .tab { font-size: 10px; padding: 9px 6px; letter-spacing: 0.12em; }
+ 
+    .chips { gap: 6px; flex-wrap: nowrap; }
+    .chip { padding: 6px 9px; font-size: 9px; letter-spacing: 0.1em; flex-shrink: 0; }
+    .chip-full { display: none; }
+    .chip-code { display: inline; }
+ 
+    .row, .col-head {
+      grid-template-columns: 50px 28px minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+    .col-head { font-size: 9px; letter-spacing: 0.12em; }
+    .ch-meta { text-align: end; }
+ 
+    .row { padding: 12px 0; }
+    .row.imminent { padding-inline-start: 8px; margin-inline-start: -10px; }
+ 
+    .r-time { font-size: 17px; letter-spacing: 0.01em; }
+    .r-op { font-size: 9px; letter-spacing: 0.08em; }
+    .r-route { font-size: 11px; line-height: 1.35; word-break: normal; }
+    .r-route .arrow { padding: 0 2px; }
+    .r-route .endpoint { font-weight: 500; }
+    .r-route .direkt { font-size: 8px; padding: 1px 4px; margin-inline-start: 4px; letter-spacing: 0.1em; }
+    .stops-count { font-size: 8px; padding: 1px 4px; margin-inline-start: 4px; }
+    .r-meta { font-size: 9px; line-height: 1.2; white-space: nowrap; }
+    .r-meta .rel { font-size: 10px; }
+    .r-meta .dur { font-size: 9px; }
+ 
+    .route-full { display: none; }
+    .route-compact { display: inline; }
   }
 </style>
 </head>
@@ -433,9 +481,9 @@
       </div>
     </div>
     <div class="sources">
-      <span>SH · ŞEHİR HATLARI</span>
-      <span>MM · MAVİ MARMARA</span>
-      <span>PT · PRENS TUR</span>
+      <span>SH<span class="src-name"> · ŞEHİR HATLARI</span></span>
+      <span>MM<span class="src-name"> · MAVİ MARMARA</span></span>
+      <span>PT<span class="src-name"> · PRENS TUR</span></span>
     </div>
   </header>
  
@@ -463,9 +511,9 @@
     </div>
     <div class="chips" id="opFilter">
       <button class="chip active" data-op="all" data-i18n="all">TÜMÜ</button>
-      <button class="chip" data-op="SH">ŞEHİR HATLARI</button>
-      <button class="chip" data-op="MM">MAVİ MARMARA</button>
-      <button class="chip" data-op="PT">PRENS TUR</button>
+      <button class="chip" data-op="SH"><span class="chip-full">ŞEHİR HATLARI</span><span class="chip-code">SH</span></button>
+      <button class="chip" data-op="MM"><span class="chip-full">MAVİ MARMARA</span><span class="chip-code">MM</span></button>
+      <button class="chip" data-op="PT"><span class="chip-full">PRENS TUR</span><span class="chip-code">PT</span></button>
     </div>
   </div>
  
@@ -743,14 +791,21 @@
   function rotaHtml(s) {
     const ok = '<span class="arrow">→</span>';
     const direct = `<span class="direkt">${t().direct}</span>`;
+    const startUp = s.kalkis_iskelesi.toUpperCase();
+    const endUp = s.varis_iskelesi.toUpperCase();
+ 
     if (s.direkt || s.rota.length <= 2) {
-      return `<span class="endpoint">${s.kalkis_iskelesi.toUpperCase()}</span>${ok}<span class="endpoint">${s.varis_iskelesi.toUpperCase()}</span>${direct}`;
+      return `<span class="endpoint">${startUp}</span>${ok}<span class="endpoint">${endUp}</span>${direct}`;
     }
-    const parts = s.rota.map((r, i) => {
+ 
+    const stopsCount = s.rota.length - 2;
+    const fullParts = s.rota.map((r, i) => {
       const cls = (i === 0 || i === s.rota.length - 1) ? "endpoint" : "stop";
       return `<span class="${cls}">${r.toUpperCase()}</span>`;
     });
-    return parts.join(ok);
+    const full = `<span class="route-full">${fullParts.join(ok)}</span>`;
+    const compact = `<span class="route-compact"><span class="endpoint">${startUp}</span>${ok}<span class="endpoint">${endUp}</span><span class="stops-count">+${stopsCount}</span></span>`;
+    return full + compact;
   }
  
   function rowKey(s) {
