@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Büyükada'ya gelen ve Büyükada'dan giden tüm vapur ve motor seferleri tek listede.">
-<title>BÜYÜKADA / SAATLER</title>
+<title>BÜYÜKADA / SEFERLER</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,8 +73,8 @@
   .weather-mini {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
+    gap: 7px;
+    font-size: 11.5px;
     color: var(--ink);
     letter-spacing: 0.04em;
     visibility: hidden;
@@ -83,7 +83,7 @@
   .weather-mini.loaded { visibility: visible; }
   .w-icon {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px; color: var(--ink);
+    width: 17px; height: 17px; color: var(--ink);
   }
   .w-icon svg { width: 100%; height: 100%; display: block; }
   .w-temp { font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; }
@@ -548,7 +548,7 @@
 
   <header class="masthead">
     <div class="masthead-row">
-      <h1 class="brand" data-i18n="brand">BÜYÜKADA / SAATLER</h1>
+      <h1 class="brand" data-i18n="brand">BÜYÜKADA / SEFERLER</h1>
       <div class="masthead-controls">
         <div class="controls-row">
           <button class="theme-btn" id="themeBtn" aria-label="Tema değiştir / Toggle theme">
@@ -574,16 +574,11 @@
         </div>
       </div>
     </div>
-    <div class="sources">
-      <span>SH<span class="src-name"> · ŞEHİR HATLARI</span></span>
-      <span>MM<span class="src-name"> · MAVİ MARMARA</span></span>
-      <span>PT<span class="src-name"> · PRENS TUR</span></span>
-    </div>
     <div class="nav">
-      <a href="./index.html" class="active">SAATLER</a>
+      <a href="./index.html" class="active">SEFERLER</a>
       <a href="./tur.html">TUR</a>
       <a href="./whatson.html">ETKİNLİKLER</a>
-      <a href="./ulasim.html">ULAŞIM</a>
+      <a href="./ulasim.html">OTOBÜSLER</a>
     </div>
   </header>
 
@@ -641,8 +636,8 @@
   // ====== I18N ======
   const I18N = {
     tr: {
-      htmlLang: "tr", title: "BÜYÜKADA / SAATLER",
-      brand: "BÜYÜKADA / SAATLER",
+      htmlLang: "tr", title: "BÜYÜKADA / SEFERLER",
+      brand: "BÜYÜKADA / SEFERLER",
       windowLabel: "PENCERE", windowFmt: "SONRAKI {h} SAAT",
       bannerSample: "ÖRNEK VERİ — CANLI SCRAPE BAĞLANACAK",
       toBuyukada: "BÜYÜKADA'YA", fromBuyukada: "BÜYÜKADA'DAN",
