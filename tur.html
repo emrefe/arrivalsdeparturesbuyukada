@@ -53,6 +53,23 @@
 
   .wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
 
+  /* WEATHER STRIP — minimal, sayfa başı */
+  .weather-strip {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 6px 0 14px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    visibility: hidden;
+  }
+  .weather-strip.loaded { visibility: visible; }
+  .w-icon { font-size: 14px; opacity: 0.85; }
+  .w-temp { font-weight: 500; color: var(--ink); }
+  .w-loc { opacity: 0.55; margin-inline-start: auto; }
+
   .masthead {
     border-top: 2px solid var(--ink);
     border-bottom: 1px solid var(--ink);
@@ -212,6 +229,59 @@
   }
   .walk::before { content: "↓ "; opacity: 0.6; }
 
+  /* BONUS OPTIONS (yakın alternatifler) */
+  .bonus {
+    margin: 4px 0 8px 74px;
+    padding: 0;
+  }
+  .bonus-toggle {
+    background: transparent; border: none;
+    font-family: inherit; color: var(--muted);
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 4px 0; cursor: pointer;
+    border-bottom: 1px dotted var(--faint);
+  }
+  .bonus-toggle:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .bonus-list {
+    margin-top: 8px;
+    display: none;
+    padding-inline-start: 0;
+    border-inline-start: 1px solid var(--rule);
+    padding-inline-start: 12px;
+  }
+  .bonus-list.open { display: block; }
+  .bonus-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 0.5px dashed var(--rule);
+    align-items: baseline;
+  }
+  .bonus-item:last-child { border-bottom: none; }
+  .bonus-name {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500;
+  }
+  .bonus-meta {
+    font-size: 9.5px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+  .bonus-cost {
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    text-align: end; white-space: nowrap;
+  }
+  .bonus-more {
+    margin-top: 8px;
+    background: transparent; border: 1px solid var(--ink); color: var(--ink);
+    font-family: inherit; font-size: 9px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 5px 9px; cursor: pointer;
+  }
+  .bonus-more:hover { background: var(--ink); color: var(--paper); }
+  .bonus-more:disabled { opacity: 0.4; cursor: not-allowed; }
+
   .actions {
     display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px;
   }
@@ -288,6 +358,12 @@
 <body>
 <div class="wrap">
 
+  <div class="weather-strip" id="weatherStrip">
+    <span class="w-icon" id="wIcon">·</span>
+    <span class="w-temp" id="wTemp">— / —</span>
+    <span class="w-loc">BÜYÜKADA</span>
+  </div>
+
   <header class="masthead">
     <div class="masthead-row">
       <h1 class="brand" data-i18n="brand">BÜYÜKADA / TUR PLANLAYICI</h1>
@@ -329,7 +405,18 @@
   </div>
 
   <div class="form-section">
-    <div class="form-label"><span class="num">02</span> <span data-i18n="qBudget">BÜTÇE</span></div>
+    <div class="form-label"><span class="num">02</span> <span data-i18n="qStart">NE ZAMAN GELİYORSUN?</span></div>
+    <div class="chips" data-group="start" data-mode="single">
+      <button class="chip" data-val="8">08:00</button>
+      <button class="chip active" data-val="10">10:00</button>
+      <button class="chip" data-val="12">12:00</button>
+      <button class="chip" data-val="14">14:00</button>
+      <button class="chip" data-val="17">17:00</button>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-label"><span class="num">03</span> <span data-i18n="qBudget">BÜTÇE</span></div>
     <div class="chips" data-group="budget" data-mode="single">
       <button class="chip" data-val="0" data-i18n="free">BEDAVA</button>
       <button class="chip" data-val="1">$</button>
@@ -339,7 +426,7 @@
   </div>
 
   <div class="form-section">
-    <div class="form-label"><span class="num">03</span> <span data-i18n="qInterests">NE YAPMAK İSTERSİN?</span></div>
+    <div class="form-label"><span class="num">04</span> <span data-i18n="qInterests">NE YAPMAK İSTERSİN?</span></div>
     <div class="chips" data-group="tags" data-mode="multi">
       <button class="chip active" data-val="swim" data-i18n="tagSwim">YÜZME</button>
       <button class="chip active" data-val="walk" data-i18n="tagWalk">YÜRÜYÜŞ</button>
@@ -357,7 +444,7 @@
   </div>
 
   <div class="form-section">
-    <div class="form-label"><span class="num">04</span> <span data-i18n="qEnergy">ENERJİ</span></div>
+    <div class="form-label"><span class="num">05</span> <span data-i18n="qEnergy">ENERJİ</span></div>
     <div class="chips" data-group="energy" data-mode="single">
       <button class="chip" data-val="chill" data-i18n="energyChill">SAKİN</button>
       <button class="chip active" data-val="normal" data-i18n="energyNormal">NORMAL</button>
@@ -385,7 +472,7 @@
       brand: "BÜYÜKADA / TUR PLANLAYICI",
       navSaatler: "SAATLER", navTur: "TUR",
       tagline: "Büyükada'ya gelen birine 4 soruyla küratörlü bir tur. Köşk imzası.",
-      qTime: "KAÇ SAATİN VAR?", qBudget: "BÜTÇE", qInterests: "NE YAPMAK İSTERSİN?", qEnergy: "ENERJİ",
+      qTime: "KAÇ SAATİN VAR?", qStart: "NE ZAMAN GELİYORSUN?", qBudget: "BÜTÇE", qInterests: "NE YAPMAK İSTERSİN?", qEnergy: "ENERJİ",
       halfDay: "YARIM GÜN", fullDay: "TAM GÜN", free: "BEDAVA",
       tagSwim: "YÜZME", tagWalk: "YÜRÜYÜŞ", tagBike: "BİSİKLET", tagFood: "YEMEK",
       tagCafe: "KAHVE", tagPicnic: "PİKNİK", tagHistory: "TARİH", tagArch: "MİMARİ",
@@ -401,6 +488,7 @@
       ferryStart: "VAPUR · BOSTANCI/KABATAŞ",
       ferryEnd: "DÖNÜŞ VAPURU İÇİN /SAATLER SAYFASINA BAK",
       regenerate: "⟲ YENİ TUR", edit: "DÜZENLE", share: "PAYLAŞ", print: "YAZDIR",
+      moreNearby: "+ YAKINDA NE VAR", evenMore: "3 DAHA", noMore: "DAHA YOK",
       empty: "EN AZ BİR İLGİ ALANI SEÇ",
       noFit: "BU SÜRE/BÜTÇE İÇİN UYGUN ROTA BULUNAMADI — FİLTRELERİ GENİŞLET",
       tourTitle: "TUR · {h} SAAT", direct: "DİREKT", min: "DK",
@@ -411,7 +499,7 @@
       brand: "BÜYÜKADA / TOUR PLANNER",
       navSaatler: "SCHEDULE", navTur: "TOUR",
       tagline: "Curated tour for Büyükada visitors in 4 questions. Köşk's imprint.",
-      qTime: "HOW MUCH TIME?", qBudget: "BUDGET", qInterests: "WHAT DO YOU WANT TO DO?", qEnergy: "ENERGY",
+      qTime: "HOW MUCH TIME?", qStart: "WHEN ARE YOU ARRIVING?", qBudget: "BUDGET", qInterests: "WHAT DO YOU WANT TO DO?", qEnergy: "ENERGY",
       halfDay: "HALF DAY", fullDay: "FULL DAY", free: "FREE",
       tagSwim: "SWIM", tagWalk: "WALK", tagBike: "BIKE", tagFood: "FOOD",
       tagCafe: "CAFE", tagPicnic: "PICNIC", tagHistory: "HISTORY", tagArch: "ARCH",
@@ -427,6 +515,7 @@
       ferryStart: "FERRY · BOSTANCI/KABATAŞ",
       ferryEnd: "FOR RETURN FERRY SEE /SCHEDULE PAGE",
       regenerate: "⟲ NEW TOUR", edit: "EDIT", share: "SHARE", print: "PRINT",
+      moreNearby: "+ NEARBY ALTERNATIVES", evenMore: "3 MORE", noMore: "NO MORE",
       empty: "PICK AT LEAST ONE INTEREST",
       noFit: "NO TOUR FITS THIS TIME/BUDGET — RELAX YOUR FILTERS",
       tourTitle: "TOUR · {h}H", direct: "DIRECT", min: "MIN",
@@ -437,7 +526,7 @@
       brand: "БЮЮКАДА / ПЛАН ТУРА",
       navSaatler: "РАСПИСАНИЕ", navTur: "ТУР",
       tagline: "Подобранный тур для посетителей Бююкады за 4 вопроса. От Köşk.",
-      qTime: "СКОЛЬКО ВРЕМЕНИ?", qBudget: "БЮДЖЕТ", qInterests: "ЧТО ХОТИТЕ ДЕЛАТЬ?", qEnergy: "ЭНЕРГИЯ",
+      qTime: "СКОЛЬКО ВРЕМЕНИ?", qStart: "КОГДА ПРИЕЗЖАЕТЕ?", qBudget: "БЮДЖЕТ", qInterests: "ЧТО ХОТИТЕ ДЕЛАТЬ?", qEnergy: "ЭНЕРГИЯ",
       halfDay: "ПОЛДНЯ", fullDay: "ВЕСЬ ДЕНЬ", free: "БЕСПЛАТНО",
       tagSwim: "ПЛАВАТЬ", tagWalk: "ХОДИТЬ", tagBike: "ВЕЛО", tagFood: "ЕДА",
       tagCafe: "КОФЕ", tagPicnic: "ПИКНИК", tagHistory: "ИСТОРИЯ", tagArch: "АРХ",
@@ -453,6 +542,7 @@
       ferryStart: "ПАРОМ · BOSTANCI/KABATAŞ",
       ferryEnd: "СМОТРИТЕ /РАСПИСАНИЕ ДЛЯ ОБРАТНОГО ПАРОМА",
       regenerate: "⟲ НОВЫЙ ТУР", edit: "РЕД.", share: "ПОДЕЛ.", print: "ПЕЧАТЬ",
+      moreNearby: "+ ПОБЛИЗОСТИ", evenMore: "ЕЩЁ 3", noMore: "БОЛЬШЕ НЕТ",
       empty: "ВЫБЕРИТЕ ХОТЯ БЫ ОДИН ИНТЕРЕС",
       noFit: "ТУР НЕ ПОДОБРАН — РАСШИРЬТЕ ФИЛЬТРЫ",
       tourTitle: "ТУР · {h}Ч", direct: "ПРЯМОЙ", min: "МИН",
@@ -463,7 +553,7 @@
       brand: "بيوكادا / مخطط الجولة",
       navSaatler: "المواعيد", navTur: "الجولة",
       tagline: "جولة مخصصة لزوار بيوكادا في 4 أسئلة. بصمة Köşk.",
-      qTime: "كم لديك من وقت؟", qBudget: "الميزانية", qInterests: "ماذا تريد أن تفعل؟", qEnergy: "الطاقة",
+      qTime: "كم لديك من وقت؟", qStart: "متى تصل؟", qBudget: "الميزانية", qInterests: "ماذا تريد أن تفعل؟", qEnergy: "الطاقة",
       halfDay: "نصف يوم", fullDay: "يوم كامل", free: "مجاني",
       tagSwim: "سباحة", tagWalk: "مشي", tagBike: "دراجة", tagFood: "طعام",
       tagCafe: "قهوة", tagPicnic: "نزهة", tagHistory: "تاريخ", tagArch: "عمارة",
@@ -479,6 +569,7 @@
       ferryStart: "العبارة · BOSTANCI/KABATAŞ",
       ferryEnd: "للعبارة العائدة راجع /المواعيد",
       regenerate: "⟲ جولة جديدة", edit: "تعديل", share: "مشاركة", print: "طباعة",
+      moreNearby: "+ بدائل قريبة", evenMore: "3 إضافية", noMore: "لا مزيد",
       empty: "اختر اهتمامًا واحدًا على الأقل",
       noFit: "لا تتوفر جولة بهذه الفلاتر — وسّع التفضيلات",
       tourTitle: "جولة · {h} س", direct: "مباشر", min: "د",
@@ -489,7 +580,7 @@
       brand: "BÜYÜKADA / TOUR PLANER",
       navSaatler: "FAHRPLAN", navTur: "TOUR",
       tagline: "Kuratierte Tour für Büyükada-Besucher in 4 Fragen. Köşks Handschrift.",
-      qTime: "WIE VIEL ZEIT?", qBudget: "BUDGET", qInterests: "WAS MÖCHTEST DU MACHEN?", qEnergy: "ENERGIE",
+      qTime: "WIE VIEL ZEIT?", qStart: "WANN KOMMST DU AN?", qBudget: "BUDGET", qInterests: "WAS MÖCHTEST DU MACHEN?", qEnergy: "ENERGIE",
       halfDay: "HALBER TAG", fullDay: "GANZER TAG", free: "GRATIS",
       tagSwim: "SCHWIMMEN", tagWalk: "WANDERN", tagBike: "RAD", tagFood: "ESSEN",
       tagCafe: "CAFÉ", tagPicnic: "PICKNICK", tagHistory: "GESCH.", tagArch: "ARCH",
@@ -505,6 +596,7 @@
       ferryStart: "FÄHRE · BOSTANCI/KABATAŞ",
       ferryEnd: "FÜR RÜCKFÄHRE SIEHE /FAHRPLAN",
       regenerate: "⟲ NEUE TOUR", edit: "BEARB.", share: "TEILEN", print: "DRUCK",
+      moreNearby: "+ IN DER NÄHE", evenMore: "3 MEHR", noMore: "KEINE MEHR",
       empty: "MINDESTENS EIN INTERESSE WÄHLEN",
       noFit: "KEINE TOUR PASST — FILTER LOCKERN",
       tourTitle: "TOUR · {h} STD", direct: "DIREKT", min: "MIN",
@@ -515,7 +607,7 @@
       brand: "BÜYÜKADA / PLANIFICATEUR DE VISITE",
       navSaatler: "HORAIRES", navTur: "VISITE",
       tagline: "Visite organisée pour les visiteurs de Büyükada en 4 questions. Signée Köşk.",
-      qTime: "COMBIEN DE TEMPS?", qBudget: "BUDGET", qInterests: "QUE VOULEZ-VOUS FAIRE?", qEnergy: "ÉNERGIE",
+      qTime: "COMBIEN DE TEMPS?", qStart: "QUAND ARRIVEZ-VOUS?", qBudget: "BUDGET", qInterests: "QUE VOULEZ-VOUS FAIRE?", qEnergy: "ÉNERGIE",
       halfDay: "DEMI-JOURNÉE", fullDay: "JOURNÉE", free: "GRATUIT",
       tagSwim: "BAIGNADE", tagWalk: "MARCHE", tagBike: "VÉLO", tagFood: "REPAS",
       tagCafe: "CAFÉ", tagPicnic: "PIQUE-NIQUE", tagHistory: "HISTOIRE", tagArch: "ARCH",
@@ -531,6 +623,7 @@
       ferryStart: "FERRY · BOSTANCI/KABATAŞ",
       ferryEnd: "VOIR /HORAIRES POUR FERRY RETOUR",
       regenerate: "⟲ NOUVELLE VISITE", edit: "MODIF.", share: "PARTAG.", print: "IMPR.",
+      moreNearby: "+ À PROXIMITÉ", evenMore: "3 DE PLUS", noMore: "PLUS RIEN",
       empty: "CHOISISSEZ AU MOINS UN INTÉRÊT",
       noFit: "AUCUNE VISITE NE CORRESPOND — ÉLARGISSEZ LES FILTRES",
       tourTitle: "VISITE · {h}H", direct: "DIRECT", min: "MIN",
@@ -629,22 +722,54 @@
     };
     return {
       hours: parseInt(get("time"), 10) || 4,
+      startHour: parseInt(get("start"), 10) || 10,
       budget: parseInt(get("budget"), 10),
       tags: getMulti("tags"),
       energy: get("energy") || "normal",
     };
   }
 
+  // Zaman dilimi (saat → bucket)
+  function timeBucket(min) {
+    const h = Math.floor(min / 60) % 24;
+    if (h >= 6 && h < 11) return "morning";
+    if (h >= 11 && h < 14) return "midday";
+    if (h >= 14 && h < 17) return "afternoon";
+    if (h >= 17 && h < 20) return "evening";
+    if (h >= 17 && h < 20) return "sunset"; // overlaps evening
+    return "night";
+  }
+  function isMealTime(min) {
+    const h = Math.floor(min / 60) % 24;
+    return (h >= 12 && h < 14) || (h >= 19 && h < 22);
+  }
+
+  function scorePlace(p, userTags, currentTimeMin, alreadyAteMeal) {
+    let score = 0;
+    score += p.tags.filter(t => userTags.includes(t)).length * 10;
+    if (p.kosk_native) score += 8;
+    // Zaman-duyarlı skor: o anki saat dilimi ile best_time eşleşmesi
+    const bucket = timeBucket(currentTimeMin);
+    if (p.best_time && p.best_time.includes(bucket)) score += 7;
+    // Yemek saati ise food/cafe boost
+    if (isMealTime(currentTimeMin) && !alreadyAteMeal &&
+        (p.tags.includes("food") || p.tags.includes("cafe"))) score += 12;
+    // Sunset saati (17-19) için sunset taglı yer ekstra
+    const h = Math.floor(currentTimeMin / 60) % 24;
+    if (h >= 17 && h < 20 && p.tags.includes("sunset")) score += 8;
+    score += Math.random() * 4;
+    return score;
+  }
+
   function generateTour(inputs) {
     if (!placesData || !placesData.places) return null;
-    const { hours, budget, tags, energy } = inputs;
+    const { hours, startHour, budget, tags, energy } = inputs;
 
     // Filter
     let pool = placesData.places.filter(p => {
       if (p.cost_level > budget) return false;
       if (tags.length > 0 && !p.tags.some(t => tags.includes(t))) return false;
       if (energy === "chill" && p.energy === "active") return false;
-      // Skip beaches if not summer (rough heuristic)
       const month = new Date().getMonth() + 1;
       const isSummer = month >= 5 && month <= 10;
       if (!isSummer && p.season && !p.season.includes("all") && !p.season.includes("winter")) {
@@ -655,35 +780,33 @@
 
     if (pool.length === 0) return { stops: [], reason: "noFit" };
 
-    // Score each place
-    const tagSet = new Set(tags);
-    pool.forEach(p => {
-      let score = 0;
-      score += p.tags.filter(t => tagSet.has(t)).length * 10;
-      if (p.kosk_native) score += 8;
-      score += Math.random() * 4; // variety
-      p._score = score;
-    });
-    pool.sort((a, b) => b._score - a._score);
-
-    // Build itinerary
-    const arrivalTime = 10 * 60; // 10:00 in minutes
+    // Build itinerary — startHour'dan başla
+    const arrivalTime = startHour * 60;
     const totalMinutes = hours * 60;
     const endTime = arrivalTime + totalMinutes;
-    const returnBuffer = 20; // walk back to iskele + ferry buffer
+    const returnBuffer = 20;
 
     const stops = [];
     let now = arrivalTime;
     let lastZone = "iskele";
+    let ateMeal = false;
 
     stops.push({ type: "arrival", time: now });
-    now += 5; // get off ferry, walk into pier area
+    now += 5;
 
     const usedIds = new Set();
     const usedTags = new Set();
 
     while (true) {
-      // Find best next stop that fits
+      // Re-score with current time context
+      pool.forEach(p => {
+        if (!usedIds.has(p.id)) {
+          const newTagBonus = p.tags.filter(tg => !usedTags.has(tg)).length * 2;
+          p._score = scorePlace(p, tags, now, ateMeal) + newTagBonus;
+        }
+      });
+      pool.sort((a, b) => b._score - a._score);
+
       let next = null;
       for (const p of pool) {
         if (usedIds.has(p.id)) continue;
@@ -706,18 +829,9 @@
       lastZone = next.zone;
       usedIds.add(next.id);
       next.tags.forEach(tg => usedTags.add(tg));
-
-      // Re-score: deprioritize already-used tags slightly for variety
-      pool.forEach(p => {
-        if (!usedIds.has(p.id)) {
-          const newTagsCount = p.tags.filter(tg => !usedTags.has(tg)).length;
-          p._score = (p._score || 0) * 0.95 + newTagsCount * 2;
-        }
-      });
-      pool.sort((a, b) => b._score - a._score);
+      if (next.tags.includes("food") || next.tags.includes("cafe")) ateMeal = true;
     }
 
-    // Walk back to iskele if not already there
     if (lastZone !== "iskele") {
       const wMin = walkMin(lastZone, "iskele");
       stops.push({ type: "walk", minutes: wMin });
@@ -725,7 +839,23 @@
     }
     stops.push({ type: "departure", time: now });
 
-    return { stops, hours, totalMinutes, finalTime: now };
+    return { stops, hours, startHour, totalMinutes, finalTime: now, allUsedIds: usedIds };
+  }
+
+  // Yakın alternatifler — bir durağa benzer 3 (offset ile daha fazlası)
+  function findNearby(stopPlace, allPlaces, alreadyShownIds, userTags, count = 3) {
+    return allPlaces
+      .filter(p => p.id !== stopPlace.id && !alreadyShownIds.has(p.id))
+      .map(p => ({
+        ...p,
+        _walk: walkMin(stopPlace.zone, p.zone),
+        _matchScore:
+          p.tags.filter(t => stopPlace.tags.includes(t)).length * 5 +
+          p.tags.filter(t => userTags.includes(t)).length * 3
+      }))
+      .filter(p => p._walk <= 30)
+      .sort((a, b) => (b._matchScore - a._matchScore) || (a._walk - b._walk))
+      .slice(0, count);
   }
 
   // ====== RENDER ======
@@ -801,6 +931,10 @@
               ${p.editorial ? `<div class="stop-editorial">"${p.editorial}"</div>` : ""}
             </div>
             <div class="stop-cost ${costCls}">${cost}<br><span style="font-size:9px;opacity:0.7">${p.duration_min} ${tr.min}</span></div>
+          </div>
+          <div class="bonus" data-stop-id="${p.id}" data-shown="0">
+            <button class="bonus-toggle">${tr.moreNearby}</button>
+            <div class="bonus-list"></div>
           </div>`;
         stopIdx++;
       }
@@ -820,6 +954,65 @@
       const inputs = getInputs();
       renderResult(generateTour(inputs));
       result.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Bonus options — her durakta yakın 3 alternatif, "3 daha" ile genişler
+    const userInputs = getInputs();
+    const inTourIds = new Set();
+    tour.stops.forEach(s => { if (s.type === "stop") inTourIds.add(s.place.id); });
+
+    document.querySelectorAll(".bonus").forEach(box => {
+      const stopId = box.dataset.stopId;
+      const stopPlace = placesData.places.find(p => p.id === stopId);
+      if (!stopPlace) return;
+
+      const toggle = box.querySelector(".bonus-toggle");
+      const list = box.querySelector(".bonus-list");
+      const shownIds = new Set(inTourIds);
+
+      function loadMore() {
+        const candidates = findNearby(stopPlace, placesData.places, shownIds, userInputs.tags, 3);
+        if (candidates.length === 0) {
+          const moreBtn = list.querySelector(".bonus-more");
+          if (moreBtn) {
+            moreBtn.textContent = t().noMore;
+            moreBtn.disabled = true;
+          }
+          return;
+        }
+        candidates.forEach(p => {
+          shownIds.add(p.id);
+          const item = document.createElement("div");
+          item.className = "bonus-item";
+          const tagsStr = p.tags.slice(0, 3).map(tg => (t()["tag" + tg.charAt(0).toUpperCase() + tg.slice(1)] || tg).toUpperCase()).join(" · ");
+          item.innerHTML = `
+            <div>
+              <div class="bonus-name">${p.name}</div>
+              <div class="bonus-meta">${tagsStr} · ${p._walk}${t().min} ${t().walkLabel}</div>
+            </div>
+            <div class="bonus-cost">${costStr(p.cost_level)}<br><span style="font-size:9px;opacity:0.7">${p.duration_min}${t().min}</span></div>
+          `;
+          // "3 daha" butonu varsa sona ekle
+          const moreBtn = list.querySelector(".bonus-more");
+          if (moreBtn) list.insertBefore(item, moreBtn);
+          else list.appendChild(item);
+        });
+
+        // "3 daha" butonu
+        let moreBtn = list.querySelector(".bonus-more");
+        if (!moreBtn) {
+          moreBtn = document.createElement("button");
+          moreBtn.className = "bonus-more";
+          moreBtn.textContent = t().evenMore;
+          moreBtn.addEventListener("click", e => { e.preventDefault(); loadMore(); });
+          list.appendChild(moreBtn);
+        }
+      }
+
+      toggle.addEventListener("click", () => {
+        const isOpen = list.classList.toggle("open");
+        if (isOpen && list.children.length === 0) loadMore();
+      });
     });
   }
 
@@ -854,10 +1047,47 @@
 
   document.getElementById("themeBtn").addEventListener("click", toggleTheme);
 
+  // ====== WEATHER ======
+  async function loadWeather() {
+    try {
+      const cached = sessionStorage.getItem("weather_v1");
+      if (cached) {
+        const c = JSON.parse(cached);
+        if (Date.now() - c.t < 60 * 60 * 1000) return c.data;
+      }
+      const r = await fetch("https://api.open-meteo.com/v1/forecast?latitude=40.87&longitude=29.13&daily=temperature_2m_max,temperature_2m_min,weathercode,windspeed_10m_max&timezone=Europe/Istanbul&forecast_days=1");
+      const d = await r.json();
+      sessionStorage.setItem("weather_v1", JSON.stringify({ t: Date.now(), data: d }));
+      return d;
+    } catch (e) { return null; }
+  }
+  function weatherIcon(code, windKmh) {
+    if (windKmh > 35) return "💨";
+    if (code === 0) return "☀";
+    if (code <= 3) return "⛅";
+    if (code <= 48) return "☁";
+    if (code <= 67) return "☔";
+    if (code <= 77) return "❄";
+    if (code <= 82) return "☔";
+    return "⛈";
+  }
+  async function applyWeather() {
+    const d = await loadWeather();
+    if (!d || !d.daily) return;
+    const high = Math.round(d.daily.temperature_2m_max[0]);
+    const low = Math.round(d.daily.temperature_2m_min[0]);
+    const code = d.daily.weathercode[0];
+    const wind = d.daily.windspeed_10m_max[0];
+    document.getElementById("wIcon").textContent = weatherIcon(code, wind);
+    document.getElementById("wTemp").textContent = `${low}° / ${high}°`;
+    document.getElementById("weatherStrip").classList.add("loaded");
+  }
+
   // INIT
   (async () => {
     applyTheme();
     applyI18n();
+    applyWeather();
     await loadPlaces();
   })();
 </script>
