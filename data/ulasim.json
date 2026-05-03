@@ -1,0 +1,122 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "updated_at": "2026-05-03",
+    "source": "iett.istanbul/icerik/Büyükada ŞH iskelelere ulaşım + metro.istanbul + moovitapp.com",
+    "note": "Otobüs hatları zamanla değişebilir. Kesin liste için iett.istanbul ve Moovit/Citymapper kontrol edin."
+  },
+  "piers": [
+    {
+      "id": "bostanci",
+      "name": "Bostancı",
+      "side": "anadolu",
+      "ferries": ["SH", "MM"],
+      "ferries_note": "Adalara en sık sefer kalkan iskele. Şehir Hatları ring + Mavi Marmara hızlı.",
+      "transit": [
+        { "type": "marmaray", "code": "B1", "label": "MARMARAY", "detail": "Söğütlüçeşme istasyonundan ~12 dk yürüyüş veya Bostancı dolmuş.", "color": "ink" },
+        { "type": "metro",    "code": "M4", "label": "METRO M4", "detail": "En yakın istasyon Kozyatağı (~12 dk yürüyüş ya da bağlantı dolmuş).", "color": "ink" },
+        { "type": "bus",      "label": "OTOBÜS", "lines": ["16C", "16K", "17M", "19A", "19E", "19R", "20A", "20U", "KM12"], "detail": "Bostancı meydanı durağı, iskele yanında." },
+        { "type": "minibus",  "label": "DOLMUŞ", "detail": "Bostancı meydanı dolmuş hattı (Kadıköy, Kartal, Pendik istikametleri)." }
+      ]
+    },
+    {
+      "id": "kabatas",
+      "name": "Kabataş",
+      "side": "avrupa",
+      "ferries": ["SH", "MM"],
+      "ferries_note": "Avrupa yakasının ana iskelesi. Şehir Hatları büyük vapur (~95 dk) + MM hızlı.",
+      "transit": [
+        { "type": "tram",      "code": "T1", "label": "TRAMVAY T1", "detail": "Bağcılar-Kabataş hattının son durağı. Sultanahmet, Eminönü, Sirkeci'den direkt.", "color": "ink" },
+        { "type": "funicular", "code": "F1", "label": "FÜNİKÜLER F1", "detail": "Taksim ↔ Kabataş, 110 saniye. Metro M2 ile Taksim üstünden.", "color": "ink" },
+        { "type": "bus",       "label": "OTOBÜS", "lines": ["22", "22B", "25E", "26", "26A", "26B", "27E", "28", "30D", "48T", "58A", "62", "63"], "detail": "Kabataş otobüs durakları, iskele girişi yanında." },
+        { "type": "ferry",     "label": "VAPUR (BAĞLANTI)", "detail": "Üsküdar-Kabataş Şehir Hatları (Anadolu yakasından geçiş)." }
+      ]
+    },
+    {
+      "id": "eminonu",
+      "name": "Eminönü",
+      "side": "avrupa",
+      "ferries": ["SH"],
+      "ferries_note": "Tarihî yarımadanın iskelesi. Şehir Hatları'nın günlük sınırlı seferi.",
+      "transit": [
+        { "type": "tram",     "code": "T1", "label": "TRAMVAY T1", "detail": "Eminönü durağı iskelenin tam karşısı.", "color": "ink" },
+        { "type": "marmaray", "code": "B1", "label": "MARMARAY", "detail": "Sirkeci istasyonu ~5 dk yürüyüş.", "color": "ink" },
+        { "type": "bus",      "label": "OTOBÜS", "lines": ["28", "29P", "30M", "36CE", "36KE", "37E", "38E", "61B", "77MT"], "detail": "Eminönü meydanı çevresinde çok sayıda durak." },
+        { "type": "ferry",    "label": "VAPUR (BAĞLANTI)", "detail": "Üsküdar, Kadıköy, Beykoz Şehir Hatları seferleri yan iskelelerden." }
+      ]
+    },
+    {
+      "id": "besiktas",
+      "name": "Beşiktaş",
+      "side": "avrupa",
+      "ferries": ["SH"],
+      "ferries_note": "Avrupa yakası, Boğaz hattı. Şehir Hatları'nın sınırlı Adalar seferi.",
+      "transit": [
+        { "type": "bus",       "label": "OTOBÜS", "lines": ["22", "22B", "25E", "26B", "28", "29C", "30D", "40", "40T", "41E", "41ST", "42T", "43R"], "detail": "Beşiktaş meydanı ve iskele etrafında çok sayıda durak." },
+        { "type": "metro",     "code": "M6", "label": "METRO M6", "detail": "Levent-Boğaziçi Üniversitesi hattı (Beşiktaş'a en yakın istasyon: Hisarüstü)." },
+        { "type": "funicular", "code": "F1", "label": "F1 (KABATAŞ üzerinden)", "detail": "Taksim'den Kabataş'a F1, oradan kıyı boyu yürüyüş ya da otobüs." },
+        { "type": "ferry",     "label": "VAPUR (BAĞLANTI)", "detail": "Üsküdar, Kadıköy, Boğaz hattı Şehir Hatları seferleri." }
+      ]
+    },
+    {
+      "id": "kadikoy",
+      "name": "Kadıköy",
+      "side": "anadolu",
+      "ferries": ["SH"],
+      "ferries_note": "Şehir Hatları büyük vapurun Kabataş-Adalar hattındaki ara durağı.",
+      "transit": [
+        { "type": "marmaray", "code": "B1", "label": "MARMARAY", "detail": "Söğütlüçeşme istasyonundan ~10 dk dolmuş veya yürüyüş.", "color": "ink" },
+        { "type": "metro",    "code": "M4", "label": "METRO M4", "detail": "Kadıköy istasyonu iskelelere ~5-7 dk yürüyüş.", "color": "ink" },
+        { "type": "tram",     "code": "T3", "label": "TRAMVAY T3", "detail": "Kadıköy-Moda nostaljik tramvayı, iskele meydanından kalkar." },
+        { "type": "bus",      "label": "OTOBÜS", "lines": ["4", "4A", "8", "10A", "10B", "10S", "10T", "12", "14R", "16A", "16C", "20", "522D"], "detail": "Kadıköy iskele otobüs durakları kümesi." },
+        { "type": "minibus",  "label": "DOLMUŞ", "detail": "Üsküdar, Pendik, Sabiha Gökçen, Taksim istikametleri." }
+      ]
+    },
+    {
+      "id": "kartal",
+      "name": "Kartal",
+      "side": "anadolu",
+      "ferries": ["PT"],
+      "ferries_note": "Prens Tur'un ana iskelesi. Direkt veya Heybeli üzerinden Büyükada (~25-40 dk).",
+      "transit": [
+        { "type": "marmaray", "code": "B1", "label": "MARMARAY", "detail": "Kartal istasyonu iskeleye ~7 dk yürüyüş.", "color": "ink" },
+        { "type": "metro",    "code": "M4", "label": "METRO M4", "detail": "Kartal istasyonu, Kadıköy-Sabiha Gökçen hattı.", "color": "ink" },
+        { "type": "bus",      "label": "OTOBÜS", "lines": ["8", "16K", "17", "131", "132M", "240", "251", "252"], "detail": "Kartal meydanı ve iskele çevresi." }
+      ]
+    },
+    {
+      "id": "maltepe",
+      "name": "Maltepe",
+      "side": "anadolu",
+      "ferries": ["SH"],
+      "ferries_note": "Şehir Hatları'nın Maltepe-Büyükada hattı (her gün, hafif).",
+      "transit": [
+        { "type": "marmaray", "code": "B1", "label": "MARMARAY", "detail": "Maltepe istasyonu iskeleye ~10 dk yürüyüş.", "color": "ink" },
+        { "type": "metro",    "code": "M4", "label": "METRO M4", "detail": "Maltepe istasyonu, M4 hattı." },
+        { "type": "bus",      "label": "OTOBÜS", "lines": ["16C", "17", "19A", "131", "132", "522D"], "detail": "Maltepe sahil ve meydan." }
+      ]
+    },
+    {
+      "id": "pendik",
+      "name": "Pendik",
+      "side": "anadolu",
+      "ferries": ["SH"],
+      "ferries_note": "Şehir Hatları Tuzla-Pendik-Büyükada hattı (sadece Cmt/Paz/Tatil).",
+      "transit": [
+        { "type": "marmaray", "code": "B1", "label": "MARMARAY", "detail": "Pendik istasyonu iskeleye ~8 dk yürüyüş.", "color": "ink" },
+        { "type": "bus",      "label": "OTOBÜS", "lines": ["132", "132H", "132K", "132M", "MR60", "16K"], "detail": "Pendik sahil ve istasyon civarı." }
+      ]
+    },
+    {
+      "id": "tuzla",
+      "name": "Tuzla",
+      "side": "anadolu",
+      "ferries": ["SH"],
+      "ferries_note": "Şehir Hatları Tuzla-Pendik-Büyükada hattı (sadece Cmt/Paz/Tatil).",
+      "transit": [
+        { "type": "marmaray", "code": "B1", "label": "MARMARAY", "detail": "Tuzla istasyonu iskeleye ~10 dk yürüyüş.", "color": "ink" },
+        { "type": "bus",      "label": "OTOBÜS", "lines": ["KM34", "139A", "MR58"], "detail": "Tuzla sahil ve istasyon civarı." }
+      ]
+    }
+  ]
+}
