@@ -92,14 +92,12 @@
   .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   .nav a.active { color: var(--ink); border-bottom: 1px solid var(--ink); }
 
-  .masthead-row { align-items: flex-start; }
+  .masthead-row { align-items: center; }
   .masthead-controls {
     display: flex;
-    flex-direction: column;
     gap: 8px;
-    align-items: flex-end;
+    align-items: center;
   }
-  .controls-row { display: flex; gap: 6px; align-items: center; }
   .theme-btn {
     font-family: inherit; font-size: 13px; line-height: 1;
     padding: 5px 10px; background: transparent; color: var(--ink);
@@ -412,27 +410,25 @@
 
   <header class="masthead">
     <div class="masthead-row">
-      <h1 class="brand" data-i18n="brand">BÜYÜKADA / TUR PLANLAYICI</h1>
+      <h1 class="brand" data-i18n="brand">BÜYÜKADA</h1>
       <div class="masthead-controls">
-        <div class="controls-row">
-          <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon">☾</span></button>
-          <div class="lang-picker">
-            <button class="lang-btn" id="langBtn" aria-haspopup="true">
-              <span id="langCurrent">TR</span><span class="caret">▾</span>
-            </button>
-            <div class="lang-menu" id="langMenu" role="menu">
-              <button data-lang="tr">TR</button>
-              <button data-lang="en">EN</button>
-              <button data-lang="ru">RU</button>
-              <button data-lang="ar">AR</button>
-              <button data-lang="de">DE</button>
-              <button data-lang="fr">FR</button>
-            </div>
-          </div>
-        </div>
         <div class="weather-mini" id="weatherBox">
           <span class="w-icon" id="wIcon"></span>
-          <span class="w-temp" id="wTemp">— / —</span>
+          <span class="w-temp" id="wTemp">—°/—°</span>
+        </div>
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon">☾</span></button>
+        <div class="lang-picker">
+          <button class="lang-btn" id="langBtn" aria-haspopup="true">
+            <span id="langCurrent">TR</span><span class="caret">▾</span>
+          </button>
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button data-lang="tr">TR</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="ru">RU</button>
+            <button data-lang="ar">AR</button>
+            <button data-lang="de">DE</button>
+            <button data-lang="fr">FR</button>
+          </div>
         </div>
       </div>
     </div>
@@ -523,7 +519,7 @@
   const I18N = {
     tr: {
       htmlLang: "tr", title: "BÜYÜKADA / TUR PLANLAYICI",
-      brand: "BÜYÜKADA / TUR PLANLAYICI",
+      brand: "BÜYÜKADA",
       navSeferler: "SEFERLER", navTur: "TUR", navEtkinlik: "ETKİNLİKLER", navOtobus: "OTOBÜSLER",
       tagline: "Büyükada'ya gelen birine 4 soruyla küratörlü bir tur. Köşk imzası.",
       qTime: "KAÇ SAATİN VAR?", qStart: "NE ZAMAN GELİYORSUN?", qBudget: "BÜTÇE", qInterests: "NE YAPMAK İSTERSİN?", qEnergy: "ENERJİ",
@@ -551,7 +547,7 @@
     },
     en: {
       htmlLang: "en", title: "BÜYÜKADA / TOUR PLANNER",
-      brand: "BÜYÜKADA / TOUR PLANNER",
+      brand: "BÜYÜKADA",
       navSeferler: "FERRIES", navTur: "TOUR", navEtkinlik: "WHAT'S ON", navOtobus: "BUSES",
       tagline: "Curated tour for Büyükada visitors in 4 questions. Köşk's imprint.",
       qTime: "HOW MUCH TIME?", qStart: "WHEN ARE YOU ARRIVING?", qBudget: "BUDGET", qInterests: "WHAT DO YOU WANT TO DO?", qEnergy: "ENERGY",
@@ -579,7 +575,7 @@
     },
     ru: {
       htmlLang: "ru", title: "БЮЮКАДА / ПЛАН ТУРА",
-      brand: "БЮЮКАДА / ПЛАН ТУРА",
+      brand: "БЮЮКАДА",
       navSeferler: "ПАРОМЫ", navTur: "ТУР", navEtkinlik: "СОБЫТИЯ", navOtobus: "АВТОБУСЫ",
       tagline: "Подобранный тур для посетителей Бююкады за 4 вопроса. От Köşk.",
       qTime: "СКОЛЬКО ВРЕМЕНИ?", qStart: "КОГДА ПРИЕЗЖАЕТЕ?", qBudget: "БЮДЖЕТ", qInterests: "ЧТО ХОТИТЕ ДЕЛАТЬ?", qEnergy: "ЭНЕРГИЯ",
@@ -607,7 +603,7 @@
     },
     ar: {
       htmlLang: "ar", title: "بيوكادا / مخطط الجولة",
-      brand: "بيوكادا / مخطط الجولة",
+      brand: "بيوكادا",
       navSeferler: "الرحلات", navTur: "الجولة", navEtkinlik: "الفعاليات", navOtobus: "الحافلات",
       tagline: "جولة مخصصة لزوار بيوكادا في 4 أسئلة. بصمة Köşk.",
       qTime: "كم لديك من وقت؟", qStart: "متى تصل؟", qBudget: "الميزانية", qInterests: "ماذا تريد أن تفعل؟", qEnergy: "الطاقة",
@@ -635,7 +631,7 @@
     },
     de: {
       htmlLang: "de", title: "BÜYÜKADA / TOUR PLANER",
-      brand: "BÜYÜKADA / TOUR PLANER",
+      brand: "BÜYÜKADA",
       navSeferler: "FÄHREN", navTur: "TOUR", navEtkinlik: "VERANSTALTUNGEN", navOtobus: "BUSSE",
       tagline: "Kuratierte Tour für Büyükada-Besucher in 4 Fragen. Köşks Handschrift.",
       qTime: "WIE VIEL ZEIT?", qStart: "WANN KOMMST DU AN?", qBudget: "BUDGET", qInterests: "WAS MÖCHTEST DU MACHEN?", qEnergy: "ENERGIE",
@@ -663,7 +659,7 @@
     },
     fr: {
       htmlLang: "fr", title: "BÜYÜKADA / PLANIFICATEUR DE VISITE",
-      brand: "BÜYÜKADA / PLANIFICATEUR DE VISITE",
+      brand: "BÜYÜKADA",
       navSeferler: "FERRIES", navTur: "VISITE", navEtkinlik: "ÉVÉNEMENTS", navOtobus: "BUS",
       tagline: "Visite organisée pour les visiteurs de Büyükada en 4 questions. Signée Köşk.",
       qTime: "COMBIEN DE TEMPS?", qStart: "QUAND ARRIVEZ-VOUS?", qBudget: "BUDGET", qInterests: "QUE VOULEZ-VOUS FAIRE?", qEnergy: "ÉNERGIE",
@@ -1211,7 +1207,7 @@
     const code = d.daily.weathercode[0];
     const wind = d.daily.windspeed_10m_max[0];
     document.getElementById("wIcon").innerHTML = weatherIcon(code, wind);
-    document.getElementById("wTemp").textContent = `${low}° / ${high}°`;
+    document.getElementById("wTemp").textContent = `${low}°/${high}°`;
     document.getElementById("weatherBox").classList.add("loaded");
   }
 
