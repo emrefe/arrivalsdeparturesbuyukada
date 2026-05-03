@@ -255,15 +255,21 @@
   }
   .row.in {
     opacity: 0;
-    transform: translateY(-4px);
-    animation: rowReveal 280ms cubic-bezier(.2,.7,.3,1) forwards;
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: rowFlap 340ms cubic-bezier(.2,.7,.3,1) both;
   }
-  @keyframes rowReveal {
-    to { opacity: 1; transform: translateY(0); }
+  @keyframes rowFlap {
+    0%   { opacity: 0; transform: scaleY(0); }
+    55%  { opacity: 1; }
+    100% { opacity: 1; transform: scaleY(1); }
   }
   .empty.in {
     opacity: 0;
-    animation: rowReveal 280ms ease-out 200ms forwards;
+    animation: emptyFade 280ms ease-out 200ms forwards;
+  }
+  @keyframes emptyFade {
+    to { opacity: 1; }
   }
  
   .r-time {
@@ -536,27 +542,52 @@
     return parts.join(ok);
   }
  
-  function render(animate) {
+  let lastRenderedKeys = new Set();
+ 
+  function rowKey(s) {
+    return `${s.operator_kod}|${s.kalkis_saati}|${s.kalkis_iskelesi}|${s.varis_iskelesi}|${s.yon}`;
+  }
+ 
+  function render(mode) {
+    // mode: "all" | "new" | "none"
+    mode = mode || "none";
     const list = document.getElementById("list");
     const items = aktifSeferler();
+ 
     if (items.length === 0) {
       list.innerHTML = `
-        <div class="empty${animate ? " in" : ""}">
+        <div class="empty${mode !== "none" ? " in" : ""}">
           <span class="empty-mark">— · —</span>
           ÖNÜMÜZDEKİ 3 SAATTE SEFER YOK
         </div>`;
+      lastRenderedKeys = new Set();
       return;
     }
+ 
+    const currentKeys = new Set(items.map(rowKey));
+    let newRowOrder = 0;
+ 
     list.innerHTML = items.map((s, i) => {
+      const key = rowKey(s);
+      let shouldAnimate = false;
+      let delay = 0;
+ 
+      if (mode === "all") {
+        shouldAnimate = true;
+        delay = 200 + i * 70;
+      } else if (mode === "new" && !lastRenderedKeys.has(key)) {
+        shouldAnimate = true;
+        delay = newRowOrder * 90;
+        newRowOrder++;
+      }
+ 
       const imminent = s._dk <= 30;
       const soon = s._dk <= 60;
       let cls = "row";
       if (imminent) cls += " imminent";
-      let style = "";
-      if (animate) {
-        cls += " in";
-        style = ` style="animation-delay: ${200 + i * 40}ms"`;
-      }
+      if (shouldAnimate) cls += " in";
+      const style = shouldAnimate ? ` style="animation-delay: ${delay}ms"` : "";
+ 
       return `
         <div class="${cls}"${style}>
           <div class="r-time">${s.kalkis_saati}</div>
@@ -568,6 +599,8 @@
           </div>
         </div>`;
     }).join("");
+ 
+    lastRenderedKeys = currentKeys;
   }
  
   function nowDigits() {
@@ -601,7 +634,8 @@
       document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       aktifYon = btn.dataset.yon;
-      render(true);
+      lastRenderedKeys = new Set(); // tab değişince yeni cascade
+      render("all");
     });
   });
   document.querySelectorAll("#opFilter .chip").forEach(btn => {
@@ -609,18 +643,18 @@
       document.querySelectorAll("#opFilter .chip").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       aktifOp = btn.dataset.op;
-      render(true);
+      lastRenderedKeys = new Set();
+      render("all");
     });
   });
  
   (async () => {
     document.getElementById("nowDay").textContent = gunUzun(new Date());
     await veriYukle();
-    render(true);
+    render("all");
     cascadeLoad();
-    setInterval(() => { refreshNow(); render(false); }, 30000);
+    setInterval(() => { refreshNow(); render("new"); }, 30000);
   })();
 </script>
 </body>
 </html>
- 
