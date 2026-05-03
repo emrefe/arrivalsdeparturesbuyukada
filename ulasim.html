@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-<meta name="description" content="İstanbul'dan Büyükada vapur iskelelerine ulaşım — Marmaray, metro, tramvay, otobüs.">
-<title>BÜYÜKADA / İSKELELERE ULAŞIM</title>
+<meta name="description" content="Büyükada içi 4 elektrikli otobüs hattı — durakları ve sefer saatleri.">
+<title>BÜYÜKADA / OTOBÜSLER</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,9 +37,9 @@
 
   .wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
 
-  .weather-mini { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink); letter-spacing: 0.04em; visibility: hidden; padding: 2px 0; }
+  .weather-mini { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--ink); letter-spacing: 0.04em; visibility: hidden; padding: 2px 0; }
   .weather-mini.loaded { visibility: visible; }
-  .w-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; color: var(--ink); }
+  .w-icon { display: inline-flex; align-items: center; justify-content: center; width: 17px; height: 17px; color: var(--ink); }
   .w-icon svg { width: 100%; height: 100%; display: block; }
   .w-temp { font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; }
 
@@ -66,104 +66,84 @@
 
   .tagline { margin: 16px 0 22px; font-size: 12px; color: var(--muted); line-height: 1.6; text-align: center; border-bottom: 1px dashed var(--rule); padding-bottom: 22px; }
 
-  /* PIER FILTER */
-  .filter {
-    display: flex; flex-wrap: wrap; gap: 6px;
-    margin-bottom: 22px;
-  }
-  .pchip {
-    background: transparent; border: 1px solid var(--ink); color: var(--ink);
-    font-family: inherit; font-size: 10px; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    padding: 6px 10px; cursor: pointer;
-  }
-  .pchip.active { background: var(--ink); color: var(--paper); }
-  .pchip .side { opacity: 0.5; margin-inline-start: 5px; font-size: 9px; }
+  /* LINE FILTER */
+  .filter { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+  .lchip { background: transparent; border: 1px solid var(--ink); color: var(--ink); font-family: inherit; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; padding: 7px 12px; cursor: pointer; }
+  .lchip.active { background: var(--ink); color: var(--paper); }
+  .lchip .code { font-weight: 700; margin-inline-end: 5px; letter-spacing: 0.04em; }
 
-  /* PIER CARDS */
-  .piers { display: flex; flex-direction: column; gap: 22px; }
-
-  .pier {
-    border-top: 1px solid var(--ink);
-    padding-top: 18px;
-  }
-  .pier.in {
-    animation: pierWipe 480ms cubic-bezier(.4,0,.2,1) both;
-  }
-  @keyframes pierWipe {
+  /* LINE CARDS */
+  .lines { display: flex; flex-direction: column; gap: 22px; }
+  .line { border-top: 1px solid var(--ink); padding-top: 18px; }
+  .line.in { animation: lineWipe 480ms cubic-bezier(.4,0,.2,1) both; }
+  @keyframes lineWipe {
     from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
     to   { clip-path: inset(0 0 0 0); opacity: 1; }
   }
-  html[lang="ar"] .pier.in { animation-name: pierWipeRTL; }
-  @keyframes pierWipeRTL {
+  html[lang="ar"] .line.in { animation-name: lineWipeRTL; }
+  @keyframes lineWipeRTL {
     from { clip-path: inset(0 0 0 100%); opacity: 0.4; }
     to   { clip-path: inset(0 0 0 0); opacity: 1; }
   }
 
-  .pier-head {
-    display: flex; justify-content: space-between; align-items: baseline;
-    flex-wrap: wrap; gap: 8px;
-    margin-bottom: 4px;
-  }
-  .pier-name {
-    font-size: 22px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.06em;
-  }
-  .pier-side {
-    font-size: 10px; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.16em;
-  }
-  .pier-ferries {
-    font-size: 11px; color: var(--ink);
-    text-transform: uppercase; letter-spacing: 0.1em;
-    margin-bottom: 4px;
-  }
-  .pier-ferries .badge {
-    display: inline-block;
+  .line-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+  .line-code {
     background: var(--ink); color: var(--paper);
-    padding: 1px 6px;
-    font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
-    margin-inline-end: 4px;
+    font-size: 14px; font-weight: 600;
+    padding: 4px 9px;
+    letter-spacing: 0.04em;
+    line-height: 1;
   }
-  .pier-note {
-    font-size: 11px; color: var(--muted);
-    line-height: 1.5; margin-bottom: 14px; font-style: italic;
+  .line-name {
+    font-size: 17px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.04em;
   }
+  .line-note { font-size: 11px; color: var(--muted); margin: 6px 0 14px; line-height: 1.5; font-style: italic; }
 
-  .transit { display: flex; flex-direction: column; gap: 10px; padding-inline-start: 0; }
-  .t-row {
+  .line-meta {
     display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 14px;
-    padding: 10px 0;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px 16px;
+    margin: 10px 0 16px;
+    padding: 12px 0;
+    border-top: 0.5px solid var(--rule);
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; }
+  .meta-value { font-size: 12px; font-weight: 500; color: var(--ink); }
+
+  .stops-title { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 8px; }
+  .stops-list {
+    display: flex; flex-direction: column; gap: 0;
+    margin: 0; padding: 0; list-style: none;
+  }
+  .stop-item {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    align-items: center;
     border-bottom: 0.5px dashed var(--rule);
-    align-items: baseline;
+    font-size: 12.5px;
   }
-  .t-row:last-child { border-bottom: none; }
-  .t-label {
-    font-size: 10px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.14em;
+  .stop-item:last-child { border-bottom: none; }
+  .stop-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px;
+    border: 1px solid var(--ink);
     color: var(--ink);
-    display: flex; align-items: center; gap: 6px;
+    font-size: 9px; font-weight: 600;
+    border-radius: 50%;
   }
-  .t-code {
-    display: inline-block;
-    background: var(--ink); color: var(--paper);
-    padding: 2px 6px;
-    font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
-  }
-  .t-info {
-    font-size: 12px; color: var(--ink);
-    line-height: 1.5;
-  }
-  .t-info .lines { font-weight: 500; letter-spacing: 0.04em; }
-  .t-detail { color: var(--muted); font-size: 11px; margin-top: 4px; line-height: 1.5; }
+  .stop-name { letter-spacing: 0.02em; }
 
   /* FOOTER */
   footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--ink); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; line-height: 1.7; }
   footer a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--faint); }
   footer a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   footer .small { text-transform: none; letter-spacing: 0; font-size: 11px; margin-top: 12px; color: var(--faint); line-height: 1.5; }
+  .fare { margin-top: 6px; font-size: 10px; color: var(--ink); letter-spacing: 0.1em; text-transform: uppercase; }
 
   /* MOBILE */
   @media (max-width: 540px) {
@@ -171,15 +151,11 @@
     .brand { font-size: 11px; letter-spacing: 0.14em; }
     .theme-btn { font-size: 14px; padding: 5px 9px; }
     .lang-btn { font-size: 11px; padding: 5px 9px; }
-    .pchip { font-size: 9.5px; padding: 6px 8px; }
-    .pier-name { font-size: 19px; }
-    .pier-ferries { font-size: 10px; }
-    .pier-note { font-size: 11px; }
-    .t-row { grid-template-columns: 90px 1fr; gap: 10px; }
-    .t-label { font-size: 9px; letter-spacing: 0.1em; }
-    .t-code { font-size: 9px; padding: 2px 5px; }
-    .t-info { font-size: 11.5px; }
-    .t-detail { font-size: 10.5px; }
+    .lchip { font-size: 9.5px; padding: 7px 10px; }
+    .line-name { font-size: 15px; }
+    .line-code { font-size: 13px; padding: 4px 8px; }
+    .meta-value { font-size: 11.5px; }
+    .stop-item { font-size: 11.5px; }
   }
 </style>
 </head>
@@ -188,7 +164,7 @@
 
   <header class="masthead">
     <div class="masthead-row">
-      <h1 class="brand" data-i18n="brand">BÜYÜKADA / İSKELELERE ULAŞIM</h1>
+      <h1 class="brand" data-i18n="brand">BÜYÜKADA / OTOBÜSLER</h1>
       <div class="masthead-controls">
         <div class="controls-row">
           <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon">☾</span></button>
@@ -213,104 +189,129 @@
       </div>
     </div>
     <div class="nav">
-      <a href="./index.html" data-i18n="navSaatler">SAATLER</a>
+      <a href="./index.html" data-i18n="navSeferler">SEFERLER</a>
       <a href="./tur.html" data-i18n="navTur">TUR</a>
       <a href="./whatson.html" data-i18n="navEtkinlik">ETKİNLİKLER</a>
-      <a href="./ulasim.html" class="active" data-i18n="navUlasim">ULAŞIM</a>
+      <a href="./ulasim.html" class="active" data-i18n="navOtobus">OTOBÜSLER</a>
     </div>
   </header>
 
-  <p class="tagline" data-i18n="tagline">İstanbul'un içinden hangi iskeleye nasıl gidersin? Marmaray, metro, tramvay, otobüs, dolmuş.</p>
+  <p class="tagline" data-i18n="tagline">Ada içi 4 elektrikli otobüs hattı — durakları, sefer aralıkları ve hangi bölgeyi kapsadıkları.</p>
 
-  <div class="filter" id="pierFilter"></div>
+  <div class="filter" id="lineFilter"></div>
 
-  <div class="piers" id="piers"></div>
+  <div class="lines" id="lines"></div>
 
   <footer>
     <div data-i18n="curatedBy">KÜRATÖRLÜK · KÖŞK BÜYÜKADA</div>
     <div><span data-i18n="dataSources">KAYNAK:</span>
-      <a href="https://iett.istanbul/icerik/iskelelere-ulasim" target="_blank" rel="noopener">iett.istanbul</a> ·
-      <a href="https://metro.istanbul" target="_blank" rel="noopener">metro.istanbul</a> ·
+      <a href="https://iett.istanbul" target="_blank" rel="noopener">iett.istanbul</a> ·
+      <a href="https://www.adalaragidelim.com/buyukada-elektrikli-arac-hatlari-ve-sefer-saatleri/" target="_blank" rel="noopener">adalaragidelim</a> ·
       <a href="https://moovitapp.com" target="_blank" rel="noopener">moovit</a>
     </div>
-    <p class="small" data-i18n="disclaimer">Otobüs hatları zamanla değişebilir. Anlık ulaşım için Moovit veya Citymapper uygulamaları önerilir.</p>
+    <div class="fare" data-i18n="fareInfo">ÜCRET · ADAKART 3,50 TL · İSTANBULKART 12 TL</div>
+    <p class="small" data-i18n="disclaimer">Sefer aralıkları yaz/kış değişebilir. 2020'den beri ada içi sadece elektrikli ulaşım.</p>
   </footer>
 </div>
 
 <script>
   const I18N = {
     tr: {
-      htmlLang: "tr", title: "BÜYÜKADA / İSKELELERE ULAŞIM",
-      brand: "BÜYÜKADA / İSKELELERE ULAŞIM",
-      navSaatler: "SAATLER", navTur: "TUR", navEtkinlik: "ETKİNLİKLER", navUlasim: "ULAŞIM",
-      tagline: "İstanbul'un içinden hangi iskeleye nasıl gidersin? Marmaray, metro, tramvay, otobüs, dolmuş.",
-      all: "TÜM İSKELELER", anadolu: "ANADOLU", avrupa: "AVRUPA",
-      ferriesLabel: "VAPUR HATLARI:",
+      htmlLang: "tr", title: "BÜYÜKADA / OTOBÜSLER",
+      brand: "BÜYÜKADA / OTOBÜSLER",
+      navSeferler: "SEFERLER", navTur: "TUR", navEtkinlik: "ETKİNLİKLER", navOtobus: "OTOBÜSLER",
+      tagline: "Ada içi 4 elektrikli otobüs hattı — durakları, sefer aralıkları ve hangi bölgeyi kapsadıkları.",
+      all: "TÜM HATLAR",
+      labelFirst: "İLK SEFER", labelLast: "SON SEFER",
+      labelFreq: "ARALIK", labelDuration: "SÜRE", labelDays: "GÜNLER",
+      stopsLabel: "DURAKLAR",
       curatedBy: "KÜRATÖRLÜK · KÖŞK BÜYÜKADA",
       dataSources: "KAYNAK:",
-      disclaimer: "Otobüs hatları zamanla değişebilir. Anlık ulaşım için Moovit veya Citymapper uygulamaları önerilir.",
-      types: { marmaray: "MARMARAY", metro: "METRO", tram: "TRAMVAY", funicular: "FÜNİKÜLER", bus: "OTOBÜS", minibus: "DOLMUŞ", ferry: "VAPUR" }
+      fareInfo: "ÜCRET · ADAKART 3,50 TL · İSTANBULKART 12 TL",
+      disclaimer: "Sefer aralıkları yaz/kış değişebilir. 2020'den beri ada içi sadece elektrikli ulaşım.",
+      everyMin: "DK ARA",
+      minLabel: "DK"
     },
     en: {
-      htmlLang: "en", title: "BÜYÜKADA / GETTING TO PIERS",
-      brand: "BÜYÜKADA / TO THE PIERS",
-      navSaatler: "SCHEDULE", navTur: "TOUR", navEtkinlik: "WHAT'S ON", navUlasim: "TRANSIT",
-      tagline: "How to reach each ferry pier from Istanbul. Marmaray, metro, tram, bus, minibus.",
-      all: "ALL PIERS", anadolu: "ASIA", avrupa: "EUROPE",
-      ferriesLabel: "FERRY LINES:",
+      htmlLang: "en", title: "BÜYÜKADA / BUSES",
+      brand: "BÜYÜKADA / BUSES",
+      navSeferler: "FERRIES", navTur: "TOUR", navEtkinlik: "WHAT'S ON", navOtobus: "BUSES",
+      tagline: "4 electric bus lines on the island — stops, frequencies, and zones served.",
+      all: "ALL LINES",
+      labelFirst: "FIRST", labelLast: "LAST",
+      labelFreq: "FREQUENCY", labelDuration: "DURATION", labelDays: "DAYS",
+      stopsLabel: "STOPS",
       curatedBy: "CURATED BY · KÖŞK BÜYÜKADA",
       dataSources: "SOURCES:",
-      disclaimer: "Bus lines may change. For real-time transit, use Moovit or Citymapper.",
-      types: { marmaray: "MARMARAY", metro: "METRO", tram: "TRAM", funicular: "FUNICULAR", bus: "BUS", minibus: "MINIBUS", ferry: "FERRY" }
+      fareInfo: "FARE · ADAKART 3.50 TL · İSTANBULKART 12 TL",
+      disclaimer: "Frequencies vary by season. Since 2020 only electric vehicles are used on the island.",
+      everyMin: "MIN",
+      minLabel: "MIN"
     },
     ru: {
-      htmlLang: "ru", title: "БЮЮКАДА / КАК ДОБРАТЬСЯ",
-      brand: "БЮЮКАДА / К ПРИЧАЛАМ",
-      navSaatler: "РАСПИСАНИЕ", navTur: "ТУР", navEtkinlik: "СОБЫТИЯ", navUlasim: "ТРАНСПОРТ",
-      tagline: "Как доехать до причала из Стамбула. Мармарай, метро, трамвай, автобус, маршрутка.",
-      all: "ВСЕ ПРИЧАЛЫ", anadolu: "АЗИЯ", avrupa: "ЕВРОПА",
-      ferriesLabel: "ПАРОМНЫЕ ЛИНИИ:",
+      htmlLang: "ru", title: "БЮЮКАДА / АВТОБУСЫ",
+      brand: "БЮЮКАДА / АВТОБУСЫ",
+      navSeferler: "ПАРОМЫ", navTur: "ТУР", navEtkinlik: "СОБЫТИЯ", navOtobus: "АВТОБУСЫ",
+      tagline: "4 электробусных маршрута по острову — остановки, частота, зоны.",
+      all: "ВСЕ МАРШРУТЫ",
+      labelFirst: "ПЕРВЫЙ", labelLast: "ПОСЛЕДНИЙ",
+      labelFreq: "ИНТЕРВАЛ", labelDuration: "ДЛИТ.", labelDays: "ДНИ",
+      stopsLabel: "ОСТАНОВКИ",
       curatedBy: "ПОДБОР · KÖŞK БЮЮКАДА",
       dataSources: "ИСТОЧНИКИ:",
-      disclaimer: "Автобусные линии могут меняться. Для актуального транспорта — Moovit или Citymapper.",
-      types: { marmaray: "МАРМАРАЙ", metro: "МЕТРО", tram: "ТРАМВАЙ", funicular: "ФУНИКУЛЁР", bus: "АВТОБУС", minibus: "МАРШРУТКА", ferry: "ПАРОМ" }
+      fareInfo: "ТАРИФ · ADAKART 3,50 TL · İSTANBULKART 12 TL",
+      disclaimer: "Интервалы зависят от сезона. С 2020 года на острове только электротранспорт.",
+      everyMin: "МИН",
+      minLabel: "МИН"
     },
     ar: {
-      htmlLang: "ar", title: "بيوكادا / الوصول إلى الموانئ",
-      brand: "بيوكادا / إلى الموانئ",
-      navSaatler: "المواعيد", navTur: "الجولة", navEtkinlik: "الفعاليات", navUlasim: "النقل",
-      tagline: "كيف تصل إلى كل ميناء من إسطنبول؟ مرماراي، مترو، ترام، حافلة، ميني باص.",
-      all: "كل الموانئ", anadolu: "آسيا", avrupa: "أوروبا",
-      ferriesLabel: "خطوط العبارة:",
+      htmlLang: "ar", title: "بيوكادا / الحافلات",
+      brand: "بيوكادا / الحافلات",
+      navSeferler: "الرحلات", navTur: "الجولة", navEtkinlik: "الفعاليات", navOtobus: "الحافلات",
+      tagline: "4 خطوط حافلات كهربائية في الجزيرة — المحطات، التواتر، المناطق.",
+      all: "كل الخطوط",
+      labelFirst: "الأولى", labelLast: "الأخيرة",
+      labelFreq: "التواتر", labelDuration: "المدة", labelDays: "الأيام",
+      stopsLabel: "المحطات",
       curatedBy: "من تنسيق · KÖŞK بيوكادا",
       dataSources: "المصادر:",
-      disclaimer: "خطوط الحافلات قد تتغير. للنقل الفوري، استخدم Moovit أو Citymapper.",
-      types: { marmaray: "مرماراي", metro: "مترو", tram: "ترام", funicular: "تلفريك", bus: "حافلة", minibus: "ميني باص", ferry: "عبارة" }
+      fareInfo: "الأجرة · ADAKART 3,50 TL · İSTANBULKART 12 TL",
+      disclaimer: "التواتر يتغير بالفصول. منذ 2020 فقط مركبات كهربائية في الجزيرة.",
+      everyMin: "د",
+      minLabel: "د"
     },
     de: {
-      htmlLang: "de", title: "BÜYÜKADA / ZU DEN ANLEGERN",
-      brand: "BÜYÜKADA / ZU DEN ANLEGERN",
-      navSaatler: "FAHRPLAN", navTur: "TOUR", navEtkinlik: "VERANSTALTUNGEN", navUlasim: "VERKEHR",
-      tagline: "Wie erreicht man jeden Anleger von Istanbul aus? Marmaray, Metro, Tram, Bus, Sammeltaxi.",
-      all: "ALLE ANLEGER", anadolu: "ASIEN", avrupa: "EUROPA",
-      ferriesLabel: "FÄHRENLINIEN:",
+      htmlLang: "de", title: "BÜYÜKADA / BUSSE",
+      brand: "BÜYÜKADA / BUSSE",
+      navSeferler: "FÄHREN", navTur: "TOUR", navEtkinlik: "VERANSTALTUNGEN", navOtobus: "BUSSE",
+      tagline: "4 Elektrobuslinien auf der Insel — Haltestellen, Takt, abgedeckte Zonen.",
+      all: "ALLE LINIEN",
+      labelFirst: "ERSTE", labelLast: "LETZTE",
+      labelFreq: "TAKT", labelDuration: "DAUER", labelDays: "TAGE",
+      stopsLabel: "HALTESTELLEN",
       curatedBy: "KURATIERT · KÖŞK BÜYÜKADA",
       dataSources: "QUELLEN:",
-      disclaimer: "Buslinien können sich ändern. Für Echtzeit-Verkehr Moovit oder Citymapper nutzen.",
-      types: { marmaray: "MARMARAY", metro: "METRO", tram: "TRAM", funicular: "STANDSEILBAHN", bus: "BUS", minibus: "SAMMELTAXI", ferry: "FÄHRE" }
+      fareInfo: "FAHRPREIS · ADAKART 3,50 TL · İSTANBULKART 12 TL",
+      disclaimer: "Takt variiert je nach Saison. Seit 2020 nur elektrische Fahrzeuge auf der Insel.",
+      everyMin: "MIN",
+      minLabel: "MIN"
     },
     fr: {
-      htmlLang: "fr", title: "BÜYÜKADA / ACCÈS AUX QUAIS",
-      brand: "BÜYÜKADA / AUX QUAIS",
-      navSaatler: "HORAIRES", navTur: "VISITE", navEtkinlik: "ÉVÉNEMENTS", navUlasim: "TRANSPORT",
-      tagline: "Comment atteindre chaque quai depuis Istanbul ? Marmaray, métro, tram, bus, dolmuş.",
-      all: "TOUS LES QUAIS", anadolu: "ASIE", avrupa: "EUROPE",
-      ferriesLabel: "LIGNES DE FERRY:",
+      htmlLang: "fr", title: "BÜYÜKADA / BUS",
+      brand: "BÜYÜKADA / BUS",
+      navSeferler: "FERRIES", navTur: "VISITE", navEtkinlik: "ÉVÉNEMENTS", navOtobus: "BUS",
+      tagline: "4 lignes de bus électriques sur l'île — arrêts, fréquence, zones desservies.",
+      all: "TOUTES LES LIGNES",
+      labelFirst: "PREMIER", labelLast: "DERNIER",
+      labelFreq: "FRÉQUENCE", labelDuration: "DURÉE", labelDays: "JOURS",
+      stopsLabel: "ARRÊTS",
       curatedBy: "ORGANISÉ PAR · KÖŞK BÜYÜKADA",
       dataSources: "SOURCES:",
-      disclaimer: "Les lignes de bus peuvent changer. Pour le transit en temps réel, utilisez Moovit ou Citymapper.",
-      types: { marmaray: "MARMARAY", metro: "MÉTRO", tram: "TRAMWAY", funicular: "FUNICULAIRE", bus: "BUS", minibus: "DOLMUŞ", ferry: "FERRY" }
-    },
+      fareInfo: "TARIF · ADAKART 3,50 TL · İSTANBULKART 12 TL",
+      disclaimer: "La fréquence varie selon la saison. Depuis 2020, uniquement véhicules électriques sur l'île.",
+      everyMin: "MIN",
+      minLabel: "MIN"
+    }
   };
 
   let LANG = (function () {
@@ -338,9 +339,7 @@
     localStorage.setItem("theme", theme);
     applyTheme();
   }
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-    if (!theme) applyTheme();
-  });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { if (!theme) applyTheme(); });
 
   function applyI18n() {
     const tr = t();
@@ -354,7 +353,7 @@
     document.querySelectorAll("#langMenu button").forEach(b => {
       b.classList.toggle("active", b.dataset.lang === LANG);
     });
-    if (data) renderFilter() && render(true);
+    if (data) { renderFilter(); render(true); }
   }
   function setLang(newLang) {
     if (!I18N[newLang] || LANG === newLang) return;
@@ -363,72 +362,62 @@
     applyI18n();
   }
 
-  // STATE
   let data = null;
-  let activePier = "all";
+  let activeLine = "all";
 
   async function loadData() {
     try {
       const r = await fetch("./data/ulasim.json?t=" + Date.now());
       data = await r.json();
-    } catch (e) {
-      console.error(e);
-      data = { piers: [] };
-    }
+    } catch (e) { data = { lines: [] }; }
   }
 
   function renderFilter() {
-    const wrap = document.getElementById("pierFilter");
-    if (!data) return false;
+    const wrap = document.getElementById("lineFilter");
+    if (!data) return;
     const tr = t();
     const buttons = [
-      `<button class="pchip${activePier==="all"?" active":""}" data-pier="all">${tr.all}</button>`
-    ].concat(data.piers.map(p => {
-      const sideLbl = (p.side === "anadolu") ? tr.anadolu : tr.avrupa;
-      return `<button class="pchip${activePier===p.id?" active":""}" data-pier="${p.id}">${p.name.toUpperCase()}<span class="side">${sideLbl}</span></button>`;
-    }));
+      `<button class="lchip${activeLine==="all"?" active":""}" data-line="all">${tr.all}</button>`
+    ].concat(data.lines.map(l => `<button class="lchip${activeLine===l.code?" active":""}" data-line="${l.code}"><span class="code">${l.code}</span>${l.name.split('–')[0].trim()}</button>`));
     wrap.innerHTML = buttons.join("");
-    wrap.querySelectorAll(".pchip").forEach(b => {
+    wrap.querySelectorAll(".lchip").forEach(b => {
       b.addEventListener("click", () => {
-        activePier = b.dataset.pier;
+        activeLine = b.dataset.line;
         renderFilter();
         render(true);
       });
     });
-    return true;
   }
 
   function render(animate) {
-    const wrap = document.getElementById("piers");
+    const wrap = document.getElementById("lines");
     if (!data) return;
     const tr = t();
-    const filtered = activePier === "all" ? data.piers : data.piers.filter(p => p.id === activePier);
-    if (filtered.length === 0) { wrap.innerHTML = ""; return; }
+    const filtered = activeLine === "all" ? data.lines : data.lines.filter(l => l.code === activeLine);
 
-    wrap.innerHTML = filtered.map((p, i) => {
-      const animStyle = animate ? ` style="animation-delay:${Math.min(i,8)*80}ms"` : "";
+    wrap.innerHTML = filtered.map((l, i) => {
+      const animStyle = animate ? ` style="animation-delay:${Math.min(i,5)*80}ms"` : "";
       const animCls = animate ? " in" : "";
-      const sideLbl = (p.side === "anadolu") ? tr.anadolu : tr.avrupa;
-      const ferriesBadges = p.ferries.map(f => `<span class="badge">${f}</span>`).join("");
-      const transitRows = p.transit.map(tr2 => {
-        const label = tr.types[tr2.type] || tr2.label || tr2.type.toUpperCase();
-        const code = tr2.code ? ` <span class="t-code">${tr2.code}</span>` : "";
-        const info = tr2.lines ? `<span class="lines">${tr2.lines.join(" · ")}</span>` : "";
-        const detail = tr2.detail ? `<div class="t-detail">${tr2.detail}</div>` : "";
-        return `
-          <div class="t-row">
-            <div class="t-label">${label}${code}</div>
-            <div class="t-info">${info}${detail}</div>
-          </div>`;
-      }).join("");
+      const stopsHtml = l.stops.map((s, idx) => `
+        <li class="stop-item">
+          <span class="stop-num">${idx+1}</span>
+          <span class="stop-name">${s}</span>
+        </li>`).join("");
       return `
-        <section class="pier${animCls}"${animStyle}>
-          <div class="pier-head">
-            <div class="pier-name">${p.name}</div>
-            <div class="pier-side">${sideLbl}</div>
+        <section class="line${animCls}"${animStyle}>
+          <div class="line-head">
+            <div class="line-code">${l.code}</div>
+            <div class="line-name">${l.name}</div>
           </div>
-          <div class="pier-ferries">${ferriesBadges}${tr.ferriesLabel} ${p.ferries_note || ""}</div>
-          <div class="transit">${transitRows}</div>
+          ${l.note ? `<div class="line-note">"${l.note}"</div>` : ""}
+          <div class="line-meta">
+            <div class="meta-item"><span class="meta-label">${tr.labelFirst}</span><span class="meta-value">${l.first_dep}</span></div>
+            <div class="meta-item"><span class="meta-label">${tr.labelLast}</span><span class="meta-value">${l.last_dep}</span></div>
+            <div class="meta-item"><span class="meta-label">${tr.labelFreq}</span><span class="meta-value">${l.frequency_min} ${tr.minLabel}</span></div>
+            <div class="meta-item"><span class="meta-label">${tr.labelDuration}</span><span class="meta-value">${l.duration_min} ${tr.minLabel}</span></div>
+          </div>
+          <div class="stops-title">${tr.stopsLabel}</div>
+          <ul class="stops-list">${stopsHtml}</ul>
         </section>`;
     }).join("");
   }
@@ -479,7 +468,6 @@
     document.getElementById("weatherBox").classList.add("loaded");
   }
 
-  // Lang menu
   const langBtn = document.getElementById("langBtn");
   const langMenu = document.getElementById("langMenu");
   langBtn.addEventListener("click", e => { e.stopPropagation(); langMenu.classList.toggle("open"); });
