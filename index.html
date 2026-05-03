@@ -112,10 +112,31 @@
     gap: 12px;
   }
   .status-clock {
+    display: inline-flex;
+    align-items: baseline;
     font-size: 22px;
     font-weight: 500;
     letter-spacing: 0.04em;
     line-height: 1;
+  }
+  .flap-digit {
+    display: inline-block;
+    min-width: 0.62em;
+    text-align: center;
+    transform-origin: center;
+  }
+  .flap-digit.flipping {
+    animation: flapDigit 200ms ease-in-out;
+  }
+  @keyframes flapDigit {
+    0%   { transform: scaleY(1); }
+    49%, 51% { transform: scaleY(0); }
+    100% { transform: scaleY(1); }
+  }
+  .flap-colon {
+    display: inline-block;
+    padding: 0 1px;
+    opacity: 0.55;
   }
   .status-day {
     font-size: 11px;
@@ -358,7 +379,9 @@
  
   <div class="status">
     <div class="status-now">
-      <span class="status-clock" id="nowTime">--:--</span>
+      <span class="status-clock" id="nowClock">
+        <span class="flap-digit">-</span><span class="flap-digit">-</span><span class="flap-colon">:</span><span class="flap-digit">-</span><span class="flap-digit">-</span>
+      </span>
       <span class="status-day" id="nowDay">—</span>
     </div>
     <div class="status-window">
@@ -528,10 +551,30 @@
     }).join("");
   }
  
-  function refreshNow() {
+  function nowDigits() {
     const d = new Date();
-    document.getElementById("nowTime").textContent = saatGoster(d);
-    document.getElementById("nowDay").textContent  = gunUzun(d);
+    const hh = d.getHours().toString().padStart(2, "0");
+    const mm = d.getMinutes().toString().padStart(2, "0");
+    return [hh[0], hh[1], mm[0], mm[1]];
+  }
+  function flipDigit(el, newChar) {
+    if (el.textContent === newChar) return;
+    el.classList.add("flipping");
+    setTimeout(() => { el.textContent = newChar; }, 100);
+    setTimeout(() => { el.classList.remove("flipping"); }, 220);
+  }
+  function refreshNow() {
+    const target = nowDigits();
+    document.querySelectorAll("#nowClock .flap-digit").forEach((el, i) => {
+      flipDigit(el, target[i]);
+    });
+    document.getElementById("nowDay").textContent = gunUzun(new Date());
+  }
+  function cascadeLoad() {
+    const target = nowDigits();
+    document.querySelectorAll("#nowClock .flap-digit").forEach((el, i) => {
+      setTimeout(() => flipDigit(el, target[i]), i * 60);
+    });
   }
  
   document.querySelectorAll(".tab").forEach(btn => {
@@ -552,12 +595,12 @@
   });
  
   (async () => {
-    refreshNow();
+    document.getElementById("nowDay").textContent = gunUzun(new Date());
     await veriYukle();
     render();
+    cascadeLoad();
     setInterval(() => { refreshNow(); render(); }, 30000);
   })();
 </script>
 </body>
 </html>
- 
