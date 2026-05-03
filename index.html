@@ -10,29 +10,23 @@
  
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
  
 <style>
   :root {
     --ink:        #0a0a0a;
     --paper:      #ffffff;
     --rule:       rgba(10,10,10,0.16);
-    --rule-bold:  rgba(10,10,10,0.85);
     --muted:      rgba(10,10,10,0.55);
     --faint:      rgba(10,10,10,0.35);
-    --invert-ink: #ffffff;
-    --invert-paper: #0a0a0a;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --ink:        #f4f4f4;
-      --paper:      #0a0a0a;
-      --rule:       rgba(244,244,244,0.18);
-      --rule-bold:  rgba(244,244,244,0.85);
-      --muted:      rgba(244,244,244,0.55);
-      --faint:      rgba(244,244,244,0.35);
-      --invert-ink: #0a0a0a;
-      --invert-paper: #f4f4f4;
+      --ink:    #f4f4f4;
+      --paper:  #0a0a0a;
+      --rule:   rgba(244,244,244,0.18);
+      --muted:  rgba(244,244,244,0.55);
+      --faint:  rgba(244,244,244,0.35);
     }
   }
  
@@ -46,6 +40,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.5;
+  }
+  html[lang="ar"] body {
+    font-family: 'IBM Plex Sans Arabic','IBM Plex Mono','SF Mono','Menlo',monospace;
+  }
+  html[lang="ar"] {
+    direction: rtl;
   }
  
   .wrap {
@@ -64,7 +64,7 @@
   .masthead-row {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: 16px;
     flex-wrap: wrap;
   }
@@ -74,12 +74,6 @@
     text-transform: uppercase;
     letter-spacing: 0.18em;
     margin: 0;
-  }
-  .brand-tag {
-    font-size: 10px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
   }
   .sources {
     margin-top: 10px;
@@ -92,7 +86,64 @@
     flex-wrap: wrap;
   }
  
-  /* STATUS BAR (Solari-style top bar) */
+  /* LANG PICKER */
+  .lang-picker {
+    position: relative;
+  }
+  .lang-btn {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    padding: 5px 10px;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    cursor: pointer;
+    min-width: 56px;
+  }
+  .lang-btn .caret {
+    margin-inline-start: 4px;
+    opacity: 0.5;
+  }
+  .lang-menu {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 4px);
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    z-index: 20;
+    min-width: 56px;
+    display: none;
+  }
+  .lang-menu.open {
+    display: block;
+    animation: menuOpen 160ms ease-out;
+  }
+  @keyframes menuOpen {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .lang-menu button {
+    display: block;
+    width: 100%;
+    text-align: start;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    padding: 7px 12px;
+    background: transparent;
+    color: var(--ink);
+    border: none;
+    cursor: pointer;
+  }
+  .lang-menu button:hover { background: var(--ink); color: var(--paper); }
+  .lang-menu button.active { background: var(--ink); color: var(--paper); }
+ 
+  /* STATUS BAR */
   .status {
     background: var(--ink);
     color: var(--paper);
@@ -138,23 +189,10 @@
     padding: 0 1px;
     opacity: 0.55;
   }
-  .status-day {
-    font-size: 11px;
-    opacity: 0.7;
-  }
-  .status-window {
-    text-align: right;
-    line-height: 1.3;
-  }
-  .status-window-label {
-    display: block;
-    font-size: 10px;
-    opacity: 0.6;
-  }
-  .status-window-value {
-    font-size: 13px;
-    font-weight: 500;
-  }
+  .status-day { font-size: 11px; opacity: 0.7; }
+  .status-window { text-align: end; line-height: 1.3; }
+  .status-window-label { display: block; font-size: 10px; opacity: 0.6; }
+  .status-window-value { font-size: 13px; font-weight: 500; }
  
   /* SAMPLE BANNER */
   .banner {
@@ -166,9 +204,9 @@
     letter-spacing: 0.14em;
     text-align: center;
   }
-  .banner-mark { font-weight: 600; margin-right: 8px; }
+  .banner-mark { font-weight: 600; margin-inline-end: 8px; }
  
-  /* CONTROL ROW: tabs + chips */
+  /* CONTROLS */
   .controls {
     margin: 18px 0 6px;
     display: flex;
@@ -192,11 +230,8 @@
     padding: 11px 8px;
     cursor: pointer;
   }
-  .tab + .tab { border-left: 1px solid var(--ink); }
-  .tab.active {
-    background: var(--ink);
-    color: var(--paper);
-  }
+  .tab + .tab { border-inline-start: 1px solid var(--ink); }
+  .tab.active { background: var(--ink); color: var(--paper); }
  
   .chips {
     display: flex;
@@ -215,12 +250,9 @@
     padding: 6px 10px;
     cursor: pointer;
   }
-  .chip.active {
-    background: var(--ink);
-    color: var(--paper);
-  }
+  .chip.active { background: var(--ink); color: var(--paper); }
  
-  /* LIST HEADER (small column labels) */
+  /* COLUMN HEADER */
   .col-head {
     margin: 22px 0 0;
     padding: 0 0 6px;
@@ -233,9 +265,9 @@
     letter-spacing: 0.16em;
     color: var(--muted);
   }
-  .col-head .ch-meta { text-align: right; }
+  .col-head .ch-meta { text-align: end; }
  
-  /* DEPARTURE LIST */
+  /* LIST */
   .list { display: block; }
   .row {
     display: grid;
@@ -247,11 +279,12 @@
   }
   .row:last-child { border-bottom: 1px solid var(--ink); }
   .row.imminent {
-    background: linear-gradient(0deg, var(--paper), var(--paper));
     box-shadow: inset 3px 0 0 var(--ink);
-    padding-left: 9px;
-    margin-left: -12px;
-    padding-right: 0;
+    padding-inline-start: 9px;
+    margin-inline-start: -12px;
+  }
+  html[lang="ar"] .row.imminent {
+    box-shadow: inset -3px 0 0 var(--ink);
   }
   .row.in {
     opacity: 0;
@@ -268,9 +301,7 @@
     opacity: 0;
     animation: emptyFade 280ms ease-out 200ms forwards;
   }
-  @keyframes emptyFade {
-    to { opacity: 1; }
-  }
+  @keyframes emptyFade { to { opacity: 1; } }
  
   .r-time {
     font-size: 22px;
@@ -283,17 +314,14 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     color: var(--ink);
-    text-align: left;
+    text-align: start;
   }
   .r-route {
     font-size: 13px;
     line-height: 1.4;
     word-break: break-word;
   }
-  .r-route .arrow {
-    color: var(--faint);
-    padding: 0 3px;
-  }
+  .r-route .arrow { color: var(--faint); padding: 0 3px; }
   .r-route .stop { color: var(--muted); }
   .r-route .endpoint { color: var(--ink); font-weight: 500; }
   .r-route .direkt {
@@ -303,30 +331,19 @@
     font-size: 9px;
     font-weight: 600;
     padding: 2px 5px;
-    margin-left: 6px;
+    margin-inline-start: 6px;
     letter-spacing: 0.12em;
   }
   .r-meta {
-    text-align: right;
+    text-align: end;
     font-size: 11px;
     color: var(--muted);
     line-height: 1.3;
     white-space: nowrap;
   }
-  .r-meta .rel {
-    display: block;
-    font-size: 11px;
-    color: var(--ink);
-  }
-  .r-meta .rel.soon {
-    font-weight: 600;
-  }
-  .r-meta .dur {
-    display: block;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-  }
+  .r-meta .rel { display: block; font-size: 11px; color: var(--ink); }
+  .r-meta .rel.soon { font-weight: 600; }
+  .r-meta .dur { display: block; font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
  
   /* EMPTY STATE */
   .empty {
@@ -368,16 +385,13 @@
     .row, .col-head { grid-template-columns: 56px 32px 1fr; }
     .row .r-meta, .col-head .ch-meta {
       grid-column: 2 / 4;
-      text-align: left;
+      text-align: start;
       padding-top: 4px;
     }
     .r-time { font-size: 20px; }
     .status-clock { font-size: 18px; }
     .brand { font-size: 12px; }
   }
- 
-  /* SMALL UTILITY */
-  .nowrap { white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -385,8 +399,20 @@
  
   <header class="masthead">
     <div class="masthead-row">
-      <h1 class="brand">BÜYÜKADA / SAATLER</h1>
-      <span class="brand-tag">UNOFFICIAL · v1</span>
+      <h1 class="brand" data-i18n="brand">BÜYÜKADA / SAATLER</h1>
+      <div class="lang-picker">
+        <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+          <span id="langCurrent">TR</span><span class="caret">▾</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <button data-lang="tr">TR</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="ru">RU</button>
+          <button data-lang="ar">AR</button>
+          <button data-lang="de">DE</button>
+          <button data-lang="fr">FR</button>
+        </div>
+      </div>
     </div>
     <div class="sources">
       <span>SH · ŞEHİR HATLARI</span>
@@ -403,22 +429,22 @@
       <span class="status-day" id="nowDay">—</span>
     </div>
     <div class="status-window">
-      <span class="status-window-label">PENCERE</span>
-      <span class="status-window-value">SONRAKI 3 SAAT</span>
+      <span class="status-window-label" data-i18n="windowLabel">PENCERE</span>
+      <span class="status-window-value" data-i18n="windowValue">SONRAKI 3 SAAT</span>
     </div>
   </div>
  
   <div id="sampleBanner" class="banner" style="display:none">
-    <span class="banner-mark">[!]</span>ÖRNEK VERİ — CANLI SCRAPE BAĞLANACAK
+    <span class="banner-mark">[!]</span><span data-i18n="bannerSample">ÖRNEK VERİ — CANLI SCRAPE BAĞLANACAK</span>
   </div>
  
   <div class="controls">
     <div class="tabs" role="tablist">
-      <button class="tab active" data-yon="buyukadaya">BÜYÜKADA'YA</button>
-      <button class="tab" data-yon="buyukadadan">BÜYÜKADA'DAN</button>
+      <button class="tab active" data-yon="buyukadaya" data-i18n="toBuyukada">BÜYÜKADA'YA</button>
+      <button class="tab" data-yon="buyukadadan" data-i18n="fromBuyukada">BÜYÜKADA'DAN</button>
     </div>
     <div class="chips" id="opFilter">
-      <button class="chip active" data-op="all">TÜMÜ</button>
+      <button class="chip active" data-op="all" data-i18n="all">TÜMÜ</button>
       <button class="chip" data-op="SH">ŞEHİR HATLARI</button>
       <button class="chip" data-op="MM">MAVİ MARMARA</button>
       <button class="chip" data-op="PT">PRENS TUR</button>
@@ -426,32 +452,167 @@
   </div>
  
   <div class="col-head">
-    <div>SAAT</div>
-    <div>OP</div>
-    <div>ROTA</div>
-    <div class="ch-meta">SÜRE</div>
+    <div data-i18n="colTime">SAAT</div>
+    <div data-i18n="colOp">OP</div>
+    <div data-i18n="colRoute">ROTA</div>
+    <div class="ch-meta" data-i18n="colDuration">SÜRE</div>
   </div>
  
   <div class="list" id="list"></div>
  
   <footer>
-    <div>KAYNAK ·
+    <div><span data-i18n="source">KAYNAK</span> ·
       <a href="https://sehirhatlari.istanbul" target="_blank" rel="noopener">sehirhatlari.istanbul</a> ·
       <a href="https://mavimarmara.net" target="_blank" rel="noopener">mavimarmara.net</a> ·
       <a href="https://prenstur.net" target="_blank" rel="noopener">prenstur.net</a>
     </div>
-    <div>SON GÜNCEL · <span id="updatedAt">—</span></div>
-    <p class="small">Resmi bir kaynak değildir. Yolculuk öncesi resmi sitelerden teyit etmeniz önerilir.</p>
+    <div><span data-i18n="lastUpdated">SON GÜNCEL</span> · <span id="updatedAt">—</span></div>
+    <p class="small" data-i18n="disclaimer">Resmi bir kaynak değildir. Yolculuk öncesi resmi sitelerden teyit etmeniz önerilir.</p>
   </footer>
 </div>
  
 <script>
-  const PENCERE_DK = 180;
+  // ====== I18N ======
+  const I18N = {
+    tr: {
+      htmlLang: "tr", title: "BÜYÜKADA / SAATLER",
+      brand: "BÜYÜKADA / SAATLER",
+      windowLabel: "PENCERE", windowValue: "SONRAKI 3 SAAT",
+      bannerSample: "ÖRNEK VERİ — CANLI SCRAPE BAĞLANACAK",
+      toBuyukada: "BÜYÜKADA'YA", fromBuyukada: "BÜYÜKADA'DAN",
+      all: "TÜMÜ",
+      colTime: "SAAT", colOp: "OP", colRoute: "ROTA", colDuration: "SÜRE",
+      empty: "ÖNÜMÜZDEKİ 3 SAATTE SEFER YOK",
+      source: "KAYNAK", lastUpdated: "SON GÜNCEL",
+      disclaimer: "Resmi bir kaynak değildir. Yolculuk öncesi resmi sitelerden teyit etmeniz önerilir.",
+      direct: "DİREKT", now: "ŞİMDİ", past: "GEÇTİ", min: "DK", hr: "SA",
+      days:   ["PAZAR","PAZARTESİ","SALI","ÇARŞAMBA","PERŞEMBE","CUMA","CUMARTESİ"],
+      months: ["OCK","ŞUB","MAR","NİS","MAY","HAZ","TEM","AĞU","EYL","EKİ","KAS","ARA"],
+      locale: "tr-TR",
+    },
+    en: {
+      htmlLang: "en", title: "BÜYÜKADA / SCHEDULE",
+      brand: "BÜYÜKADA / SCHEDULE",
+      windowLabel: "WINDOW", windowValue: "NEXT 3 HOURS",
+      bannerSample: "SAMPLE DATA — LIVE SCRAPE PENDING",
+      toBuyukada: "TO BÜYÜKADA", fromBuyukada: "FROM BÜYÜKADA",
+      all: "ALL",
+      colTime: "TIME", colOp: "OP", colRoute: "ROUTE", colDuration: "DUR.",
+      empty: "NO DEPARTURES IN THE NEXT 3 HOURS",
+      source: "SOURCE", lastUpdated: "LAST UPDATED",
+      disclaimer: "Not an official source. Please verify with the official websites before travel.",
+      direct: "DIRECT", now: "NOW", past: "DEPARTED", min: "MIN", hr: "HR",
+      days:   ["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],
+      months: ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"],
+      locale: "en-GB",
+    },
+    ru: {
+      htmlLang: "ru", title: "БЮЮКАДА / РАСПИСАНИЕ",
+      brand: "БЮЮКАДА / РАСПИСАНИЕ",
+      windowLabel: "ОКНО", windowValue: "БЛИЖАЙШИЕ 3 ЧАСА",
+      bannerSample: "ПРИМЕР ДАННЫХ — СКРЕЙП В ОЖИДАНИИ",
+      toBuyukada: "В БЮЮКАДУ", fromBuyukada: "ИЗ БЮЮКАДЫ",
+      all: "ВСЕ",
+      colTime: "ВРЕМЯ", colOp: "ОП", colRoute: "МАРШРУТ", colDuration: "ДЛИТ.",
+      empty: "НЕТ РЕЙСОВ В БЛИЖАЙШИЕ 3 ЧАСА",
+      source: "ИСТОЧНИК", lastUpdated: "ОБНОВЛЕНО",
+      disclaimer: "Неофициальный источник. Перед поездкой проверьте на официальных сайтах.",
+      direct: "ПРЯМОЙ", now: "СЕЙЧАС", past: "УШЁЛ", min: "МИН", hr: "Ч",
+      days:   ["ВОСКРЕСЕНЬЕ","ПОНЕДЕЛЬНИК","ВТОРНИК","СРЕДА","ЧЕТВЕРГ","ПЯТНИЦА","СУББОТА"],
+      months: ["ЯНВ","ФЕВ","МАР","АПР","МАЙ","ИЮН","ИЮЛ","АВГ","СЕН","ОКТ","НОЯ","ДЕК"],
+      locale: "ru-RU",
+    },
+    ar: {
+      htmlLang: "ar", title: "بيوكادا / المواعيد",
+      brand: "بيوكادا / المواعيد",
+      windowLabel: "النافذة", windowValue: "الـ3 ساعات القادمة",
+      bannerSample: "بيانات تجريبية — في انتظار البيانات الحية",
+      toBuyukada: "إلى بيوكادا", fromBuyukada: "من بيوكادا",
+      all: "الكل",
+      colTime: "الوقت", colOp: "المشغل", colRoute: "المسار", colDuration: "المدة",
+      empty: "لا توجد رحلات في الـ3 ساعات القادمة",
+      source: "المصدر", lastUpdated: "آخر تحديث",
+      disclaimer: "ليس مصدرًا رسميًا. يرجى التحقق من المواقع الرسمية قبل السفر.",
+      direct: "مباشر", now: "الآن", past: "غادر", min: "د", hr: "س",
+      days:   ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
+      months: ["ينا","فبر","مار","أبر","ماي","يون","يول","أغس","سبت","أكت","نوف","ديس"],
+      locale: "ar",
+    },
+    de: {
+      htmlLang: "de", title: "BÜYÜKADA / FAHRPLAN",
+      brand: "BÜYÜKADA / FAHRPLAN",
+      windowLabel: "FENSTER", windowValue: "NÄCHSTE 3 STUNDEN",
+      bannerSample: "BEISPIELDATEN — LIVE-SCRAPE FOLGT",
+      toBuyukada: "NACH BÜYÜKADA", fromBuyukada: "VON BÜYÜKADA",
+      all: "ALLE",
+      colTime: "ZEIT", colOp: "OP", colRoute: "ROUTE", colDuration: "DAUER",
+      empty: "KEINE ABFAHRTEN IN DEN NÄCHSTEN 3 STUNDEN",
+      source: "QUELLE", lastUpdated: "ZULETZT AKTUALISIERT",
+      disclaimer: "Keine offizielle Quelle. Bitte vor der Reise auf den offiziellen Websites prüfen.",
+      direct: "DIREKT", now: "JETZT", past: "ABGEFAHREN", min: "MIN", hr: "STD",
+      days:   ["SONNTAG","MONTAG","DIENSTAG","MITTWOCH","DONNERSTAG","FREITAG","SAMSTAG"],
+      months: ["JAN","FEB","MÄR","APR","MAI","JUN","JUL","AUG","SEP","OKT","NOV","DEZ"],
+      locale: "de-DE",
+    },
+    fr: {
+      htmlLang: "fr", title: "BÜYÜKADA / HORAIRES",
+      brand: "BÜYÜKADA / HORAIRES",
+      windowLabel: "FENÊTRE", windowValue: "3 PROCHAINES HEURES",
+      bannerSample: "DONNÉES D'EXEMPLE — SCRAPE EN ATTENTE",
+      toBuyukada: "VERS BÜYÜKADA", fromBuyukada: "DEPUIS BÜYÜKADA",
+      all: "TOUT",
+      colTime: "HEURE", colOp: "OP", colRoute: "ITINÉRAIRE", colDuration: "DURÉE",
+      empty: "AUCUN DÉPART DANS LES 3 PROCHAINES HEURES",
+      source: "SOURCE", lastUpdated: "DERNIÈRE MAJ",
+      disclaimer: "Source non officielle. Veuillez vérifier sur les sites officiels avant le voyage.",
+      direct: "DIRECT", now: "MAINTENANT", past: "PARTI", min: "MIN", hr: "H",
+      days:   ["DIMANCHE","LUNDI","MARDI","MERCREDI","JEUDI","VENDREDI","SAMEDI"],
+      months: ["JAN","FÉV","MAR","AVR","MAI","JUN","JUL","AOÛ","SEP","OCT","NOV","DÉC"],
+      locale: "fr-FR",
+    },
+  };
  
+  let LANG = (function () {
+    const saved = localStorage.getItem("lang");
+    if (saved && I18N[saved]) return saved;
+    const browser = (navigator.language || "tr").slice(0, 2).toLowerCase();
+    return I18N[browser] ? browser : "tr";
+  })();
+ 
+  function t() { return I18N[LANG]; }
+ 
+  function applyI18n() {
+    const tr = t();
+    document.documentElement.lang = tr.htmlLang;
+    document.title = tr.title;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const k = el.getAttribute("data-i18n");
+      if (tr[k] !== undefined) el.textContent = tr[k];
+    });
+    document.getElementById("langCurrent").textContent = LANG.toUpperCase();
+    document.querySelectorAll("#langMenu button").forEach(b => {
+      b.classList.toggle("active", b.dataset.lang === LANG);
+    });
+  }
+ 
+  function setLang(newLang) {
+    if (!I18N[newLang] || LANG === newLang) return;
+    LANG = newLang;
+    localStorage.setItem("lang", LANG);
+    applyI18n();
+    refreshNow();
+    lastRenderedKeys = new Set();
+    render("all");
+  }
+ 
+  // ====== STATE ======
+  const PENCERE_DK = 180;
   let veriler = null;
   let aktifYon = "buyukadaya";
   let aktifOp  = "all";
+  let lastRenderedKeys = new Set();
  
+  // ====== HELPERS ======
   function ikiHane(n) { return n.toString().padStart(2, "0"); }
   function bugunSaatleyen(saat) {
     const [h, m] = saat.split(":").map(Number);
@@ -462,28 +623,49 @@
   function dakikaFarki(d1, d2) {
     return Math.round((d1.getTime() - d2.getTime()) / 60000);
   }
-  function saatGoster(d) {
-    return ikiHane(d.getHours()) + ":" + ikiHane(d.getMinutes());
-  }
-  function gunAdi(d) {
-    const g = ["PAZ","PZT","SAL","ÇRŞ","PRŞ","CUM","CMT"];
-    return g[d.getDay()];
-  }
   function gunUzun(d) {
-    const g = ["PAZAR","PAZARTESİ","SALI","ÇARŞAMBA","PERŞEMBE","CUMA","CUMARTESİ"];
-    const ay = ["OCK","ŞUB","MAR","NİS","MAY","HAZ","TEM","AĞU","EYL","EKİ","KAS","ARA"];
-    return d.getDate() + " " + ay[d.getMonth()] + " · " + g[d.getDay()];
+    const tr = t();
+    return d.getDate() + " " + tr.months[d.getMonth()] + " · " + tr.days[d.getDay()];
   }
   function relativeText(dk) {
-    if (dk < 0) return "GEÇTİ";
-    if (dk === 0) return "ŞİMDİ";
-    if (dk < 60) return dk + " DK";
+    const tr = t();
+    if (dk < 0) return tr.past;
+    if (dk === 0) return tr.now;
+    if (dk < 60) return dk + " " + tr.min;
     const sa = Math.floor(dk / 60);
     const ka = dk % 60;
-    if (ka === 0) return sa + " SA";
-    return sa + " SA " + ka + " DK";
+    if (ka === 0) return sa + " " + tr.hr;
+    return sa + " " + tr.hr + " " + ka + " " + tr.min;
   }
  
+  // ====== CLOCK FLAP ======
+  function nowDigits() {
+    const d = new Date();
+    const hh = d.getHours().toString().padStart(2, "0");
+    const mm = d.getMinutes().toString().padStart(2, "0");
+    return [hh[0], hh[1], mm[0], mm[1]];
+  }
+  function flipDigit(el, newChar) {
+    if (el.textContent === newChar) return;
+    el.classList.add("flipping");
+    setTimeout(() => { el.textContent = newChar; }, 100);
+    setTimeout(() => { el.classList.remove("flipping"); }, 220);
+  }
+  function refreshNow() {
+    const target = nowDigits();
+    document.querySelectorAll("#nowClock .flap-digit").forEach((el, i) => {
+      flipDigit(el, target[i]);
+    });
+    document.getElementById("nowDay").textContent = gunUzun(new Date());
+  }
+  function cascadeLoad() {
+    const target = nowDigits();
+    document.querySelectorAll("#nowClock .flap-digit").forEach((el, i) => {
+      setTimeout(() => flipDigit(el, target[i]), i * 60);
+    });
+  }
+ 
+  // ====== EMBEDDED FALLBACK ======
   const EMBEDDED_DATA = {
     "updated_at": null,
     "tarih_yerel": "Örnek veri — gerçek scrape ile değiştirilecek",
@@ -500,7 +682,7 @@
       if (!r.ok) throw new Error("HTTP " + r.status);
       veriler = await r.json();
     } catch (e) {
-      console.warn("Canlı JSON çekilemedi, gömülü yedek veri kullanılıyor:", e.message);
+      console.warn("Canlı JSON çekilemedi, gömülü yedek:", e.message);
       veriler = EMBEDDED_DATA;
     }
     const banner = document.getElementById("sampleBanner");
@@ -511,7 +693,7 @@
     }
     const upd = veriler.updated_at ? new Date(veriler.updated_at) : null;
     document.getElementById("updatedAt").textContent = upd
-      ? upd.toLocaleString("tr-TR", { dateStyle: "medium", timeStyle: "short" }).toUpperCase()
+      ? upd.toLocaleString(t().locale, { dateStyle: "medium", timeStyle: "short" }).toUpperCase()
       : "—";
   }
  
@@ -532,8 +714,9 @@
  
   function rotaHtml(s) {
     const ok = '<span class="arrow">→</span>';
+    const direct = `<span class="direkt">${t().direct}</span>`;
     if (s.direkt || s.rota.length <= 2) {
-      return `<span class="endpoint">${s.kalkis_iskelesi.toUpperCase()}</span>${ok}<span class="endpoint">${s.varis_iskelesi.toUpperCase()}</span><span class="direkt">DİREKT</span>`;
+      return `<span class="endpoint">${s.kalkis_iskelesi.toUpperCase()}</span>${ok}<span class="endpoint">${s.varis_iskelesi.toUpperCase()}</span>${direct}`;
     }
     const parts = s.rota.map((r, i) => {
       const cls = (i === 0 || i === s.rota.length - 1) ? "endpoint" : "stop";
@@ -542,14 +725,11 @@
     return parts.join(ok);
   }
  
-  let lastRenderedKeys = new Set();
- 
   function rowKey(s) {
     return `${s.operator_kod}|${s.kalkis_saati}|${s.kalkis_iskelesi}|${s.varis_iskelesi}|${s.yon}`;
   }
  
   function render(mode) {
-    // mode: "all" | "new" | "none"
     mode = mode || "none";
     const list = document.getElementById("list");
     const items = aktifSeferler();
@@ -558,7 +738,7 @@
       list.innerHTML = `
         <div class="empty${mode !== "none" ? " in" : ""}">
           <span class="empty-mark">— · —</span>
-          ÖNÜMÜZDEKİ 3 SAATTE SEFER YOK
+          ${t().empty}
         </div>`;
       lastRenderedKeys = new Set();
       return;
@@ -595,7 +775,7 @@
           <div class="r-route">${rotaHtml(s)}</div>
           <div class="r-meta">
             <span class="rel${soon ? " soon" : ""}">${relativeText(s._dk)}</span>
-            <span class="dur">+${s.tahmini_sure_dk}DK</span>
+            <span class="dur">+${s.tahmini_sure_dk}${t().min}</span>
           </div>
         </div>`;
     }).join("");
@@ -603,38 +783,13 @@
     lastRenderedKeys = currentKeys;
   }
  
-  function nowDigits() {
-    const d = new Date();
-    const hh = d.getHours().toString().padStart(2, "0");
-    const mm = d.getMinutes().toString().padStart(2, "0");
-    return [hh[0], hh[1], mm[0], mm[1]];
-  }
-  function flipDigit(el, newChar) {
-    if (el.textContent === newChar) return;
-    el.classList.add("flipping");
-    setTimeout(() => { el.textContent = newChar; }, 100);
-    setTimeout(() => { el.classList.remove("flipping"); }, 220);
-  }
-  function refreshNow() {
-    const target = nowDigits();
-    document.querySelectorAll("#nowClock .flap-digit").forEach((el, i) => {
-      flipDigit(el, target[i]);
-    });
-    document.getElementById("nowDay").textContent = gunUzun(new Date());
-  }
-  function cascadeLoad() {
-    const target = nowDigits();
-    document.querySelectorAll("#nowClock .flap-digit").forEach((el, i) => {
-      setTimeout(() => flipDigit(el, target[i]), i * 60);
-    });
-  }
- 
+  // ====== EVENTS ======
   document.querySelectorAll(".tab").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       aktifYon = btn.dataset.yon;
-      lastRenderedKeys = new Set(); // tab değişince yeni cascade
+      lastRenderedKeys = new Set();
       render("all");
     });
   });
@@ -648,7 +803,32 @@
     });
   });
  
+  // Lang picker
+  const langBtn = document.getElementById("langBtn");
+  const langMenu = document.getElementById("langMenu");
+  langBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = langMenu.classList.toggle("open");
+    langBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.querySelectorAll("#langMenu button").forEach(b => {
+    b.addEventListener("click", (e) => {
+      e.stopPropagation();
+      langMenu.classList.remove("open");
+      langBtn.setAttribute("aria-expanded", "false");
+      setLang(b.dataset.lang);
+    });
+  });
+  document.addEventListener("click", () => {
+    if (langMenu.classList.contains("open")) {
+      langMenu.classList.remove("open");
+      langBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+ 
+  // ====== INIT ======
   (async () => {
+    applyI18n();
     document.getElementById("nowDay").textContent = gunUzun(new Date());
     await veriYukle();
     render("all");
@@ -658,3 +838,4 @@
 </script>
 </body>
 </html>
+ 
