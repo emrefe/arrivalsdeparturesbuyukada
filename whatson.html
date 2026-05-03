@@ -76,10 +76,8 @@
   .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
   .nav a.active { color: var(--ink); border-bottom: 1px solid var(--ink); }
 
-  .masthead-controls {
-    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
-  }
-  .controls-row { display: flex; gap: 6px; align-items: center; }
+  .masthead-row { align-items: center; }
+  .masthead-controls { display: flex; gap: 8px; align-items: center; }
   .theme-btn {
     font-family: inherit; font-size: 13px; line-height: 1;
     padding: 5px 10px; background: transparent; color: var(--ink);
@@ -268,27 +266,25 @@
 
   <header class="masthead">
     <div class="masthead-row">
-      <h1 class="brand" data-i18n="brand">BÜYÜKADA / ETKİNLİKLER</h1>
+      <h1 class="brand" data-i18n="brand">BÜYÜKADA</h1>
       <div class="masthead-controls">
-        <div class="controls-row">
-          <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon">☾</span></button>
-          <div class="lang-picker">
-            <button class="lang-btn" id="langBtn" aria-haspopup="true">
-              <span id="langCurrent">TR</span><span class="caret">▾</span>
-            </button>
-            <div class="lang-menu" id="langMenu" role="menu">
-              <button data-lang="tr">TR</button>
-              <button data-lang="en">EN</button>
-              <button data-lang="ru">RU</button>
-              <button data-lang="ar">AR</button>
-              <button data-lang="de">DE</button>
-              <button data-lang="fr">FR</button>
-            </div>
-          </div>
-        </div>
         <div class="weather-mini" id="weatherBox">
           <span class="w-icon" id="wIcon"></span>
-          <span class="w-temp" id="wTemp">— / —</span>
+          <span class="w-temp" id="wTemp">—°/—°</span>
+        </div>
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon">☾</span></button>
+        <div class="lang-picker">
+          <button class="lang-btn" id="langBtn" aria-haspopup="true">
+            <span id="langCurrent">TR</span><span class="caret">▾</span>
+          </button>
+          <div class="lang-menu" id="langMenu" role="menu">
+            <button data-lang="tr">TR</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="ru">RU</button>
+            <button data-lang="ar">AR</button>
+            <button data-lang="de">DE</button>
+            <button data-lang="fr">FR</button>
+          </div>
         </div>
       </div>
     </div>
@@ -344,7 +340,7 @@
   const I18N = {
     tr: {
       htmlLang: "tr", title: "BÜYÜKADA / ETKİNLİKLER",
-      brand: "BÜYÜKADA / ETKİNLİKLER",
+      brand: "BÜYÜKADA",
       navSeferler: "SEFERLER", navTur: "TUR", navEtkinlik: "ETKİNLİKLER", navOtobus: "OTOBÜSLER",
       scopeToday: "BUGÜN", scopeWeek: "BU HAFTA", scopeMonth: "BU AY", scopeAll: "HEPSİ",
       all: "TÜMÜ",
@@ -363,7 +359,7 @@
     },
     en: {
       htmlLang: "en", title: "BÜYÜKADA / WHAT'S ON",
-      brand: "BÜYÜKADA / WHAT'S ON",
+      brand: "BÜYÜKADA",
       navSeferler: "FERRIES", navTur: "TOUR", navEtkinlik: "WHAT'S ON", navOtobus: "BUSES",
       scopeToday: "TODAY", scopeWeek: "THIS WEEK", scopeMonth: "THIS MONTH", scopeAll: "ALL",
       all: "ALL",
@@ -382,7 +378,7 @@
     },
     ru: {
       htmlLang: "ru", title: "БЮЮКАДА / СОБЫТИЯ",
-      brand: "БЮЮКАДА / СОБЫТИЯ",
+      brand: "БЮЮКАДА",
       navSeferler: "ПАРОМЫ", navTur: "ТУР", navEtkinlik: "СОБЫТИЯ", navOtobus: "АВТОБУСЫ",
       scopeToday: "СЕГОДНЯ", scopeWeek: "НЕДЕЛЯ", scopeMonth: "МЕСЯЦ", scopeAll: "ВСЕ",
       all: "ВСЕ",
@@ -401,7 +397,7 @@
     },
     ar: {
       htmlLang: "ar", title: "بيوكادا / الفعاليات",
-      brand: "بيوكادا / الفعاليات",
+      brand: "بيوكادا",
       navSeferler: "الرحلات", navTur: "الجولة", navEtkinlik: "الفعاليات", navOtobus: "الحافلات",
       scopeToday: "اليوم", scopeWeek: "الأسبوع", scopeMonth: "الشهر", scopeAll: "الكل",
       all: "الكل",
@@ -420,7 +416,7 @@
     },
     de: {
       htmlLang: "de", title: "BÜYÜKADA / VERANSTALTUNGEN",
-      brand: "BÜYÜKADA / VERANSTALTUNGEN",
+      brand: "BÜYÜKADA",
       navSeferler: "FÄHREN", navTur: "TOUR", navEtkinlik: "VERANSTALTUNGEN", navOtobus: "BUSSE",
       scopeToday: "HEUTE", scopeWeek: "DIESE WOCHE", scopeMonth: "DIESER MONAT", scopeAll: "ALLE",
       all: "ALLE",
@@ -439,7 +435,7 @@
     },
     fr: {
       htmlLang: "fr", title: "BÜYÜKADA / ÉVÉNEMENTS",
-      brand: "BÜYÜKADA / ÉVÉNEMENTS",
+      brand: "BÜYÜKADA",
       navSeferler: "FERRIES", navTur: "VISITE", navEtkinlik: "ÉVÉNEMENTS", navOtobus: "BUS",
       scopeToday: "AUJOURD'HUI", scopeWeek: "CETTE SEMAINE", scopeMonth: "CE MOIS", scopeAll: "TOUT",
       all: "TOUT",
@@ -647,7 +643,7 @@
     const code = d.daily.weathercode[0];
     const wind = d.daily.windspeed_10m_max[0];
     document.getElementById("wIcon").innerHTML = weatherIcon(code, wind);
-    document.getElementById("wTemp").textContent = `${low}° / ${high}°`;
+    document.getElementById("wTemp").textContent = `${low}°/${high}°`;
     document.getElementById("weatherBox").classList.add("loaded");
   }
 
