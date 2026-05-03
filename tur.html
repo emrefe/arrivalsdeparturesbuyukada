@@ -57,8 +57,8 @@
   .weather-mini {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
+    gap: 7px;
+    font-size: 11.5px;
     color: var(--ink);
     letter-spacing: 0.04em;
     visibility: hidden;
@@ -67,7 +67,7 @@
   .weather-mini.loaded { visibility: visible; }
   .w-icon {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px; color: var(--ink);
+    width: 17px; height: 17px; color: var(--ink);
   }
   .w-icon svg { width: 100%; height: 100%; display: block; }
   .w-temp { font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; }
@@ -291,6 +291,49 @@
   .bonus-more:hover { background: var(--ink); color: var(--paper); }
   .bonus-more:disabled { opacity: 0.4; cursor: not-allowed; }
 
+  .bus-hint {
+    display: inline-block;
+    margin-inline-start: 8px;
+    padding: 1px 5px;
+    background: var(--ink); color: var(--paper);
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  /* RETURN FERRIES BLOCK */
+  .return-block {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--ink);
+  }
+  .return-title {
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    margin-bottom: 12px; color: var(--ink);
+  }
+  .return-row {
+    display: grid;
+    grid-template-columns: 50px 28px 1fr auto;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 0.5px dashed var(--rule);
+    align-items: baseline;
+  }
+  .return-row:last-child { border-bottom: none; }
+  .return-row .r-time { font-size: 17px; font-weight: 500; letter-spacing: 0.04em; }
+  .return-row .r-op { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; }
+  .return-row .r-route { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .return-row .r-direkt {
+    display: inline-block;
+    background: var(--ink); color: var(--paper);
+    padding: 1px 5px;
+    font-size: 9px; font-weight: 600;
+    margin-inline-start: 6px;
+    letter-spacing: 0.1em;
+  }
+  .return-row .r-dur { font-size: 10px; color: var(--muted); white-space: nowrap; letter-spacing: 0.06em; }
+  .return-empty { font-size: 11px; color: var(--muted); padding: 12px 0; text-align: center; }
+
   .actions {
     display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px;
   }
@@ -394,10 +437,10 @@
       </div>
     </div>
     <div class="nav">
-      <a href="./index.html" data-i18n="navSaatler">SAATLER</a>
+      <a href="./index.html" data-i18n="navSeferler">SEFERLER</a>
       <a href="./tur.html" class="active" data-i18n="navTur">TUR</a>
       <a href="./whatson.html" data-i18n="navEtkinlik">ETKİNLİKLER</a>
-      <a href="./ulasim.html" data-i18n="navUlasim">ULAŞIM</a>
+      <a href="./ulasim.html" data-i18n="navOtobus">OTOBÜSLER</a>
     </div>
   </header>
 
@@ -481,7 +524,7 @@
     tr: {
       htmlLang: "tr", title: "BÜYÜKADA / TUR PLANLAYICI",
       brand: "BÜYÜKADA / TUR PLANLAYICI",
-      navSaatler: "SAATLER", navTur: "TUR", navEtkinlik: "ETKİNLİKLER", navUlasim: "ULAŞIM",
+      navSeferler: "SEFERLER", navTur: "TUR", navEtkinlik: "ETKİNLİKLER", navOtobus: "OTOBÜSLER",
       tagline: "Büyükada'ya gelen birine 4 soruyla küratörlü bir tur. Köşk imzası.",
       qTime: "KAÇ SAATİN VAR?", qStart: "NE ZAMAN GELİYORSUN?", qBudget: "BÜTÇE", qInterests: "NE YAPMAK İSTERSİN?", qEnergy: "ENERJİ",
       halfDay: "YARIM GÜN", fullDay: "TAM GÜN", free: "BEDAVA",
@@ -500,6 +543,7 @@
       ferryEnd: "DÖNÜŞ VAPURU İÇİN /SAATLER SAYFASINA BAK",
       regenerate: "⟲ YENİ TUR", edit: "DÜZENLE", share: "PAYLAŞ", print: "YAZDIR",
       moreNearby: "+ YAKINDA NE VAR", evenMore: "3 DAHA", noMore: "DAHA YOK",
+      returnTitle: "DÖNÜŞ SEFERLERİ", returnEmpty: "TUR SAATİNDE BÜYÜKADA'DAN UYGUN SEFER YOK", busHint: "VEYA",
       empty: "EN AZ BİR İLGİ ALANI SEÇ",
       noFit: "BU SÜRE/BÜTÇE İÇİN UYGUN ROTA BULUNAMADI — FİLTRELERİ GENİŞLET",
       tourTitle: "TUR · {h} SAAT", direct: "DİREKT", min: "DK",
@@ -508,7 +552,7 @@
     en: {
       htmlLang: "en", title: "BÜYÜKADA / TOUR PLANNER",
       brand: "BÜYÜKADA / TOUR PLANNER",
-      navSaatler: "SCHEDULE", navTur: "TOUR", navEtkinlik: "WHAT'S ON", navUlasim: "TRANSIT",
+      navSeferler: "FERRIES", navTur: "TOUR", navEtkinlik: "WHAT'S ON", navOtobus: "BUSES",
       tagline: "Curated tour for Büyükada visitors in 4 questions. Köşk's imprint.",
       qTime: "HOW MUCH TIME?", qStart: "WHEN ARE YOU ARRIVING?", qBudget: "BUDGET", qInterests: "WHAT DO YOU WANT TO DO?", qEnergy: "ENERGY",
       halfDay: "HALF DAY", fullDay: "FULL DAY", free: "FREE",
@@ -527,6 +571,7 @@
       ferryEnd: "FOR RETURN FERRY SEE /SCHEDULE PAGE",
       regenerate: "⟲ NEW TOUR", edit: "EDIT", share: "SHARE", print: "PRINT",
       moreNearby: "+ NEARBY ALTERNATIVES", evenMore: "3 MORE", noMore: "NO MORE",
+      returnTitle: "RETURN FERRIES", returnEmpty: "NO MATCHING FERRIES FROM BÜYÜKADA AT TOUR END", busHint: "OR",
       empty: "PICK AT LEAST ONE INTEREST",
       noFit: "NO TOUR FITS THIS TIME/BUDGET — RELAX YOUR FILTERS",
       tourTitle: "TOUR · {h}H", direct: "DIRECT", min: "MIN",
@@ -535,7 +580,7 @@
     ru: {
       htmlLang: "ru", title: "БЮЮКАДА / ПЛАН ТУРА",
       brand: "БЮЮКАДА / ПЛАН ТУРА",
-      navSaatler: "РАСПИСАНИЕ", navTur: "ТУР", navEtkinlik: "СОБЫТИЯ", navUlasim: "ТРАНСПОРТ",
+      navSeferler: "ПАРОМЫ", navTur: "ТУР", navEtkinlik: "СОБЫТИЯ", navOtobus: "АВТОБУСЫ",
       tagline: "Подобранный тур для посетителей Бююкады за 4 вопроса. От Köşk.",
       qTime: "СКОЛЬКО ВРЕМЕНИ?", qStart: "КОГДА ПРИЕЗЖАЕТЕ?", qBudget: "БЮДЖЕТ", qInterests: "ЧТО ХОТИТЕ ДЕЛАТЬ?", qEnergy: "ЭНЕРГИЯ",
       halfDay: "ПОЛДНЯ", fullDay: "ВЕСЬ ДЕНЬ", free: "БЕСПЛАТНО",
@@ -554,6 +599,7 @@
       ferryEnd: "СМОТРИТЕ /РАСПИСАНИЕ ДЛЯ ОБРАТНОГО ПАРОМА",
       regenerate: "⟲ НОВЫЙ ТУР", edit: "РЕД.", share: "ПОДЕЛ.", print: "ПЕЧАТЬ",
       moreNearby: "+ ПОБЛИЗОСТИ", evenMore: "ЕЩЁ 3", noMore: "БОЛЬШЕ НЕТ",
+      returnTitle: "ОБРАТНЫЕ ПАРОМЫ", returnEmpty: "НЕТ ПОДХОДЯЩИХ ПАРОМОВ ИЗ БЮЮКАДЫ", busHint: "ИЛИ",
       empty: "ВЫБЕРИТЕ ХОТЯ БЫ ОДИН ИНТЕРЕС",
       noFit: "ТУР НЕ ПОДОБРАН — РАСШИРЬТЕ ФИЛЬТРЫ",
       tourTitle: "ТУР · {h}Ч", direct: "ПРЯМОЙ", min: "МИН",
@@ -562,7 +608,7 @@
     ar: {
       htmlLang: "ar", title: "بيوكادا / مخطط الجولة",
       brand: "بيوكادا / مخطط الجولة",
-      navSaatler: "المواعيد", navTur: "الجولة", navEtkinlik: "الفعاليات", navUlasim: "النقل",
+      navSeferler: "الرحلات", navTur: "الجولة", navEtkinlik: "الفعاليات", navOtobus: "الحافلات",
       tagline: "جولة مخصصة لزوار بيوكادا في 4 أسئلة. بصمة Köşk.",
       qTime: "كم لديك من وقت؟", qStart: "متى تصل؟", qBudget: "الميزانية", qInterests: "ماذا تريد أن تفعل؟", qEnergy: "الطاقة",
       halfDay: "نصف يوم", fullDay: "يوم كامل", free: "مجاني",
@@ -581,6 +627,7 @@
       ferryEnd: "للعبارة العائدة راجع /المواعيد",
       regenerate: "⟲ جولة جديدة", edit: "تعديل", share: "مشاركة", print: "طباعة",
       moreNearby: "+ بدائل قريبة", evenMore: "3 إضافية", noMore: "لا مزيد",
+      returnTitle: "رحلات العودة", returnEmpty: "لا رحلات مناسبة من بيوكادا عند نهاية الجولة", busHint: "أو",
       empty: "اختر اهتمامًا واحدًا على الأقل",
       noFit: "لا تتوفر جولة بهذه الفلاتر — وسّع التفضيلات",
       tourTitle: "جولة · {h} س", direct: "مباشر", min: "د",
@@ -589,7 +636,7 @@
     de: {
       htmlLang: "de", title: "BÜYÜKADA / TOUR PLANER",
       brand: "BÜYÜKADA / TOUR PLANER",
-      navSaatler: "FAHRPLAN", navTur: "TOUR", navEtkinlik: "VERANSTALTUNGEN", navUlasim: "VERKEHR",
+      navSeferler: "FÄHREN", navTur: "TOUR", navEtkinlik: "VERANSTALTUNGEN", navOtobus: "BUSSE",
       tagline: "Kuratierte Tour für Büyükada-Besucher in 4 Fragen. Köşks Handschrift.",
       qTime: "WIE VIEL ZEIT?", qStart: "WANN KOMMST DU AN?", qBudget: "BUDGET", qInterests: "WAS MÖCHTEST DU MACHEN?", qEnergy: "ENERGIE",
       halfDay: "HALBER TAG", fullDay: "GANZER TAG", free: "GRATIS",
@@ -608,6 +655,7 @@
       ferryEnd: "FÜR RÜCKFÄHRE SIEHE /FAHRPLAN",
       regenerate: "⟲ NEUE TOUR", edit: "BEARB.", share: "TEILEN", print: "DRUCK",
       moreNearby: "+ IN DER NÄHE", evenMore: "3 MEHR", noMore: "KEINE MEHR",
+      returnTitle: "RÜCKFÄHREN", returnEmpty: "KEINE PASSENDEN FÄHREN AB BÜYÜKADA AM TOUR-ENDE", busHint: "ODER",
       empty: "MINDESTENS EIN INTERESSE WÄHLEN",
       noFit: "KEINE TOUR PASST — FILTER LOCKERN",
       tourTitle: "TOUR · {h} STD", direct: "DIREKT", min: "MIN",
@@ -616,7 +664,7 @@
     fr: {
       htmlLang: "fr", title: "BÜYÜKADA / PLANIFICATEUR DE VISITE",
       brand: "BÜYÜKADA / PLANIFICATEUR DE VISITE",
-      navSaatler: "HORAIRES", navTur: "VISITE", navEtkinlik: "ÉVÉNEMENTS", navUlasim: "TRANSPORT",
+      navSeferler: "FERRIES", navTur: "VISITE", navEtkinlik: "ÉVÉNEMENTS", navOtobus: "BUS",
       tagline: "Visite organisée pour les visiteurs de Büyükada en 4 questions. Signée Köşk.",
       qTime: "COMBIEN DE TEMPS?", qStart: "QUAND ARRIVEZ-VOUS?", qBudget: "BUDGET", qInterests: "QUE VOULEZ-VOUS FAIRE?", qEnergy: "ÉNERGIE",
       halfDay: "DEMI-JOURNÉE", fullDay: "JOURNÉE", free: "GRATUIT",
@@ -635,6 +683,7 @@
       ferryEnd: "VOIR /HORAIRES POUR FERRY RETOUR",
       regenerate: "⟲ NOUVELLE VISITE", edit: "MODIF.", share: "PARTAG.", print: "IMPR.",
       moreNearby: "+ À PROXIMITÉ", evenMore: "3 DE PLUS", noMore: "PLUS RIEN",
+      returnTitle: "FERRIES RETOUR", returnEmpty: "AUCUN FERRY DE BÜYÜKADA À LA FIN DE LA VISITE", busHint: "OU",
       empty: "CHOISISSEZ AU MOINS UN INTÉRÊT",
       noFit: "AUCUNE VISITE NE CORRESPOND — ÉLARGISSEZ LES FILTRES",
       tourTitle: "VISITE · {h}H", direct: "DIRECT", min: "MIN",
@@ -711,14 +760,48 @@
   }
 
   // ====== DATA LOAD ======
+  let ulasimData = null;
+  let seferlerData = null;
   async function loadPlaces() {
     try {
       const r = await fetch("./data/places.json?t=" + Date.now());
       placesData = await r.json();
     } catch (e) {
-      console.error("places.json yüklenemedi", e);
       placesData = { places: [] };
     }
+  }
+  async function loadUlasim() {
+    try {
+      const r = await fetch("./data/ulasim.json?t=" + Date.now());
+      ulasimData = await r.json();
+    } catch (e) { ulasimData = null; }
+  }
+  async function loadSeferler() {
+    try {
+      const r = await fetch("./data/seferler.json?t=" + Date.now());
+      seferlerData = await r.json();
+    } catch (e) { seferlerData = null; }
+  }
+  // Walk yerine BA otobüsü öner (zone'ları ortak hat varsa)
+  function findBusLine(fromZone, toZone) {
+    if (!ulasimData || !ulasimData.lines || fromZone === toZone) return null;
+    for (const l of ulasimData.lines) {
+      if (l.covers && l.covers.includes(fromZone) && l.covers.includes(toZone)) return l;
+    }
+    return null;
+  }
+  // Tur sonu için Büyükada'dan kalkan sonraki 3 sefer
+  function findReturnFerries(afterMin) {
+    if (!seferlerData || !seferlerData.seferler) return [];
+    return seferlerData.seferler
+      .filter(s => s.kalkis_iskelesi === "Büyükada")
+      .map(s => {
+        const [h, m] = s.kalkis_saati.split(":").map(Number);
+        return Object.assign({}, s, { _min: h*60 + m });
+      })
+      .filter(s => s._min >= afterMin && s._min <= afterMin + 180)
+      .sort((a, b) => a._min - b._min)
+      .slice(0, 3);
   }
 
   // ====== TOUR ALGORITHM ======
@@ -901,6 +984,7 @@
     `;
 
     let stopIdx = 0;
+    let lastZone = "iskele";
     tour.stops.forEach((s, i) => {
       const animDelay = stopIdx * 80;
       if (s.type === "arrival") {
@@ -926,8 +1010,14 @@
           </div>`;
         stopIdx++;
       } else if (s.type === "walk") {
-        html += `<div class="walk in" style="animation-delay:${animDelay}ms">${s.minutes} ${tr.min} ${tr.walkLabel}</div>`;
+        // Bus hint — eğer walk uzunsa ve uygun BA hattı varsa
+        const nextStopIdx = tour.stops.findIndex((x, j) => j > i && x.type === "stop");
+        const nextZone = nextStopIdx > 0 ? tour.stops[nextStopIdx].place.zone : "iskele";
+        const busHint = (s.minutes >= 18) ? findBusLine(lastZone, nextZone) : null;
+        const busText = busHint ? ` <span class="bus-hint">${tr.busHint} ${busHint.code}</span>` : "";
+        html += `<div class="walk in" style="animation-delay:${animDelay}ms">${s.minutes} ${tr.min} ${tr.walkLabel}${busText}</div>`;
       } else if (s.type === "stop") {
+        lastZone = s.place.zone;
         const p = s.place;
         const name = p.name;
         const tagsStr = p.tags.map(tg => (tr["tag" + tg.charAt(0).toUpperCase() + tg.slice(1)] || tg).toUpperCase()).join(" · ");
@@ -950,6 +1040,27 @@
         stopIdx++;
       }
     });
+
+    // DÖNÜŞ SEFERLERI — tur sonuna göre Büyükada'dan kalkan ilk 3
+    const returnFerries = findReturnFerries(tour.finalTime);
+    if (returnFerries.length > 0) {
+      html += `
+        <div class="return-block">
+          <div class="return-title">↪ ${tr.returnTitle}</div>
+          ${returnFerries.map(f => {
+            const direkt = f.direkt ? `<span class="r-direkt">DİREKT</span>` : "";
+            return `
+              <div class="return-row">
+                <div class="r-time">${f.kalkis_saati}</div>
+                <div class="r-op">${f.operator_kod}</div>
+                <div class="r-route">${f.kalkis_iskelesi.toUpperCase()} → ${f.varis_iskelesi.toUpperCase()}${direkt}</div>
+                <div class="r-dur">+${f.tahmini_sure_dk}DK</div>
+              </div>`;
+          }).join("")}
+        </div>`;
+    } else {
+      html += `<div class="return-block"><div class="return-title">↪ ${tr.returnTitle}</div><div class="return-empty">${tr.returnEmpty}</div></div>`;
+    }
 
     html += `
       <div class="actions">
@@ -1109,7 +1220,7 @@
     applyTheme();
     applyI18n();
     applyWeather();
-    await loadPlaces();
+    await Promise.all([loadPlaces(), loadUlasim(), loadSeferler()]);
   })();
 </script>
 </body>
