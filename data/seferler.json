@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-06-05T08:18:48+03:00",
-  "tarih_yerel": "05.06.2026",
+  "updated_at": "2026-06-06T07:53:32+03:00",
+  "tarih_yerel": "06.06.2026",
   "kaynaklar": {
     "sehirhatlari": {
       "site": "https://sehirhatlari.net",
-      "son_guncel": "2026-06-05T08:18:27+03:00",
+      "son_guncel": "2026-06-06T07:53:30+03:00",
       "durum": "ok",
-      "sefer_sayisi": 126
+      "sefer_sayisi": 128
     },
     "mavimarmara": {
       "site": "https://mavimarmara.net",
-      "son_guncel": "2026-06-05T08:18:27+03:00",
+      "son_guncel": "2026-06-06T07:53:30+03:00",
       "durum": "ok",
-      "sefer_sayisi": 32
+      "sefer_sayisi": 30
     },
     "prenstur": {
       "site": "https://prenstur.net",
-      "son_guncel": "2026-06-05T08:18:48+03:00",
+      "son_guncel": "2026-06-06T07:53:32+03:00",
       "durum": "ok",
-      "sefer_sayisi": 39
+      "sefer_sayisi": 37
     }
   },
   "seferler": [
@@ -158,21 +158,6 @@
       "notlar": null
     },
     {
-      "kalkis_saati": "06:20",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Kartal",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Kartal",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": "sadece hafta içi"
-    },
-    {
       "kalkis_saati": "06:35",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -310,22 +295,6 @@
       "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
-      "kalkis_saati": "07:10",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Heybeliada",
-        "Büyükada"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 50,
-      "notlar": "sadece hafta içi"
-    },
-    {
       "kalkis_saati": "07:15",
       "operator": "Prens Tur",
       "operator_kod": "PT",
@@ -339,21 +308,6 @@
       "direkt": true,
       "tahmini_sure_dk": 25,
       "notlar": null
-    },
-    {
-      "kalkis_saati": "07:15",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": "sadece hafta içi"
     },
     {
       "kalkis_saati": "07:25",
@@ -372,21 +326,6 @@
       "direkt": false,
       "tahmini_sure_dk": 95,
       "notlar": "hafta içi/cumartesi tarifesi"
-    },
-    {
-      "kalkis_saati": "07:25",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Bostancı"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": "sadece hafta içi"
     },
     {
       "kalkis_saati": "07:35",
@@ -1038,6 +977,22 @@
       "direkt": false,
       "tahmini_sure_dk": 110,
       "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "10:35",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Tuzla",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Tuzla",
+        "Pendik",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 100,
+      "notlar": "cumartesi/pazar/tatil"
     },
     {
       "kalkis_saati": "10:55",
@@ -2332,6 +2287,22 @@
       "direkt": false,
       "tahmini_sure_dk": 95,
       "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "18:20",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Tuzla",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Pendik",
+        "Tuzla"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 100,
+      "notlar": "cumartesi/pazar/tatil"
     },
     {
       "kalkis_saati": "18:20",
