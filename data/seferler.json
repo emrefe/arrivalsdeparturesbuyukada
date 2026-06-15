@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-06-14T08:50:17+03:00",
-  "tarih_yerel": "14.06.2026",
+  "updated_at": "2026-06-15T09:25:26+03:00",
+  "tarih_yerel": "15.06.2026",
   "kaynaklar": {
     "sehirhatlari": {
       "site": "https://sehirhatlari.net",
-      "son_guncel": "2026-06-14T08:49:57+03:00",
+      "son_guncel": "2026-06-15T09:25:06+03:00",
       "durum": "ok",
-      "sefer_sayisi": 121
+      "sefer_sayisi": 126
     },
     "mavimarmara": {
       "site": "https://mavimarmara.net",
-      "son_guncel": "2026-06-14T08:49:57+03:00",
+      "son_guncel": "2026-06-15T09:25:06+03:00",
       "durum": "ok",
-      "sefer_sayisi": 30
+      "sefer_sayisi": 32
     },
     "prenstur": {
       "site": "https://prenstur.net",
-      "son_guncel": "2026-06-14T08:50:17+03:00",
+      "son_guncel": "2026-06-15T09:25:26+03:00",
       "durum": "ok",
-      "sefer_sayisi": 37
+      "sefer_sayisi": 39
     }
   },
   "seferler": [
@@ -35,7 +35,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "00:35",
@@ -53,7 +53,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "02:00",
@@ -71,7 +71,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "03:10",
@@ -86,7 +86,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "04:45",
@@ -104,25 +104,10 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
-      "kalkis_saati": "05:55",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Bostancı"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "06:15",
+      "kalkis_saati": "05:45",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
       "kalkis_iskelesi": "Büyükada",
@@ -139,7 +124,22 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 120,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "05:55",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "06:20",
@@ -158,7 +158,22 @@
       "notlar": null
     },
     {
-      "kalkis_saati": "07:00",
+      "kalkis_saati": "06:20",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "sadece hafta içi"
+    },
+    {
+      "kalkis_saati": "06:35",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
       "kalkis_iskelesi": "Büyükada",
@@ -174,25 +189,44 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
-      "kalkis_saati": "07:00",
+      "kalkis_saati": "06:45",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
-      "kalkis_iskelesi": "Bostancı",
+      "kalkis_iskelesi": "Kabataş",
       "varis_iskelesi": "Büyükada",
       "yon": "buyukadaya",
       "rota": [
-        "Bostancı",
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "06:45",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
         "Büyükada"
       ],
       "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "tahmini_sure_dk": 20,
+      "notlar": "her gün"
     },
     {
-      "kalkis_saati": "07:05",
+      "kalkis_saati": "06:45",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
       "kalkis_iskelesi": "Büyükada",
@@ -204,8 +238,92 @@
         "Bostancı"
       ],
       "direkt": false,
-      "tahmini_sure_dk": 40,
-      "notlar": "pazar/tatil tarifesi"
+      "tahmini_sure_dk": 45,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "07:05",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "07:05",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kınalıada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "07:05",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kınalıada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "07:10",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "07:10",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": "sadece hafta içi"
     },
     {
       "kalkis_saati": "07:15",
@@ -223,7 +341,135 @@
       "notlar": null
     },
     {
-      "kalkis_saati": "07:30",
+      "kalkis_saati": "07:15",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "sadece hafta içi"
+    },
+    {
+      "kalkis_saati": "07:25",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "07:25",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "sadece hafta içi"
+    },
+    {
+      "kalkis_saati": "07:35",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Sedef Adası",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Sedef Adası",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "07:40",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "07:45",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "07:50",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "07:55",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "08:00",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
       "kalkis_iskelesi": "Kabataş",
@@ -239,56 +485,24 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
-      "kalkis_saati": "07:35",
+      "kalkis_saati": "08:00",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kabataş",
-      "yon": "buyukadadan",
+      "kalkis_iskelesi": "Kınalıada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
       "rota": [
-        "Büyükada",
-        "Heybeliada",
-        "Burgazada",
         "Kınalıada",
-        "Kadıköy",
-        "Kabataş"
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
       ],
       "direkt": false,
-      "tahmini_sure_dk": 115,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "07:45",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "07:55",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Sedef Adası",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Sedef Adası",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 15,
-      "notlar": "pazar/tatil tarifesi"
+      "tahmini_sure_dk": 45,
+      "notlar": "her gün"
     },
     {
       "kalkis_saati": "08:00",
@@ -335,40 +549,6 @@
       "direkt": true,
       "tahmini_sure_dk": 25,
       "notlar": null
-    },
-    {
-      "kalkis_saati": "08:10",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Beşiktaş",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Beşiktaş",
-        "Kınalıada",
-        "Burgazada",
-        "Heybeliada",
-        "Büyükada"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 95,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "08:15",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kabataş",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Heybeliada",
-        "Kabataş"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
     },
     {
       "kalkis_saati": "08:15",
@@ -389,6 +569,21 @@
       "kalkis_saati": "08:20",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "08:20",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
       "kalkis_iskelesi": "Büyükada",
       "varis_iskelesi": "Heybeliada",
       "yon": "buyukadadan",
@@ -398,26 +593,22 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 15,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "08:30",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
-      "kalkis_iskelesi": "Kabataş",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
       "rota": [
-        "Kabataş",
-        "Kadıköy",
-        "Kınalıada",
-        "Burgazada",
-        "Heybeliada",
-        "Büyükada"
+        "Büyükada",
+        "Bostancı"
       ],
-      "direkt": false,
-      "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "08:30",
@@ -438,25 +629,6 @@
       "kalkis_saati": "08:35",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Beşiktaş",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Heybeliada",
-        "Burgazada",
-        "Kınalıada",
-        "Kadıköy",
-        "Beşiktaş"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "08:35",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
       "kalkis_iskelesi": "Heybeliada",
       "varis_iskelesi": "Büyükada",
       "yon": "buyukadaya",
@@ -466,22 +638,37 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 15,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
-      "kalkis_saati": "08:50",
+      "kalkis_saati": "08:40",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
       "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Heybeliada",
       "yon": "buyukadadan",
       "rota": [
         "Büyükada",
-        "Bostancı"
+        "Heybeliada"
       ],
       "direkt": true,
-      "tahmini_sure_dk": 45,
-      "notlar": "pazar/tatil tarifesi"
+      "tahmini_sure_dk": 15,
+      "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "08:45",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "notlar": "her gün"
     },
     {
       "kalkis_saati": "08:50",
@@ -502,6 +689,25 @@
       "kalkis_saati": "09:00",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "09:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
       "kalkis_iskelesi": "Büyükada",
       "varis_iskelesi": "Kabataş",
       "yon": "buyukadadan",
@@ -515,7 +721,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "09:00",
@@ -561,40 +767,6 @@
       "direkt": true,
       "tahmini_sure_dk": 25,
       "notlar": null
-    },
-    {
-      "kalkis_saati": "09:05",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Kabataş",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Kabataş",
-        "Kadıköy",
-        "Kınalıada",
-        "Burgazada",
-        "Heybeliada",
-        "Büyükada"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "09:15",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Bostancı"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
     },
     {
       "kalkis_saati": "09:15",
@@ -625,6 +797,21 @@
       "direkt": true,
       "tahmini_sure_dk": 15,
       "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "09:25",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "09:30",
@@ -706,6 +893,24 @@
     },
     {
       "kalkis_saati": "10:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "10:00",
       "operator": "Prens Tur",
       "operator_kod": "PT",
       "kalkis_iskelesi": "Büyükada",
@@ -736,7 +941,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "10:05",
@@ -752,40 +957,6 @@
       "direkt": true,
       "tahmini_sure_dk": 20,
       "notlar": "her gün"
-    },
-    {
-      "kalkis_saati": "10:05",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "10:10",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Beşiktaş",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Heybeliada",
-        "Burgazada",
-        "Kınalıada",
-        "Kadıköy",
-        "Beşiktaş"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
     },
     {
       "kalkis_saati": "10:25",
@@ -853,35 +1024,20 @@
       "kalkis_saati": "10:35",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
-      "kalkis_iskelesi": "Tuzla",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Tuzla",
-        "Pendik",
-        "Büyükada"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 100,
-      "notlar": "cumartesi/pazar/tatil"
-    },
-    {
-      "kalkis_saati": "10:40",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
       "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Kabataş",
       "yon": "buyukadadan",
       "rota": [
         "Büyükada",
         "Heybeliada",
         "Burgazada",
         "Kınalıada",
-        "Bostancı"
+        "Kadıköy",
+        "Kabataş"
       ],
       "direkt": false,
-      "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
+      "tahmini_sure_dk": 110,
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "10:55",
@@ -902,25 +1058,6 @@
       "kalkis_saati": "11:00",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kabataş",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Heybeliada",
-        "Burgazada",
-        "Kınalıada",
-        "Kadıköy",
-        "Kabataş"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "11:00",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
       "kalkis_iskelesi": "Bostancı",
       "varis_iskelesi": "Büyükada",
       "yon": "buyukadaya",
@@ -930,7 +1067,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "11:05",
@@ -949,7 +1086,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "11:05",
@@ -966,6 +1103,25 @@
       "direkt": false,
       "tahmini_sure_dk": 50,
       "notlar": null
+    },
+    {
+      "kalkis_saati": "11:10",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "11:15",
@@ -1056,7 +1212,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 15,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "11:40",
@@ -1074,6 +1230,25 @@
       "direkt": false,
       "tahmini_sure_dk": 45,
       "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "12:00",
+      "operator": "Şehir Hatları",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "12:00",
@@ -1109,25 +1284,6 @@
       "kalkis_saati": "12:05",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
-      "kalkis_iskelesi": "Kabataş",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Kabataş",
-        "Kadıköy",
-        "Kınalıada",
-        "Burgazada",
-        "Heybeliada",
-        "Büyükada"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "12:05",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
       "kalkis_iskelesi": "Büyükada",
       "varis_iskelesi": "Kabataş",
       "yon": "buyukadadan",
@@ -1141,7 +1297,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "12:20",
@@ -1246,7 +1402,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "12:55",
@@ -1261,7 +1417,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "13:00",
@@ -1279,7 +1435,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 95,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "13:00",
@@ -1344,7 +1500,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "13:30",
@@ -1408,7 +1564,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "14:00",
@@ -1535,7 +1691,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "15:10",
@@ -1553,7 +1709,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "15:15",
@@ -1571,7 +1727,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 95,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "15:20",
@@ -1667,7 +1823,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "15:40",
@@ -1744,7 +1900,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "16:20",
@@ -1793,7 +1949,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "16:30",
@@ -1812,7 +1968,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "16:30",
@@ -1949,7 +2105,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 15,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "17:30",
@@ -2014,7 +2170,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "17:35",
@@ -2033,7 +2189,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "17:45",
@@ -2048,7 +2204,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "17:50",
@@ -2078,7 +2234,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "17:55",
@@ -2112,7 +2268,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "18:00",
@@ -2157,7 +2313,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "18:15",
@@ -2175,23 +2331,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 95,
-      "notlar": "pazar/tatil tarifesi"
-    },
-    {
-      "kalkis_saati": "18:20",
-      "operator": "Şehir Hatları",
-      "operator_kod": "SH",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Tuzla",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Pendik",
-        "Tuzla"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 100,
-      "notlar": "cumartesi/pazar/tatil"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "18:20",
@@ -2237,7 +2377,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "18:25",
@@ -2271,7 +2411,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "18:30",
@@ -2331,7 +2471,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "18:40",
@@ -2366,7 +2506,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 115,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "18:55",
@@ -2414,7 +2554,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "19:15",
@@ -2445,7 +2585,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 75,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "19:20",
@@ -2554,7 +2694,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "19:40",
@@ -2573,7 +2713,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "19:45",
@@ -2603,7 +2743,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 15,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "20:00",
@@ -2618,7 +2758,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "20:00",
@@ -2712,7 +2852,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "20:35",
@@ -2867,7 +3007,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "21:45",
@@ -2886,7 +3026,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 110,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "21:45",
@@ -2919,7 +3059,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 70,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "21:50",
@@ -2981,7 +3121,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "23:00",
@@ -3012,7 +3152,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
       "kalkis_saati": "23:30",
@@ -3031,7 +3171,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 105,
-      "notlar": "pazar/tatil tarifesi"
+      "notlar": "hafta içi/cumartesi tarifesi"
     }
   ]
 }
