@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-07-02T07:06:27+03:00",
+  "updated_at": "2026-07-02T07:34:01+03:00",
   "tarih_yerel": "02.07.2026",
   "kaynaklar": {
     "sehirhatlari": {
       "site": "https://sehirhatlari.net",
-      "son_guncel": "2026-07-02T07:06:27+03:00",
+      "son_guncel": "2026-07-02T07:33:41+03:00",
       "durum": "ok",
       "sefer_sayisi": 126
     },
     "mavimarmara": {
       "site": "https://mavimarmara.net",
-      "son_guncel": "2026-07-02T07:06:27+03:00",
+      "son_guncel": "2026-07-02T07:33:41+03:00",
       "durum": "ok",
       "sefer_sayisi": 44
     },
     "prenstur": {
       "site": "https://prenstur.net",
-      "son_guncel": "2026-07-02T07:06:27+03:00",
+      "son_guncel": "2026-07-02T07:34:01+03:00",
       "durum": "ok",
-      "sefer_sayisi": 39
+      "sefer_sayisi": 56
     }
   },
   "seferler": [
@@ -686,6 +686,21 @@
       "notlar": null
     },
     {
+      "kalkis_saati": "08:50",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "09:00",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -748,21 +763,6 @@
       "rota": [
         "Kartal",
         "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
-      "kalkis_saati": "09:00",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -928,6 +928,21 @@
       "kalkis_saati": "10:00",
       "operator": "Prens Tur",
       "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "10:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
       "kalkis_iskelesi": "Büyükada",
       "varis_iskelesi": "Kartal",
       "yon": "buyukadadan",
@@ -990,21 +1005,6 @@
       "notlar": null
     },
     {
-      "kalkis_saati": "10:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "10:30",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -1031,6 +1031,21 @@
       "rota": [
         "Kartal",
         "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "10:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -1099,6 +1114,36 @@
       "direkt": true,
       "tahmini_sure_dk": 35,
       "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "11:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "11:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
     },
     {
       "kalkis_saati": "11:05",
@@ -1185,21 +1230,6 @@
       "notlar": null
     },
     {
-      "kalkis_saati": "11:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "11:30",
       "operator": "Prens Tur",
       "operator_kod": "PT",
@@ -1209,6 +1239,21 @@
       "rota": [
         "Kartal",
         "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "11:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -1312,6 +1357,21 @@
       "notlar": null
     },
     {
+      "kalkis_saati": "12:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "12:05",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -1346,21 +1406,6 @@
       "notlar": "her gün"
     },
     {
-      "kalkis_saati": "12:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "12:30",
       "operator": "Prens Tur",
       "operator_kod": "PT",
@@ -1370,6 +1415,21 @@
       "rota": [
         "Kartal",
         "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "12:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -1484,6 +1544,36 @@
       "notlar": "her gün"
     },
     {
+      "kalkis_saati": "13:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "13:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "13:15",
       "operator": "Mavi Marmara",
       "operator_kod": "MM",
@@ -1497,21 +1587,6 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 50,
-      "notlar": null
-    },
-    {
-      "kalkis_saati": "13:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
       "notlar": null
     },
     {
@@ -1558,6 +1633,21 @@
       "rota": [
         "Kartal",
         "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "13:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -1615,6 +1705,36 @@
       "notlar": "her gün"
     },
     {
+      "kalkis_saati": "14:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "14:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "14:05",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -1646,21 +1766,6 @@
       "notlar": null
     },
     {
-      "kalkis_saati": "14:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "14:30",
       "operator": "Mavi Marmara",
       "operator_kod": "MM",
@@ -1686,6 +1791,21 @@
       "rota": [
         "Kartal",
         "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "14:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -1724,6 +1844,36 @@
       "direkt": false,
       "tahmini_sure_dk": 110,
       "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "15:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "15:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
     },
     {
       "kalkis_saati": "15:10",
@@ -1793,21 +1943,6 @@
       "notlar": null
     },
     {
-      "kalkis_saati": "15:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "15:30",
       "operator": "Prens Tur",
       "operator_kod": "PT",
@@ -1817,6 +1952,21 @@
       "rota": [
         "Kartal",
         "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "15:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -1929,6 +2079,21 @@
       "rota": [
         "Kartal",
         "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "16:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -2352,6 +2517,21 @@
       "kalkis_saati": "18:00",
       "operator": "Prens Tur",
       "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "18:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
       "kalkis_iskelesi": "Büyükada",
       "varis_iskelesi": "Kartal",
       "yon": "buyukadadan",
@@ -2474,21 +2654,6 @@
       "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
-      "kalkis_saati": "18:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "18:30",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2532,6 +2697,21 @@
       "rota": [
         "Kartal",
         "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "18:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -2650,6 +2830,36 @@
       "notlar": null
     },
     {
+      "kalkis_saati": "19:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "19:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "19:05",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2729,21 +2939,6 @@
       "notlar": "her gün"
     },
     {
-      "kalkis_saati": "19:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "19:30",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2777,12 +2972,12 @@
       "kalkis_saati": "19:30",
       "operator": "Prens Tur",
       "operator_kod": "PT",
-      "kalkis_iskelesi": "Kartal",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
       "rota": [
-        "Kartal",
-        "Büyükada"
+        "Büyükada",
+        "Kartal"
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
@@ -2857,6 +3052,21 @@
       "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
+      "kalkis_saati": "19:45",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "19:50",
       "operator": "Mavi Marmara",
       "operator_kod": "MM",
@@ -2900,6 +3110,21 @@
       "direkt": true,
       "tahmini_sure_dk": 20,
       "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "20:00",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
     },
     {
       "kalkis_saati": "20:05",
@@ -2946,21 +3171,6 @@
       "direkt": true,
       "tahmini_sure_dk": 15,
       "notlar": "her gün"
-    },
-    {
-      "kalkis_saati": "20:25",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": null
     },
     {
       "kalkis_saati": "20:30",
@@ -3042,6 +3252,21 @@
       "notlar": "her gün"
     },
     {
+      "kalkis_saati": "20:45",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "21:00",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -3118,7 +3343,22 @@
       "notlar": "her gün"
     },
     {
-      "kalkis_saati": "21:25",
+      "kalkis_saati": "21:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "21:30",
       "operator": "Prens Tur",
       "operator_kod": "PT",
       "kalkis_iskelesi": "Büyükada",
@@ -3265,6 +3505,21 @@
       "direkt": false,
       "tahmini_sure_dk": 45,
       "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "22:30",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kartal",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Kartal"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": null
     },
     {
       "kalkis_saati": "22:50",
