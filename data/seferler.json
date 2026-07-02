@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-07-01T08:21:44+03:00",
-  "tarih_yerel": "01.07.2026",
+  "updated_at": "2026-07-02T07:15:38+03:00",
+  "tarih_yerel": "02.07.2026",
   "kaynaklar": {
     "sehirhatlari": {
       "site": "https://sehirhatlari.net",
-      "son_guncel": "2026-07-01T08:21:23+03:00",
+      "son_guncel": "2026-07-02T07:15:18+03:00",
       "durum": "ok",
       "sefer_sayisi": 126
     },
     "mavimarmara": {
       "site": "https://mavimarmara.net",
-      "son_guncel": "2026-07-01T08:21:23+03:00",
+      "son_guncel": "2026-07-02T07:15:18+03:00",
       "durum": "ok",
-      "sefer_sayisi": 32
+      "sefer_sayisi": 44
     },
     "prenstur": {
       "site": "https://prenstur.net",
-      "son_guncel": "2026-07-01T08:21:44+03:00",
+      "son_guncel": "2026-07-02T07:15:38+03:00",
       "durum": "ok",
       "sefer_sayisi": 39
     }
@@ -143,6 +143,21 @@
     },
     {
       "kalkis_saati": "06:20",
+      "operator": "Prens Tur",
+      "operator_kod": "PT",
+      "kalkis_iskelesi": "Kartal",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kartal",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 25,
+      "notlar": "sadece hafta içi"
+    },
+    {
+      "kalkis_saati": "06:25",
       "operator": "Mavi Marmara",
       "operator_kod": "MM",
       "kalkis_iskelesi": "Büyükada",
@@ -156,21 +171,6 @@
       "direkt": false,
       "tahmini_sure_dk": 50,
       "notlar": null
-    },
-    {
-      "kalkis_saati": "06:20",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Kartal",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Kartal",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": "sadece hafta içi"
     },
     {
       "kalkis_saati": "06:35",
@@ -323,7 +323,7 @@
       ],
       "direkt": false,
       "tahmini_sure_dk": 50,
-      "notlar": "sadece hafta içi"
+      "notlar": null
     },
     {
       "kalkis_saati": "07:15",
@@ -386,7 +386,7 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 35,
-      "notlar": "sadece hafta içi"
+      "notlar": "pazar/resmi tatil yok"
     },
     {
       "kalkis_saati": "07:35",
@@ -892,6 +892,21 @@
       "notlar": null
     },
     {
+      "kalkis_saati": "09:50",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "10:00",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -960,6 +975,22 @@
     },
     {
       "kalkis_saati": "10:25",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "10:25",
       "operator": "Prens Tur",
       "operator_kod": "PT",
       "kalkis_iskelesi": "Büyükada",
@@ -989,21 +1020,6 @@
       "direkt": false,
       "tahmini_sure_dk": 45,
       "notlar": "her gün"
-    },
-    {
-      "kalkis_saati": "10:30",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": null
     },
     {
       "kalkis_saati": "10:30",
@@ -1038,6 +1054,21 @@
       "direkt": false,
       "tahmini_sure_dk": 110,
       "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "10:45",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
     },
     {
       "kalkis_saati": "10:55",
@@ -1089,22 +1120,6 @@
       "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
-      "kalkis_saati": "11:05",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Heybeliada",
-        "Bostancı"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 50,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "11:10",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -1154,6 +1169,22 @@
       "notlar": "her gün"
     },
     {
+      "kalkis_saati": "11:20",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "11:25",
       "operator": "Prens Tur",
       "operator_kod": "PT",
@@ -1166,22 +1197,6 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
-      "kalkis_saati": "11:30",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Heybeliada",
-        "Büyükada"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 50,
       "notlar": null
     },
     {
@@ -1230,6 +1245,22 @@
       "direkt": false,
       "tahmini_sure_dk": 45,
       "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "11:45",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
     },
     {
       "kalkis_saati": "12:00",
@@ -1315,21 +1346,6 @@
       "notlar": "her gün"
     },
     {
-      "kalkis_saati": "12:20",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Bostancı"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": null
-    },
-    {
       "kalkis_saati": "12:25",
       "operator": "Prens Tur",
       "operator_kod": "PT",
@@ -1346,21 +1362,6 @@
     },
     {
       "kalkis_saati": "12:30",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": null
-    },
-    {
-      "kalkis_saati": "12:30",
       "operator": "Prens Tur",
       "operator_kod": "PT",
       "kalkis_iskelesi": "Kartal",
@@ -1372,6 +1373,36 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "12:35",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "12:40",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
       "notlar": null
     },
     {
@@ -1453,7 +1484,7 @@
       "notlar": "her gün"
     },
     {
-      "kalkis_saati": "13:05",
+      "kalkis_saati": "13:15",
       "operator": "Mavi Marmara",
       "operator_kod": "MM",
       "kalkis_iskelesi": "Büyükada",
@@ -1631,6 +1662,22 @@
     },
     {
       "kalkis_saati": "14:30",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "14:30",
       "operator": "Prens Tur",
       "operator_kod": "PT",
       "kalkis_iskelesi": "Kartal",
@@ -1658,21 +1705,6 @@
       "direkt": true,
       "tahmini_sure_dk": 20,
       "notlar": "her gün"
-    },
-    {
-      "kalkis_saati": "14:45",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": null
     },
     {
       "kalkis_saati": "15:00",
@@ -1730,6 +1762,22 @@
       "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
+      "kalkis_saati": "15:15",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "15:20",
       "operator": "Mavi Marmara",
       "operator_kod": "MM",
@@ -1738,11 +1786,10 @@
       "yon": "buyukadadan",
       "rota": [
         "Büyükada",
-        "Heybeliada",
         "Bostancı"
       ],
-      "direkt": false,
-      "tahmini_sure_dk": 50,
+      "direkt": true,
+      "tahmini_sure_dk": 35,
       "notlar": null
     },
     {
@@ -1758,22 +1805,6 @@
       ],
       "direkt": true,
       "tahmini_sure_dk": 25,
-      "notlar": null
-    },
-    {
-      "kalkis_saati": "15:30",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Heybeliada",
-        "Büyükada"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 50,
       "notlar": null
     },
     {
@@ -1841,6 +1872,22 @@
       "notlar": "her gün"
     },
     {
+      "kalkis_saati": "15:50",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "15:55",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -1888,6 +1935,21 @@
       "notlar": null
     },
     {
+      "kalkis_saati": "16:05",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "16:20",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -1901,36 +1963,6 @@
       "direkt": true,
       "tahmini_sure_dk": 35,
       "notlar": "hafta içi/cumartesi tarifesi"
-    },
-    {
-      "kalkis_saati": "16:20",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": null
-    },
-    {
-      "kalkis_saati": "16:20",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Bostancı"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": null
     },
     {
       "kalkis_saati": "16:30",
@@ -2001,6 +2033,37 @@
       "notlar": null
     },
     {
+      "kalkis_saati": "16:35",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "16:40",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "16:50",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2063,6 +2126,22 @@
       "notlar": "her gün"
     },
     {
+      "kalkis_saati": "17:15",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "17:20",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2106,22 +2185,6 @@
       "direkt": true,
       "tahmini_sure_dk": 15,
       "notlar": "hafta içi/cumartesi tarifesi"
-    },
-    {
-      "kalkis_saati": "17:30",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Bostancı",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Bostancı",
-        "Heybeliada",
-        "Büyükada"
-      ],
-      "direkt": false,
-      "tahmini_sure_dk": 50,
-      "notlar": null
     },
     {
       "kalkis_saati": "17:30",
@@ -2207,6 +2270,21 @@
       "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
+      "kalkis_saati": "17:45",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "17:50",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2286,6 +2364,21 @@
       "notlar": null
     },
     {
+      "kalkis_saati": "18:05",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "18:10",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2357,10 +2450,11 @@
       "yon": "buyukadadan",
       "rota": [
         "Büyükada",
+        "Heybeliada",
         "Bostancı"
       ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
+      "direkt": false,
+      "tahmini_sure_dk": 50,
       "notlar": null
     },
     {
@@ -2524,6 +2618,38 @@
       "notlar": "her gün"
     },
     {
+      "kalkis_saati": "18:55",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
+      "kalkis_saati": "19:00",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "19:05",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2586,21 +2712,6 @@
       "direkt": false,
       "tahmini_sure_dk": 75,
       "notlar": "hafta içi/cumartesi tarifesi"
-    },
-    {
-      "kalkis_saati": "19:20",
-      "operator": "Mavi Marmara",
-      "operator_kod": "MM",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Bostancı",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Bostancı"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
-      "notlar": null
     },
     {
       "kalkis_saati": "19:25",
@@ -2746,6 +2857,21 @@
       "notlar": "hafta içi/cumartesi tarifesi"
     },
     {
+      "kalkis_saati": "19:50",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "20:00",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -2789,6 +2915,22 @@
       "direkt": true,
       "tahmini_sure_dk": 20,
       "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "20:15",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 50,
+      "notlar": null
     },
     {
       "kalkis_saati": "20:25",
@@ -2946,6 +3088,21 @@
       "notlar": null
     },
     {
+      "kalkis_saati": "21:05",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
+    },
+    {
       "kalkis_saati": "21:20",
       "operator": "Şehir Hatları",
       "operator_kod": "SH",
@@ -3085,10 +3242,11 @@
       "yon": "buyukadaya",
       "rota": [
         "Bostancı",
+        "Heybeliada",
         "Büyükada"
       ],
-      "direkt": true,
-      "tahmini_sure_dk": 35,
+      "direkt": false,
+      "tahmini_sure_dk": 50,
       "notlar": null
     },
     {
@@ -3107,6 +3265,21 @@
       "direkt": false,
       "tahmini_sure_dk": 45,
       "notlar": "her gün"
+    },
+    {
+      "kalkis_saati": "22:50",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
     },
     {
       "kalkis_saati": "22:55",
@@ -3172,6 +3345,21 @@
       "direkt": false,
       "tahmini_sure_dk": 105,
       "notlar": "hafta içi/cumartesi tarifesi"
+    },
+    {
+      "kalkis_saati": "23:45",
+      "operator": "Mavi Marmara",
+      "operator_kod": "MM",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "notlar": null
     }
   ]
 }
