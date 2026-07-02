@@ -330,6 +330,32 @@
     cursor: pointer;
   }
   .chip.active { background: var(--ink); color: var(--paper); }
+  .chip { position: relative; display: inline-flex; align-items: center; gap: 6px; }
+
+  /* STALE DATA INDICATOR */
+  .stale-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #d93b3b;
+    border-radius: 50%;
+    animation: stalePulse 1.8s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .chip.active .stale-dot { background: #ff6b6b; }
+  @keyframes stalePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); }
+  }
+  .source-status {
+    margin-top: 8px;
+    display: flex; gap: 12px; flex-wrap: wrap;
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.12em;
+  }
+  .source-status .ss-item { display: inline-flex; align-items: center; gap: 5px; }
+  .source-status .ss-item.stale { color: #d93b3b; }
+  .source-status .ss-item.stale .ss-mark { display: inline-block; width: 5px; height: 5px; background: #d93b3b; border-radius: 50%; animation: stalePulse 1.8s ease-in-out infinite; }
+  .source-status .ss-item.ok .ss-mark { display: inline-block; width: 5px; height: 5px; background: var(--muted); border-radius: 50%; opacity: 0.5; }
 
   /* COLUMN HEADER */
   .col-head {
@@ -602,9 +628,9 @@
     </div>
     <div class="chips" id="opFilter">
       <button class="chip active" data-op="all" data-i18n="all">TÜMÜ</button>
-      <button class="chip" data-op="SH"><span class="chip-full">ŞEHİR HATLARI</span><span class="chip-code">SH</span></button>
-      <button class="chip" data-op="MM"><span class="chip-full">MAVİ MARMARA</span><span class="chip-code">MM</span></button>
-      <button class="chip" data-op="PT"><span class="chip-full">PRENS TUR</span><span class="chip-code">PT</span></button>
+      <button class="chip" data-op="SH" data-src="sehirhatlari"><span class="chip-full">ŞEHİR HATLARI</span><span class="chip-code">SH</span></button>
+      <button class="chip" data-op="MM" data-src="mavimarmara"><span class="chip-full">MAVİ MARMARA</span><span class="chip-code">MM</span></button>
+      <button class="chip" data-op="PT" data-src="prenstur"><span class="chip-full">PRENS TUR</span><span class="chip-code">PT</span></button>
     </div>
   </div>
 
@@ -624,6 +650,7 @@
       <a href="https://prenstur.net" target="_blank" rel="noopener">prenstur.net</a>
     </div>
     <div><span data-i18n="lastUpdated">SON GÜNCEL</span> · <span id="updatedAt">—</span></div>
+    <div class="source-status" id="sourceStatus"></div>
     <p class="small" data-i18n="disclaimer">Resmi bir kaynak değildir. Yolculuk öncesi resmi sitelerden teyit etmeniz önerilir.</p>
   </footer>
 </div>
@@ -641,6 +668,8 @@
       colTime: "SAAT", colOp: "OP", colRoute: "ROTA", colDuration: "SÜRE",
       empty: "ÖNÜMÜZDEKİ 3 SAATTE SEFER YOK",
       source: "KAYNAK", lastUpdated: "SON GÜNCEL",
+      staleTooltip: "Veri güncel değil — resmi siteyi teyit edin",
+      daysAgo: "GÜN ÖNCE", noData: "VERİ YOK", okShort: "GÜNCEL",
       disclaimer: "Resmi bir kaynak değildir. Yolculuk öncesi resmi sitelerden teyit etmeniz önerilir.",
       direct: "DİREKT", now: "ŞİMDİ", past: "GEÇTİ", min: "DK", hr: "SA",
       days:   ["PAZAR","PAZARTESİ","SALI","ÇARŞAMBA","PERŞEMBE","CUMA","CUMARTESİ"],
@@ -657,6 +686,8 @@
       colTime: "TIME", colOp: "OP", colRoute: "ROUTE", colDuration: "DUR.",
       empty: "NO DEPARTURES IN THE NEXT 3 HOURS",
       source: "SOURCE", lastUpdated: "LAST UPDATED",
+      staleTooltip: "Data may be outdated — verify with official source",
+      daysAgo: "DAYS AGO", noData: "NO DATA", okShort: "FRESH",
       disclaimer: "Not an official source. Please verify with the official websites before travel.",
       direct: "DIRECT", now: "NOW", past: "DEPARTED", min: "MIN", hr: "HR",
       days:   ["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"],
@@ -673,6 +704,8 @@
       colTime: "ВРЕМЯ", colOp: "ОП", colRoute: "МАРШРУТ", colDuration: "ДЛИТ.",
       empty: "НЕТ РЕЙСОВ В БЛИЖАЙШИЕ 3 ЧАСА",
       source: "ИСТОЧНИК", lastUpdated: "ОБНОВЛЕНО",
+      staleTooltip: "Данные устарели — проверьте официальный сайт",
+      daysAgo: "ДН НАЗАД", noData: "НЕТ ДАННЫХ", okShort: "СВЕЖИЕ",
       disclaimer: "Неофициальный источник. Перед поездкой проверьте на официальных сайтах.",
       direct: "ПРЯМОЙ", now: "СЕЙЧАС", past: "УШЁЛ", min: "МИН", hr: "Ч",
       days:   ["ВОСКРЕСЕНЬЕ","ПОНЕДЕЛЬНИК","ВТОРНИК","СРЕДА","ЧЕТВЕРГ","ПЯТНИЦА","СУББОТА"],
@@ -689,6 +722,8 @@
       colTime: "الوقت", colOp: "المشغل", colRoute: "المسار", colDuration: "المدة",
       empty: "لا توجد رحلات في الـ3 ساعات القادمة",
       source: "المصدر", lastUpdated: "آخر تحديث",
+      staleTooltip: "البيانات قديمة — تحقق من الموقع الرسمي",
+      daysAgo: "منذ يوم", noData: "لا بيانات", okShort: "محدّث",
       disclaimer: "ليس مصدرًا رسميًا. يرجى التحقق من المواقع الرسمية قبل السفر.",
       direct: "مباشر", now: "الآن", past: "غادر", min: "د", hr: "س",
       days:   ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"],
@@ -705,6 +740,8 @@
       colTime: "ZEIT", colOp: "OP", colRoute: "ROUTE", colDuration: "DAUER",
       empty: "KEINE ABFAHRTEN IN DEN NÄCHSTEN 3 STUNDEN",
       source: "QUELLE", lastUpdated: "ZULETZT AKTUALISIERT",
+      staleTooltip: "Daten evtl. veraltet — offizielle Seite prüfen",
+      daysAgo: "TG VOR", noData: "KEINE DATEN", okShort: "AKTUELL",
       disclaimer: "Keine offizielle Quelle. Bitte vor der Reise auf den offiziellen Websites prüfen.",
       direct: "DIREKT", now: "JETZT", past: "ABGEFAHREN", min: "MIN", hr: "STD",
       days:   ["SONNTAG","MONTAG","DIENSTAG","MITTWOCH","DONNERSTAG","FREITAG","SAMSTAG"],
@@ -721,6 +758,8 @@
       colTime: "HEURE", colOp: "OP", colRoute: "ITINÉRAIRE", colDuration: "DURÉE",
       empty: "AUCUN DÉPART DANS LES 3 PROCHAINES HEURES",
       source: "SOURCE", lastUpdated: "DERNIÈRE MAJ",
+      staleTooltip: "Données obsolètes — vérifiez le site officiel",
+      daysAgo: "JR ANTÉR.", noData: "PAS DE DONNÉES", okShort: "À JOUR",
       disclaimer: "Source non officielle. Veuillez vérifier sur les sites officiels avant le voyage.",
       direct: "DIRECT", now: "MAINTENANT", past: "PARTI", min: "MIN", hr: "H",
       days:   ["DIMANCHE","LUNDI","MARDI","MERCREDI","JEUDI","VENDREDI","SAMEDI"],
@@ -787,6 +826,7 @@
     refreshNow();
     lastRenderedKeys = new Set();
     render("all");
+    if (typeof applySourceFreshness === "function" && veriler) applySourceFreshness();
   }
 
   // ====== STATE ======
@@ -887,6 +927,61 @@
     document.getElementById("updatedAt").textContent = upd
       ? upd.toLocaleString(t().locale, { dateStyle: "medium", timeStyle: "short" }).toUpperCase()
       : "—";
+    try { applySourceFreshness(); } catch (e) { console.warn("freshness ind. failed:", e); }
+  }
+
+  // ====== SOURCE FRESHNESS ======
+  const STALE_DAYS = 2;   // 2 günden eski → uyarı
+  const DEAD_DAYS  = 7;   // 7 günden eski → kritik
+
+  function daysAgo(iso) {
+    if (!iso) return Infinity;
+    const then = new Date(iso).getTime();
+    if (isNaN(then)) return Infinity;
+    return (Date.now() - then) / 86400000;
+  }
+  function sourceState(src) {
+    if (!src) return "unknown";
+    if (src.durum && src.durum !== "ok") return "stale";
+    const d = daysAgo(src.son_guncel);
+    if (d >= DEAD_DAYS) return "stale";
+    if (d >= STALE_DAYS) return "stale";
+    return "ok";
+  }
+  function applySourceFreshness() {
+    const kaynaklar = (veriler && veriler.kaynaklar) || {};
+    const tr = t();
+    const labels = { sehirhatlari: "SH", mavimarmara: "MM", prenstur: "PT" };
+
+    // 1) Operatör chip'lerine kırmızı nokta
+    document.querySelectorAll("#opFilter .chip[data-src]").forEach(chip => {
+      const key = chip.getAttribute("data-src");
+      const state = sourceState(kaynaklar[key]);
+      chip.querySelectorAll(".stale-dot").forEach(d => d.remove());
+      if (state === "stale") {
+        const dot = document.createElement("span");
+        dot.className = "stale-dot";
+        dot.title = tr.staleTooltip || "Veri güncel değil";
+        chip.appendChild(dot);
+      }
+    });
+
+    // 2) Footer'a per-source status satırı
+    const box = document.getElementById("sourceStatus");
+    const items = Object.keys(labels).map(key => {
+      const state = sourceState(kaynaklar[key]);
+      const d = daysAgo(kaynaklar[key] && kaynaklar[key].son_guncel);
+      const daysStr = isFinite(d) ? Math.floor(d) : "—";
+      const label = labels[key];
+      if (state === "stale") {
+        const msg = isFinite(d)
+          ? `${label} · ${daysStr} ${tr.daysAgo || "GÜN ÖNCE"}`
+          : `${label} · ${tr.noData || "VERİ YOK"}`;
+        return `<span class="ss-item stale" title="${tr.staleTooltip || "Veri güncel değil"}"><span class="ss-mark"></span>${msg}</span>`;
+      }
+      return `<span class="ss-item ok"><span class="ss-mark"></span>${label} · ${tr.okShort || "GÜNCEL"}</span>`;
+    });
+    box.innerHTML = items.join("");
   }
 
   function aktifSeferler() {
