@@ -227,10 +227,51 @@ def _seferleri_uret(tables: List[Dict[str, Any]], is_pazar_tatil: bool) -> List[
 # Ana giriş
 # ---------------------------------------------------------------------------
 
+def _load_hardcoded() -> List[Sefer]:
+    """
+    data/sh_hardcoded.json'dan yaz tarifesi seferlerini yükle.
+    Bu dosya sezon başında Chrome üzerinden canlı scrape ile üretilir.
+    SH sitesi GitHub Actions IP'lerini 403'lediği için Actions'tan direkt
+    scrape mümkün değil — sezon değişince manuel refresh gerek.
+    """
+    import json
+    from pathlib import Path
+    path = Path(__file__).resolve().parent.parent / "data" / "sh_hardcoded.json"
+    if not path.exists():
+        print(f"[SH] hardcoded json yok: {path}", file=sys.stderr)
+        return []
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+
+    now = dt.datetime.now(dt.timezone(dt.timedelta(hours=3)))
+    is_pazar = (now.weekday() == 6)
+    gun_hedef = "pazar" if is_pazar else "hafta_ici_cmt"
+
+    out: List[Sefer] = []
+    for s in data.get("seferler", []):
+        if s.get("gunTipi") != gun_hedef:
+            continue
+        out.append(Sefer(
+            kalkis_saati=s["kalkis_saati"],
+            operator=OPERATOR,
+            operator_kod=OPERATOR_KOD,
+            kalkis_iskelesi=s["kalkis_iskelesi"],
+            varis_iskelesi=s["varis_iskelesi"],
+            yon=s["yon"],
+            rota=s["rota"],
+            direkt=s["direkt"],
+            tahmini_sure_dk=s["tahmini_sure_dk"],
+            notlar=s.get("notlar"),
+        ))
+    print(f"[SH] hardcoded'dan {len(out)} sefer yüklendi (gun={gun_hedef}, kaynak={data.get('_meta',{}).get('fetched_at','?')})", file=sys.stderr)
+    return out
+
+
 def scrape() -> List[Sefer]:
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=3)))
     is_pazar = (now.weekday() == 6)
 
+    # 1) Canlı fetch dene (Actions IP 403 alabilir, o zaman fallback)
     all_tables: List[Dict[str, Any]] = []
     for url in ROUTES:
         print(f"[SH] fetch {url}", file=sys.stderr)
@@ -246,8 +287,13 @@ def scrape() -> List[Sefer]:
             print(f"[SH]   parse hatası: {e}", file=sys.stderr)
 
     seferler = _seferleri_uret(all_tables, is_pazar)
-    print(f"[SH] {len(seferler)} sefer üretildi (pazar={is_pazar})", file=sys.stderr)
-    return seferler
+    if seferler:
+        print(f"[SH] {len(seferler)} sefer (canli scrape, pazar={is_pazar})", file=sys.stderr)
+        return seferler
+
+    # 2) Canlı boş — hardcoded JSON'dan yükle
+    print(f"[SH] canli scrape 0 sefer, hardcoded'a düşülüyor", file=sys.stderr)
+    return _load_hardcoded()
 
 
 if __name__ == "__main__":
