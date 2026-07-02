@@ -1,10 +1,10 @@
 """
-Prens Tur (prenstur.net) — 2025-2026 KIŞ TARİFESİ.
+Prens Tur (prenstur.net) — 2026 YAZ TARİFESİ.
 
-Saatler https://www.prenstur.net/Tarife-2025-2026.jpg adlı bir resimde olduğu
-için scrape edilemiyor; aşağıdaki tablo resimden doğrudan okunup elde derlendi.
-Resim güncellendiğinde scraper hash farkını loglara basar; biz de yeni saatlere
-göre bu dosyayı güncelleriz.
+Saatler https://www.prenstur.net/ adlı sitede tablo halinde yayınlanıyor
+(sefer saatleri sayfası). Aşağıdaki tablo doğrudan siteden okundu.
+Tarife değişikliği: `scripts/check_source_hashes.py` haftalık kontrol eder ve
+farklılık olursa Issue açar.
 """
 from __future__ import annotations
 import sys
@@ -19,8 +19,9 @@ OPERATOR = "Prens Tur"
 OPERATOR_KOD = "PT"
 TARIFE_IMG_URL = "https://www.prenstur.net/Tarife-2025-2026.jpg"
 
-# 2025-2026 KIŞ TARİFESİ — resimden okundu
-# (saat, sadece_hafta_ici)  — yıldızlı (*) seferler resimde sadece hafta içi
+# 2026 YAZ TARİFESİ — Prens Tur "Sefer Saatleri" sayfasından okundu.
+# (saat, sadece_hafta_ici)  — yıldızlı (*) seferler hafta sonu/tatil yok
+
 # Sol tablo: KARTAL'dan kalkış (rota: Kartal → Büyükada → Heybeliada, ~25 dk Büyükada'ya)
 KARTAL_BUYUKADA = [
     ("06:20", True),   # *
@@ -29,20 +30,28 @@ KARTAL_BUYUKADA = [
     ("08:30", False),
     ("09:00", False),
     ("09:30", False),
+    ("10:00", False),
     ("10:30", False),
+    ("11:00", False),
     ("11:30", False),
     ("12:00", False),
     ("12:30", False),
+    ("13:00", False),
     ("13:30", False),
+    ("14:00", False),
     ("14:30", False),
+    ("15:00", False),
     ("15:30", False),
     ("16:00", False),
     ("16:30", False),
     ("17:00", False),
     ("17:30", False),
+    ("18:00", False),
     ("18:30", False),
-    ("19:30", False),
+    ("19:00", False),
+    ("19:45", False),
     ("20:30", False),
+    ("21:30", False),
 ]
 
 # Sağ tablo: ADALAR'dan kalkış (rota: Heybeliada → Büyükada → Kartal)
@@ -50,23 +59,32 @@ KARTAL_BUYUKADA = [
 BUYUKADA_KARTAL = [
     ("07:15", True),   # *
     ("08:15", False),
-    ("09:00", False),
+    ("08:50", False),
     ("09:30", False),
     ("10:00", False),
-    ("10:25", False),
-    ("11:25", False),
-    ("12:25", False),
-    ("13:25", False),
-    ("14:25", False),
-    ("15:25", False),
+    ("10:30", False),
+    ("11:00", False),
+    ("11:30", False),
+    ("12:00", False),
+    ("12:30", False),
+    ("13:00", False),
+    ("13:30", False),
+    ("14:00", False),
+    ("14:30", False),
+    ("15:00", False),
+    ("15:30", False),
+    ("16:00", False),
     ("16:30", False),
     ("17:00", False),
     ("17:30", False),
     ("18:00", False),
-    ("18:25", False),
-    ("19:25", False),
-    ("20:25", False),
-    ("21:25", False),
+    ("18:30", False),
+    ("19:00", False),
+    ("19:30", False),
+    ("20:00", False),
+    ("20:45", False),
+    ("21:30", False),
+    ("22:30", False),
 ]
 
 
