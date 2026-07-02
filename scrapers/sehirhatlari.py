@@ -47,45 +47,41 @@ ROUTES = [
 # Fetch (requests → playwright fallback)
 # ---------------------------------------------------------------------------
 
-_SESSION = None
-
-def _get_session():
-    global _SESSION
-    if _SESSION is None:
-        import requests
-        s = requests.Session()
-        s.headers.update({
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                          "AppleWebKit/537.36 (KHTML, like Gecko) "
-                          "Chrome/120.0.0.0 Safari/537.36",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-            "Accept-Language": "tr-TR,tr;q=0.9,en;q=0.8",
-            "Accept-Encoding": "gzip, deflate, br",
-            "DNT": "1",
-            "Upgrade-Insecure-Requests": "1",
-            "Sec-Fetch-Dest": "document",
-            "Sec-Fetch-Mode": "navigate",
-            "Sec-Fetch-Site": "none",
-        })
-        _SESSION = s
-    return _SESSION
-
-
 def _fetch(url: str) -> Optional[str]:
-    """SH sayfasını çek — tarayıcı benzeri header'larla requests."""
+    """
+    SH sayfasını çek.
+    SH sitesi data-center IP'lerini 403'lüyor. curl_cffi ile Chrome TLS
+    fingerprint'i taklit ederek geçebiliyoruz. Yerel geliştirmede requests
+    de çalışır.
+    """
+    # 1) curl_cffi (Chrome fingerprint) — Actions runner için ana yöntem
     try:
-        s = _get_session()
-        r = s.get(url, timeout=30)
-        if not r.ok:
-            print(f"[SH] HTTP {r.status_code} — {url}", file=sys.stderr)
-            return None
-        if "<table" not in r.text.lower():
-            print(f"[SH] table yok, boyut={len(r.text)} — {url}", file=sys.stderr)
-            return None
-        return r.text
+        from curl_cffi import requests as cffi_requests
+        r = cffi_requests.get(url, timeout=30, impersonate="chrome120")
+        if r.status_code == 200 and "<table" in r.text.lower():
+            return r.text
+        print(f"[SH] curl_cffi HTTP {r.status_code} — {url}", file=sys.stderr)
+    except ImportError:
+        pass  # curl_cffi yok, requests dene
     except Exception as e:
-        print(f"[SH] fetch hata {url}: {e}", file=sys.stderr)
-        return None
+        print(f"[SH] curl_cffi hata {url}: {e}", file=sys.stderr)
+
+    # 2) Klasik requests — lokal fallback
+    try:
+        import requests
+        r = requests.get(url, timeout=30, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                          "AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "tr-TR,tr;q=0.9",
+        })
+        if r.ok and "<table" in r.text.lower():
+            return r.text
+        print(f"[SH] requests HTTP {r.status_code} — {url}", file=sys.stderr)
+    except Exception as e:
+        print(f"[SH] requests hata {url}: {e}", file=sys.stderr)
+
+    return None
 
 
 # ---------------------------------------------------------------------------
