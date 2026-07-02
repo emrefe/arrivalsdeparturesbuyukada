@@ -1,0 +1,73 @@
+name: Tarife değişiklik kontrolü
+
+# Haftada bir Pazartesi 06:00 UTC (09:00 İstanbul) — mantıklı bir zamanda çalış.
+# Manuel olarak da tetiklenebilir (workflow_dispatch).
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: source-hash-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # state güncelleyip commit'leyebilsin
+      issues: write     # değişiklik varsa Issue açabilsin
+
+    steps:
+      - name: Repo'yu çek
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Bağımlılıklar
+        run: |
+          pip install requests playwright
+          playwright install chromium --with-deps
+
+      - name: Hash kontrolü
+        id: check
+        run: |
+          set +e
+          python scripts/check_source_hashes.py > check_output.json 2>check_stderr.log
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+          echo "--- STDERR ---"
+          cat check_stderr.log
+          echo "--- STDOUT (JSON) ---"
+          cat check_output.json || true
+
+      - name: State'i commit'le
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet state/source_hashes.json; then
+            echo "state değişmedi"
+          else
+            git add state/source_hashes.json
+            git commit -m "chore: source hash state güncellendi ($(date -u +%Y-%m-%d))"
+            git push
+          fi
+
+      - name: Değişiklik varsa Issue aç
+        if: steps.check.outputs.exit_code == '1'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const out = JSON.parse(fs.readFileSync('check_output.json', 'utf8'));
+            const items = out.changes.map(c => `- **${c.name}** — [kaynak](${c.url})\n  hash: \`${c.prev_hash.slice(0,12)}\` → \`${c.new_hash.slice(0,12)}\``).join('\n');
+            const body = `Otomatik tarife-değişiklik kontrolü, en az bir kaynakta değişiklik tespit etti:\n\n${items}\n\n**Yapılacaklar:**\n1. Kaynak sayfaları aç, yeni tarifeyi gör.\n2. İlgili scraper dosyasını güncelle (\`scrapers/mavimarmara.py\`, \`scrapers/prenstur.py\`, \`scrapers/sehirhatlari.py\`).\n3. \`python scrapers/run_all.py\` çalıştır → \`data/seferler.json\` güncellensin.\n4. Push et.\n\n_Bu Issue \`.github/workflows/check-source-hashes.yml\` tarafından açıldı._`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `⚠️ Tarife değişikliği tespit edildi (${new Date().toISOString().slice(0,10)})`,
+              body,
+              labels: ['tarife-değişikliği', 'otomatik']
+            });
