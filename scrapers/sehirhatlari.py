@@ -47,32 +47,44 @@ ROUTES = [
 # Fetch (requests → playwright fallback)
 # ---------------------------------------------------------------------------
 
-def _fetch(url: str) -> Optional[str]:
-    """SH sayfasını çek. Önce requests, olmazsa Playwright."""
-    try:
-        import requests
-        r = requests.get(url, timeout=30, headers={
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                          "AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
-        })
-        if r.ok and "<table" in r.text.lower():
-            return r.text
-    except Exception as e:
-        print(f"[SH] requests hata {url}: {e}", file=sys.stderr)
+_SESSION = None
 
+def _get_session():
+    global _SESSION
+    if _SESSION is None:
+        import requests
+        s = requests.Session()
+        s.headers.update({
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                          "AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "tr-TR,tr;q=0.9,en;q=0.8",
+            "Accept-Encoding": "gzip, deflate, br",
+            "DNT": "1",
+            "Upgrade-Insecure-Requests": "1",
+            "Sec-Fetch-Dest": "document",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-Site": "none",
+        })
+        _SESSION = s
+    return _SESSION
+
+
+def _fetch(url: str) -> Optional[str]:
+    """SH sayfasını çek — tarayıcı benzeri header'larla requests."""
     try:
-        from playwright.sync_api import sync_playwright
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            ctx = browser.new_context()
-            page = ctx.new_page()
-            page.goto(url, wait_until="domcontentloaded", timeout=60000)
-            page.wait_for_selector("table", timeout=15000)
-            content = page.content()
-            browser.close()
-            return content
+        s = _get_session()
+        r = s.get(url, timeout=30)
+        if not r.ok:
+            print(f"[SH] HTTP {r.status_code} — {url}", file=sys.stderr)
+            return None
+        if "<table" not in r.text.lower():
+            print(f"[SH] table yok, boyut={len(r.text)} — {url}", file=sys.stderr)
+            return None
+        return r.text
     except Exception as e:
-        print(f"[SH] playwright hata {url}: {e}", file=sys.stderr)
+        print(f"[SH] fetch hata {url}: {e}", file=sys.stderr)
         return None
 
 
