@@ -1,0 +1,3136 @@
+{
+  "_meta": {
+    "kaynak": "sehirhatlari.istanbul canli scrape",
+    "fetched_at": "2026-07-02T05:07:56.958Z",
+    "yaz_tarifesi": "29 Haziran 2026 - 6 Eylul 2026"
+  },
+  "seferler": [
+    {
+      "kalkis_saati": "02:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "03:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "04:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "05:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "08:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "15:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "16:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "17:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "17:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "21:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "22:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "02:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "03:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "04:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "05:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "08:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "15:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "16:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "21:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "22:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "06:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "07:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "08:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "09:25",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "10:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "11:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "11:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "18:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "19:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "00:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "00:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "07:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 40,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "07:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "08:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "10:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "10:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "11:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "11:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "00:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "00:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Bostancı"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "06:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "08:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "08:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "09:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "10:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "11:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "12:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "12:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "14:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "16:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "18:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "17:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "18:25",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "18:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Eminönü",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 115,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "19:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 75,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "19:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "21:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "23:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "23:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "07:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "09:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "08:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "09:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "10:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "11:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "12:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "12:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "14:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "15:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 75,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "16:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:25",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Eminönü",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 115,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 75,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "21:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "23:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Bostancı",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Bostancı"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "23:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kabataş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kabataş",
+        "Kadıköy",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 105,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "05:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Eminönü",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 120,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "06:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "07:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "07:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "07:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "09:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "10:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "12:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "12:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "13:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "15:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "16:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "17:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "17:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "18:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "19:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "20:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "20:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "21:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "06:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Eminönü",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 120,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "07:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "07:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "07:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 115,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "08:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 70,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "09:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "11:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "12:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "12:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "13:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "15:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "16:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Bostancı",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Bostancı",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 35,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "21:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kabataş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada",
+        "Kadıköy",
+        "Kabataş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 110,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "07:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 120,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "14:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "16:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "19:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "20:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "10:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "14:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "16:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Beşiktaş",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Kadıköy",
+        "Beşiktaş"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 90,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "07:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 80,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "13:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "17:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 80,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "18:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 80,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "20:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "11:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 80,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "13:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 80,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 80,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Beşiktaş",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Beşiktaş",
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 95,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "09:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "09:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kınalıada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "10:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "11:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "11:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kınalıada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "12:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "12:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "13:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "14:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "15:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "15:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kınalıada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "16:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:50",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:25",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:25",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "21:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Heybeliada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "21:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Maltepe",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Maltepe",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "22:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Kınalıada",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Heybeliada",
+        "Burgazada",
+        "Kınalıada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "09:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "09:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "10:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "10:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kınalıada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "11:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "12:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "13:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "14:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kınalıada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "14:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "15:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "15:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:10",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Kınalıada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Kınalıada",
+        "Burgazada",
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 45,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 10,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:40",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:15",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:30",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "20:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "21:00",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "21:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Heybeliada",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Heybeliada",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "21:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Maltepe",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Maltepe"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 20,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "07:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Sedef Adası",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Sedef Adası",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "17:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Sedef Adası",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Sedef Adası",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "07:55",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Sedef Adası",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Sedef Adası",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "17:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Sedef Adası",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Sedef Adası",
+        "Büyükada"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "10:05",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Sedef Adası",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Sedef Adası"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "19:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Sedef Adası",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Sedef Adası"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "hafta_ici_cmt"
+    },
+    {
+      "kalkis_saati": "10:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Sedef Adası",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Sedef Adası"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "19:45",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Sedef Adası",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Sedef Adası"
+      ],
+      "direkt": true,
+      "tahmini_sure_dk": 15,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "10:35",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Tuzla",
+      "varis_iskelesi": "Büyükada",
+      "yon": "buyukadaya",
+      "rota": [
+        "Tuzla",
+        "Pendik",
+        "Büyükada"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 100,
+      "gunTipi": "pazar"
+    },
+    {
+      "kalkis_saati": "18:20",
+      "operator_kod": "SH",
+      "kalkis_iskelesi": "Büyükada",
+      "varis_iskelesi": "Tuzla",
+      "yon": "buyukadadan",
+      "rota": [
+        "Büyükada",
+        "Pendik",
+        "Tuzla"
+      ],
+      "direkt": false,
+      "tahmini_sure_dk": 100,
+      "gunTipi": "pazar"
+    }
+  ]
+}
