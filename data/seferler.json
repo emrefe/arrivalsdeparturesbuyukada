@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-08-07T06:49:45+03:00",
-  "tarih_yerel": "07.08.2026",
+  "updated_at": "2026-08-08T05:53:57+03:00",
+  "tarih_yerel": "08.08.2026",
   "kaynaklar": {
     "sehirhatlari": {
       "site": "https://sehirhatlari.istanbul",
-      "son_guncel": "2026-08-07T06:49:25+03:00",
+      "son_guncel": "2026-08-08T05:53:55+03:00",
       "durum": "ok",
       "sefer_sayisi": 74
     },
     "mavimarmara": {
       "site": "https://mavimarmara.net",
-      "son_guncel": "2026-08-07T06:49:25+03:00",
+      "son_guncel": "2026-08-08T05:53:55+03:00",
       "durum": "ok",
       "sefer_sayisi": 44
     },
     "prenstur": {
       "site": "https://prenstur.net",
-      "son_guncel": "2026-08-07T06:49:45+03:00",
+      "son_guncel": "2026-08-08T05:53:57+03:00",
       "durum": "ok",
-      "sefer_sayisi": 56
+      "sefer_sayisi": 54
     }
   },
   "seferler": [
@@ -140,21 +140,6 @@
       "direkt": true,
       "tahmini_sure_dk": 35,
       "notlar": null
-    },
-    {
-      "kalkis_saati": "06:20",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Kartal",
-      "varis_iskelesi": "Büyükada",
-      "yon": "buyukadaya",
-      "rota": [
-        "Kartal",
-        "Büyükada"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": "sadece hafta içi"
     },
     {
       "kalkis_saati": "06:25",
@@ -288,21 +273,6 @@
       "direkt": true,
       "tahmini_sure_dk": 25,
       "notlar": null
-    },
-    {
-      "kalkis_saati": "07:15",
-      "operator": "Prens Tur",
-      "operator_kod": "PT",
-      "kalkis_iskelesi": "Büyükada",
-      "varis_iskelesi": "Kartal",
-      "yon": "buyukadadan",
-      "rota": [
-        "Büyükada",
-        "Kartal"
-      ],
-      "direkt": true,
-      "tahmini_sure_dk": 25,
-      "notlar": "sadece hafta içi"
     },
     {
       "kalkis_saati": "07:20",
