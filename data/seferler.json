@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-09-17T08:49:15+03:00",
-  "tarih_yerel": "17.09.2026",
+  "updated_at": "2026-09-18T08:35:20+03:00",
+  "tarih_yerel": "18.09.2026",
   "kaynaklar": {
     "sehirhatlari": {
       "site": "https://sehirhatlari.istanbul",
-      "son_guncel": "2026-09-17T08:49:13+03:00",
+      "son_guncel": "2026-09-18T08:35:17+03:00",
       "durum": "ok",
       "sefer_sayisi": 74
     },
     "mavimarmara": {
       "site": "https://mavimarmara.net",
-      "son_guncel": "2026-09-17T08:49:13+03:00",
+      "son_guncel": "2026-09-18T08:35:17+03:00",
       "durum": "ok",
       "sefer_sayisi": 44
     },
     "prenstur": {
       "site": "https://prenstur.net",
-      "son_guncel": "2026-09-17T08:49:15+03:00",
+      "son_guncel": "2026-09-18T08:35:20+03:00",
       "durum": "ok",
       "sefer_sayisi": 56
     }
